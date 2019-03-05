@@ -1,0 +1,30 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: iranyekan !important;
+    direction: rtl;
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+@font-face {
+    font-family: iranyekan;
+    src: url("../fonts/iranyekanwebbold.eot?#") format("embedded-opentype"),
+    url("../fonts/iranyekanwebbold.ttf") format("truetype");
+}

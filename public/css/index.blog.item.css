@@ -1,0 +1,531 @@
+/* index.blog.item.css V=0.1  */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: iranyekan !important;
+    direction: rtl;
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@font-face {
+    font-family: iranyekan;
+    src: url("../fonts/iranyekanwebbold.eot?#") format("embedded-opentype"),
+    url("../fonts/iranyekanwebbold.ttf") format("truetype");
+}
+
+/* -------------------------------- header -------------*/
+header {
+    float: right;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+}
+
+.header .header_right {
+/*    width: 50%;
+*/    height: auto;
+    float: right;
+    /*background: #00a157;*/
+}
+
+.header .header_right a {
+    display: block;
+    float: right;
+    color: black;
+    /*line-height: 67px;*/
+}
+
+.header .header_right a img {
+    width: 100%;
+    height: 75px;
+    float: right;
+}
+
+.header .header_left {
+/*    width: 50%;
+*/    height: 80px;
+    float: left;
+    /*background: #8a8a8a;*/
+}
+
+.header .header_left a {
+    display: block;
+    float: left;
+    color: black;
+    line-height: 67px;
+}
+
+@media (max-width: 1050px) {
+
+    .header .header_left a {
+/*        display: none;
+*/    }
+}
+
+/* ---------------------------------- End header -------------------- */
+/*--------------------------------------- Navigation (menu) ------------------*/
+#menu {
+    float: right;
+    width: 100%;
+    height: 40px;
+    background: #ffffff;
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
+    border-top: 1px solid #ececec;
+}
+
+.menu-level-1 {
+    float: right;
+    height: 40px;
+    margin-right: 60px;
+}
+
+.menu-level-1 > li {
+    float: right;
+    height: 40px;
+}
+
+.menu-level-1 > li > a {
+    padding: 0 20px;
+    text-decoration: none;
+    height: 40px;
+    display: block;
+    text-align: center;
+    line-height: 38px;
+    color: #707172;
+}
+
+.menu-level-1 > li i {
+    transition: all 400ms ease;
+    font-size: 15px;
+    color: red;
+}
+
+.-menu-level-1 li:hover i {
+    transform: rotate(180deg);
+    transition: all 400ms ease;
+
+}
+
+.menu-level-2 {
+    width: 160px;
+    position: absolute;
+    background: #3e3d40;
+    padding: 5px 10px;
+    z-index: 2;
+    /*
+    right: 164px;
+    */
+    top: 120px;
+    white-space: nowrap;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.menu-level-2 li {
+    height: 40px;
+    /*border-bottom: 1px solid deepskyblue;*/
+}
+
+.menu-level-2 li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    height: 40px;
+    padding: 0 15px;
+    color: #707172;
+    line-height: 40px;
+}
+
+.menu-level-2 > li:hover > a {
+    color: white;
+    /*border-bottom: 1px solid red;*/
+}
+
+.container-fluid > ul > li:hover > a {
+    color: #df2726;
+}
+
+/*----------------------- ICON Responsive ----------------------------*/
+.container-fluid .responsive-menu-icon {
+    float: right;
+    cursor: pointer;
+    display: block;
+}
+
+.container-fluid .responsive-menu-icon img {
+    width: 40px;
+    height: 30px;
+    margin-top: 5px;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container-fluid .responsive-menu-icon img {
+        display: block !important;
+    }
+
+    #menu > .container-fluid > ul {
+        display: none !important;
+    }
+
+}
+
+/*----------------------- END ICON Responsive ----------------------------*/
+/*----------------------- Responsive Menu ----------------------------*/
+.responsive-menu {
+    display: none;
+    width: 100%;
+    height: auto;
+    /*background-image: linear-gradient(305deg, #6e6e6e 33%, rgba(66, 66, 66, 0.91) 93%);*/
+    background: #fafafa;
+    position: fixed;
+    top: 0;
+    right: -1300px;
+    margin-top: 130px;
+    overflow: hidden;
+    /*box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);*/
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 8px 0 rgba(0, 0, 0, 0.45);
+
+    z-index: 100;
+}
+
+.responsive-menu-level-1 {
+    margin: 2px 0;
+}
+
+.responsive-menu-level-1 > li {
+    margin: 0 0;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: inset 0 6px 8px 0 rgba(0, 0, 0, 0.15);
+    letter-spacing: .3px;
+
+}
+
+.responsive-menu-level-1 > li > a {
+    display: block;
+    text-decoration: none;
+    color: #707172;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.responsive-menu-level-1 > li:hover > a {
+    color: red;
+}
+
+.responsive-menu-level-1 > li i {
+    transition: all 400ms ease;
+    font-size: 15px;
+    color: red;
+}
+
+.responsive-menu-level-1 li:hover i {
+    transform: rotate(180deg);
+    transition: all 400ms ease;
+
+}
+
+.responsive-menu-level-2 {
+    width: 100%;
+    /*position: absolute;*/
+    background: #3e3d40;
+    padding: 5px 10px;
+    /*z-index: 2;*/
+    /*right: 1px;*/
+    top: 128px;
+    margin-top: 10px;
+    white-space: nowrap;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.responsive-menu-level-2 li {
+    height: 40px;
+    /*border-bottom: 1px solid deepskyblue;*/
+}
+
+.responsive-menu-level-2 li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    height: 40px;
+    padding: 0 15px;
+    color: #707172;
+    line-height: 40px;
+}
+
+.responsive-menu-level-2 li a:hover {
+    /*background: white;*/
+    color: white;
+}
+
+.back-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    float: right;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .7s;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+
+}
+
+/*----------------------- END Responsive Menu ----------------------------*/
+/*-------------------------- header-img(img-slide) -------------------------*/
+/*.img-header {
+    width: 100%;
+    height: 500px;
+   
+    position: relative;
+}
+*/
+.container-fluid {
+    /*width: 100%;*/
+    /*height: 500px;*/
+    padding: 0 !important;
+}
+
+.img-header img {
+    width: auto;
+    margin: 0 auto;
+    height: auto;
+}
+
+.img-header-title {
+    width: 100%;
+    /*height: 70px;*/
+    background: white;
+    float: right;
+    
+    padding-bottom: 30px;
+    /*position: absolute;*/
+    /*transform: skewX(-20deg) translate3d(0, 0, 0);*/
+    /*margin: 466px 35% 0 0;*/
+    /*border-top: 2px solid red;*/
+    /*border-bottom: 2px solid red;*/
+}
+
+.img-header-title p {
+    font-size: 1vw;
+    /* margin: 0 auto; */
+    padding-right: 20px;
+    float: right;
+    text-align: center;
+    line-height: 0px;
+}
+
+@media (max-width: 900px) {
+    .img-header-title {
+        width: 100%;
+        /*height: 70px;*/
+        /*background: white;*/
+        /*float: right;*/
+        /*position: absolute;*/
+        /*transform: skewX(-20deg) translate3d(0, 0, 0);*/
+        margin: 10px 0 0 0;
+        /*border-top: 2px solid red;*/
+        /*border-bottom: 2px solid red;*/
+    }
+
+    .img-header-title p {
+        font-size: 4vw;
+        /*margin: 0 auto;*/
+        /*text-align: center;*/
+        line-height: 60px;
+    }
+
+}
+/*-------------------------- End header-img(img-slide) -------------------------*/
+/*-------------------------- blog-proposal -------------------------*/
+.blog-proposal {
+    width: 100%;
+    height: auto;
+    /*background: grey;*/
+    float: right;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.blog-proposal .blog-proposal-pg {
+    width: 100%;
+    height: auto;
+    /*background: #1fa4b3;*/
+    float: right;
+}
+
+.blog-proposal-pg .proposal-pg-title {
+    width: 90%;
+    height: 80px;
+    /*background: #0c5467;*/
+    float: right;
+    margin: 10px 0 10px 5%;
+    /*border-top: 2px solid red;*/
+    /*border-bottom: 2px solid red;*/
+}
+
+.proposal-pg-title p {
+    /*text-align: center;*/
+    line-height: 20px;
+    font-size: 2vw;
+    padding-right: 20px;
+    float:right;
+}
+
+.blog-proposal-pg .proposal-pg-body {
+    width: 90%;
+    height: auto;
+    float: right;
+    /*background: #0c5460;*/
+    margin: 50px 5% 0 5%;
+}
+
+.proposal-pg-body p {
+    font-size: 1.5vw;
+    color: #767676;
+    text-align: justify;
+}
+
+.blog-proposal .blog-proposal-img {
+    width: 40%;
+    height: 100%;
+    /*background: #0c5460;*/
+    float: right;
+}
+
+.blog-proposal-img img {
+    width: 80%;
+    height: 300px;
+    margin: 10px 10% 10px 10%;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .proposal-pg-body p {
+        font-size: 3vw;
+        color: #767676;
+        text-align: justify;
+    }
+    .proposal-pg-title p {
+        /*text-align: center;*/
+        line-height: 90px;
+        font-size: 4vw;
+    }
+}
+
+/*-------------------------- end blog-proposal -------------------------*/
+/*-------------------------- footer -------------------------*/
+.footer {
+    width: 100%;
+    height: auto;
+    float: right;
+    padding-top: 40px;
+    background: #c6c8c9;
+}
+
+.footer .item-footer {
+    width: 100%;
+    height: 400px;
+    /*background: #2c3e50;*/
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    width: 100%;
+    height: auto;
+    /*background: grey;*/
+    border-bottom: 3px solid #1fa4b3;
+}
+
+.footer-title p {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer-body {
+    width: 100%;
+    height: auto;
+    /*background: #1fa4b3;*/
+    margin-top: 20px;
+}
+
+.footer-body ul li {
+    width: 100%;
+    height: 40px;
+    /*background: grey;*/
+    margin-bottom: 10px;
+    line-height: 40px;
+}
+
+.footer-body ul li a {
+    display: block;
+    /*width: auto;*/
+    /*height: auto;*/
+    color: #1fa4b3;
+}
+
+.footer-body ul li a:hover {
+    /*display: block;*/
+    color: white;
+}
+/*-------------------------- End footer -------------------------*/
+
+/*------------------------------- Footer-Fine-2 -----------------------------*/
+.footer-fine2 {
+    height: 50px;
+    float: right;
+    background: #1fa4b3;
+}
+.footer-right {
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+
+.footer-right p {
+    /*float: right;*/
+    /*display: bloc k;*/
+    text-align: center;
+    font-weight: bolder;
+    font-family: iranyekan;
+    font-size: 20px;
+    /*margin: 0 auto;*/
+}
+
+.footer-left{
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+
+.footer-left p{
+    text-align: center;
+    font-weight: bolder;
+    font-family: iranyekan;
+    font-size: 20px;
+}
+
+
+/*------------------------------- End Footer-Fine-2 -----------------------------*/

@@ -1,0 +1,67 @@
+<manifest alg="2" build="2017.0.3.363" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="shopmit.net" resolutions="1x" timestamp="1528795974415">
+  <folder name="css">
+    <file name="site_global.css" crc="499384849"/>
+    <file name="index.css" crc="3803433027" ref="index"/>
+  </folder>
+  <folder name="assets">
+    <folder name="untitled-1">
+      <folder name="edge_includes">
+        <file name="edge.6.0.0.min.js" crc="3929159849" mt="1441711514000"/>
+      </folder>
+      <folder name="images">
+        <file name="coomingsoon.jpg" crc="4008659621" mt="1441711514000"/>
+        <file name="Poster.png" crc="3859985422" mt="1441711514000"/>
+      </folder>
+      <file name="Untitled-1_edge.js" crc="4075982852" mt="1441711514000"/>
+      <file name="Untitled-1.html" crc="394459596" mt="1441711514000"/>
+    </folder>
+    <folder name="11">
+      <folder name="edge_includes">
+        <file name="edge.6.0.0.min.js" crc="3929159849" mt="1439110259000"/>
+      </folder>
+      <folder name="images">
+        <file name="1.png" crc="60019986" mt="1439110259000"/>
+        <file name="2.png" crc="3880673173" mt="1439110259000"/>
+        <file name="icon.png" crc="4067441296" mt="1439110259000"/>
+        <file name="logo2.jpg" crc="441177140" mt="1439110259000"/>
+        <file name="logo22.jpg" crc="13861128" mt="1439110259000"/>
+        <file name="logo23.jpg" crc="13861128" mt="1439110259000"/>
+        <file name="Poster.png" crc="4153198005" mt="1439110259000"/>
+        <file name="Poster2.png" crc="3847650161" mt="1439110259000"/>
+        <file name="Poster3.png" crc="48777513" mt="1439110259000"/>
+        <file name="Poster4.png" crc="4067441296" mt="1439110259000"/>
+      </folder>
+      <file name="11_edge.js" crc="3825583308" mt="1439110259000"/>
+      <file name="11.html" crc="3832769960" mt="1439110259000"/>
+    </folder>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="phone>index:index"/>
+    <file name="museutils.js" crc="46400467" ref="phone>index:index"/>
+    <file name="whatinput.js" crc="86476730" ref="phone>index:index"/>
+    <file name="museconfig.js" crc="436936948" ref="phone>index:index"/>
+    <file name="jquery.watch.js" crc="4178585335" ref="phone>index:index"/>
+    <file name="require.js" crc="85721165" ref="phone>index:index"/>
+  </folder>
+  <folder name="images">
+    <file name="u239-4.png" crc="4187095304" ref="phone>index"/>
+    <file name="lab-yar2.jpg" crc="4108024841" seo="true" ref="phone>index:index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u262-10.png" crc="251411913" ref="phone>index"/>
+    <file name="pasted image 850x487.jpg" crc="3911208388" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u149-4.png" crc="4034265060" ref="index"/>
+    <file name="u150-4.png" crc="426246122" ref="index"/>
+    <file name="u88-8.png" crc="726055" ref="index"/>
+  </folder>
+  <folder name="phone">
+    <folder name="css">
+      <file name="index.css" crc="4259367550" ref="phone>index"/>
+    </folder>
+    <file name="index.html" crc="385535043" seo="true" mt="1528795262583" redirect="true"/>
+  </folder>
+  <file name="index.html" crc="338862901" seo="true" mt="1528795958295" redirect="true"/>
+</manifest>

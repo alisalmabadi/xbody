@@ -1,0 +1,22 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/cart.css": "/css/cart.css",
+    "/css/admin-app.css": "/css/admin-app.css",
+    "/css/bootstrap.css": "/css/bootstrap.css",
+    "/css/blog.css": "/css/blog.css",
+    "/css/product.css": "/css/product.css",
+    "/../public_mob/css/mobapp.css": "/../public_mob/css/mobapp.css",
+    "/js/mobapp.js": "/js/mobapp.js",
+    "/js/admin-app.js": "/js/admin-app.js",
+    "/js/product.js": "/js/product.js",
+    "/js/blog.js": "/js/blog.js",
+    "/_mob/css/product.css": "/_mob/css/product.css",
+    "/_mob/css/cart.css": "/_mob/css/cart.css",
+    "/_mob/css/bootstrap.css": "/_mob/css/bootstrap.css",
+    "/_mob/css/blog.css": "/_mob/css/blog.css",
+    "/_mob/js/app.js": "/_mob/js/app.js",
+    "/_mob/js/mobapp.js": "/_mob/js/mobapp.js",
+    "/_mob/js/product.js": "/_mob/js/product.js",
+    "/_mob/js/blog.js": "/_mob/js/blog.js"
+}

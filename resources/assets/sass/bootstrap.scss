@@ -1,0 +1,31 @@
+// Fonts
+
+
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass-directional/assets/stylesheets/bootstrap";
+@import "~jquery-ui/themes/base/all.css";
+
+@font-face
+{
+  font-family: 'iransanse';
+  src: url('../fonts/iransanse/IRANSansWeb.eot');
+  src: url('../fonts/iransanse/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/iransanse/IRANSansWeb.woff') format('woff'),
+  url('../fonts/iransanse/IRANSansWeb.ttf') format('truetype');
+}
+
+
+body
+{
+
+  font-family:"iransanse";
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 400;
+
+}

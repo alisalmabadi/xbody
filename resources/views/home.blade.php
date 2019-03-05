@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('title',\setting::get('site_name'))
+@section('content')
+   @include('partials.header')
+   @include('partials.sliders.slider_1')
+   @include('partials.std')
+   @include('partials.w-blog')
+   @include('partials.footer')
+@endsection
