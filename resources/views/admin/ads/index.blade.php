@@ -3,16 +3,16 @@
 @section('content-header')
     <section class="content-header">
         <div class="pull-left">
-            <a href="{{route('admin.slider.create')}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="افزودن"><i class="fa fa-plus"></i></a> <a href="{{route('admin.slider.index')}}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="بازسازی"><i class="fa fa-refresh"></i></a>
+            <a href="{{route('admin.ads.create')}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="افزودن"><i class="fa fa-plus"></i></a> <a href="{{route('admin.ads.index')}}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="بازسازی"><i class="fa fa-refresh"></i></a>
             <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('آیا مطمئن هستید؟') ? $('#form-category').submit() : false;" data-original-title="حذف"><i class="fa fa-trash-o"></i></button>
         </div>
         <h1>
-            اسلایدر
+           تبلیغات
 
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> وبسایت</a></li>
-            <li class="active">اسلایدر</li>
+            <li class="active">تبلیغات</li>
         </ol>
     </section>
 @endsection
@@ -24,9 +24,11 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-list"></i> لیست تبلیغات بالای سایت </h3>
             </div>
-{{--
+            <form action="{{route('admin.ads.destroy')}}" method="post" enctype="multipart/form-data" id="form-category">
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
             <div class="table-responsive">
---}}
+
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
@@ -38,19 +40,26 @@
                         <td class="text-center">عملیات</td>
                     </tr>
                     </thead>
-                </table>
+
+            <tbody>
 
             @foreach($ads as $a)
-                <div id="ads" class="row" style="background: #ff8a72; border-radius: 20px;">
-                    <div class="col-md-3">{{$a->title}} </div>
-                    <div class="col-md-3"> <img src="{{route('media',$a->image)}}" alt="{{$a->alt}}"> </div>
+                    <tr>
+                        <td class="text-center">
+                            <input name="selected[]" value="{{$a->id}}" type="checkbox">
+                        </td>
+                        <td class="text-center">{{$a->title}}</td>
+ <td class="text-center"><img src="{{url('/')}}/{{$a->image}}" alt="{{$a->alt}}"></td>
+                        <td class="text-center">{{$a->url}}</td>
+                        <td class="text-center"><a href="{{route('admin.ads.edit',$a)}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="ویرایش"><i class="fa fa-pencil"></i></a></td>
 
-                    <div class="col-md-3">{{$a->url}} </div>
 
-                    <div class="col-md-3"></div>
+                    </tr>
 
-                </div>
                 @endforeach
+            </tbody>
+                </table>
+
 {{--
                 <form action="{{route('admin.slider.destroy')}}" method="post" enctype="multipart/form-data" id="form-category">
                     {{csrf_field()}}
@@ -84,8 +93,8 @@
                     </div>
                 </form>
 --}}
-
             </div>
+            </form>
         </div>
 
     </section>

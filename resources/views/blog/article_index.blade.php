@@ -1,4 +1,4 @@
-@extends('layouts.blog')
+@extends('layouts.app')
 
 @section('head')
     <link type="text/css" rel="stylesheet" media="all" href="{{ route('home') }}/css/owl.carousel.min.css" />
@@ -6,7 +6,9 @@
 @stop
 @section('content')
 
+{{--
     @include('blog.header')
+--}}
 
 
     <section class="container">

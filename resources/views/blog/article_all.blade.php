@@ -271,7 +271,7 @@ $created_at=new \Verta($article->created_at);
 
 @endphp
 
-      <div class="col-lg-4 col-sm-6 col-12">
+      <div class="col-lg-4 col-sm-6 col-12 wow slideInUp">
             <div class="post">
                 <div class="image mx-auto">
                     <a href="blog/{{$article->article_category->slug}}/{{$article->slug}}"> <img src="{{route('media',$article->img_thumbnail)}}" alt="">
@@ -300,6 +300,8 @@ $created_at=new \Verta($article->created_at);
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/jq.js')}}"></script>
 <script src="{{asset('js/wow.min.js')}}"></script>
-
+<script>
+    new WOW().init();
+</script>
 </body>
 </html>
