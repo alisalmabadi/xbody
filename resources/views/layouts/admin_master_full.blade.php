@@ -254,12 +254,22 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="@if(strpos($current_route_name, 'page.create')===6) active @endif"><a href="{{route('admin.page.create')}}"><i class="fa fa-tags"></i>افزودن صفحه جدید</a></li>
-{{--
-                            <li class="@if(strpos($current_route_name, 'article_category.index')===6) active @endif"><a href="{{route('admin.article_category.index')}}"><i class="fa fa-circle-o"></i>دسته بندی</a></li>
---}}
                             <li class="@if(strpos($current_route_name, 'page.index')===6) active @endif"><a href="{{route('admin.page.index')}}"><i class="fa fa-sticky-note"></i> کلیه صفحات</a></li>
+                        </ul>
+                    </li>
 
 
+                    <li class="@if(strpos($current_route_name, 'branches.')===6)active @endif treeview">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>مدیریت شعبات </span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@if(strpos($current_route_name, 'branches.create')===6) active @endif"><a href="{{route('admin.branches.create')}}"><i class="fa fa-tags"></i>افزودن شعبه جدید</a></li>
+                            <li class="@if(strpos($current_route_name, 'branches.index')===6) active @endif"><a href="{{route('admin.branches.index')}}"><i class="fa fa-sticky-note"></i> کلیه شعبات</a></li>
                         </ul>
                     </li>
 

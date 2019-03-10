@@ -29,11 +29,6 @@
                     <form action="{{route('admin.report.branchusers')}}" method="post" class="form-horizontal">
                         {{csrf_field()}}
                         <div class="from-group">
-
-                            {{--<div class="col-sm-3">
-                                <label class=" control-label" for="search">جستجو</label>
-                                <input class="form-control" name="search" id="search" placeholder="نام"  value="" type="text">
-                            </div>--}}
                            <div class="col-sm-3">
                                <label class=" control-label" for="search">انتخاب شعبه</label>
                                <select class="form-control" name="id">
@@ -48,6 +43,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="pull-left">
+                        <a href="{{route('admin.report.branchers.excelExport' , $branchers_id)}}"><button type="button" class="btn btn-bitbucket">excel export</button></a>
+                    </div>
                 </div>
             </div>
         </section>

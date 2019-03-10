@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Branch;
 use App\Http\Requests;
 use App\Menu;
 use App\Slider;
@@ -51,7 +52,8 @@ class HomeController extends Controller
             //$articles=Article::skip(0)->take(4)->get();
         $articles=Article::orderBy('id','desc')->limit(4)->get();
 
-        return view('index_page',compact('menus','slider','articles'));
+        $branches = Branch::all()->random(4);
+        return view('index_page',compact('menus','slider','articles','branches'));
 
     }
 

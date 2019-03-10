@@ -162,12 +162,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-	    Unisharp\Ckeditor\ServiceProvider::class,
-	    Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 	    Intervention\Image\ImageServiceProvider::class,
 	    Zarinpal\ZarinpalServiceProvider::class,
 	    Thetispro\Setting\SettingServiceProvider::class,
 	    Larabookir\Gateway\GatewayServiceProvider::class,
+//        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -249,6 +250,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Setting' => Thetispro\Setting\Facades\Setting::class,
         'Gateway' => Larabookir\Gateway\Gateway::class,
+//        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         //'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
         // 'Mellat' => Larabookir\Gateway\Mellat\Mellat::class,
