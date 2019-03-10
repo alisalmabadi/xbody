@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class AdsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
         $this->middleware('web');
 
     }
