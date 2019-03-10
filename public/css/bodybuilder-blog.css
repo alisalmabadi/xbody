@@ -162,8 +162,8 @@ a {
     background: #3e3d40;
     padding: 5px 10px;
     z-index: 2;
-    right: 192px;
-    top: 120px;
+ /*   right: 192px;
+    top: 120px;*/
     white-space: nowrap;
     box-shadow: 0 6px 7px rgba(0, 0, 0, 0.1);
     display: none;
@@ -870,3 +870,76 @@ a {
         border-color: transparent transparent #0c5460 transparent;
 
     }
+
+/***fade image ********/
+
+@keyframes animate {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+.allimage img.top {
+    animation-name: animate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-direction: alternate;
+}
+
+/*.allimage{
+    height: 86px;
+    padding: 10px;
+}*/
+
+img.img-responsive.bastimg{
+    position: absolute;
+    width: auto;
+    left: 0px;
+}
+img.img-responsive.lockimg{
+    position: absolute;
+
+    width: 83%;
+    height: 96px;
+}
+/*fade image ********/
+
+
+/**animation title blog ***/
+@keyframes bloglink{
+    10%{transform: scale(1);}
+    20%{transform: scale(1);}
+    30%{transform: scale(1);}
+    40%{transform: scale(1.1);}
+    50%{transform: scale(1);}
+    55%{transform: scale(1.1);}
+    60%{transform: scale(1);}
+    70%{transform: scale(1);}
+    80%{transform: scale(1);}
+    90%{transform: scale(1);}
+    95%{transform: scale(1.1);}
+    100%{transform: scale(1);}
+
+}
+.bloglink{
+    animation: bloglink;
+    animation-duration: 12s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    text-align: center !important;
+    display: inline-block;
+
+}
+
+/***animation title blog **/

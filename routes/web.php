@@ -211,9 +211,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     });
 
     //admin.ads
-
-    Route::get('ads','AdsController@index')->name('ads');
-
+    Route::resource('ads', 'AdsController', ['except' => ['destroy']]);
+    Route::Delete('/ads/destroy',['as'=>'ads.destroy','uses'=>'AdsController@destroy']);
 
 
 });

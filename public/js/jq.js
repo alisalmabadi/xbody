@@ -1,4 +1,3 @@
-/Menu/
 $(document).ready(function () {
 
     $(".menu-level-1 li").hover(function () {

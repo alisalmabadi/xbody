@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Ads;
 use App\ArticleCategory;
 use App\Cart;
 use App\Category;
@@ -41,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*',function($view){
             $setting=Setting::first();
             $view->with('setting',$setting);
+        });
+        view()->composer('*',function($view){
+            $ads=Ads::all()->take(2);
+            $view->with('ads',$ads);
         });
 
         view()->composer('*',function($view){
