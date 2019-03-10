@@ -201,6 +201,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
         Route::post('users',['as'=>'users','uses'=>'ReportController@user']);
         Route::get('branchusers/{id}',['as'=>'branchuser','uses'=>'ReportController@branchusers']);
         Route::post('branchusers/',['as'=>'branchusers','uses'=>'ReportController@branchuser']);
+        Route::get('branchusers/excelExport/{id}',['as'=>'branchers.excelExport','uses'=>'ReportController@excelExport']);
 
         Route::get('reserves',['as'=>'reserves','uses'=>'ReportController@reserves']);
         Route::get('site-reserves',['as'=>'site-reserves','uses'=>'ReportController@allreserves']);
@@ -214,6 +215,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::resource('ads', 'AdsController', ['except' => ['destroy']]);
     Route::Delete('/ads/destroy',['as'=>'ads.destroy','uses'=>'AdsController@destroy']);
 
+
+    /*Branches routes*/
+    Route::delete('branches/destroy',['as'=>'branches.destroy','uses'=>'BranchesController@destroy']);
+    Route::resource('branches' , 'BranchesController' ,['except'=>['destroy']]);
 
 });
 //product website side routes index

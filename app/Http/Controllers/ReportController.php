@@ -7,6 +7,9 @@ use Illuminate\Support\Carbon;
 use App\User;
 use Illuminate\Http\Request;
 
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class ReportController extends Controller
 {
     public function __construct()
@@ -36,15 +39,27 @@ class ReportController extends Controller
 
     public function branchusers($id)
     {
-       $branches=Branch::all();
+        $branches=Branch::all();
         $users=branchusers($id);
         $users = json_decode($users);
         $users = json_decode($users);
+        $branchers_id = $id;
         if(is_null($users)){
             return view('errors.database');
         }else {
-            return view('admin.report.report_users', compact('users', 'branches'));
+            return view('admin.report.report_users', compact('users', 'branches' , 'branchers_id'));
         }
+    }
+
+    public function excelExport($id)
+    {
+        /*$users=branchusers($id);
+        $users=json_decode($users);
+        $users=json_decode($users);*/
+//        return Excel::download(new UsersExport, 'users.xlsx');
+        return Excel::download(new UsersExport, 'users.xlsx');
+//        dd($a);
+//        return redirect()->back();
     }
 
 

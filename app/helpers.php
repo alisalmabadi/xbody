@@ -748,7 +748,6 @@ function city_filter_types()
 
  function getbranches()
 {
-
     $token='c6ef92be07fbd8091aaff53e455f6a24b1bae4d4';
     $api_url=env('WEBSERIVE_URL','http://192.168.1.35:8182/').'Branches/GetAllBranches';
     try {
