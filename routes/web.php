@@ -328,3 +328,8 @@ Route::get('sendsms',function (){
     $res=send_sms($number,'test');
     return $res;
 });*/
+
+/* contact us route, test, delete this later */
+Route::get('contactus' , function (){
+    return view('contactus');
+});

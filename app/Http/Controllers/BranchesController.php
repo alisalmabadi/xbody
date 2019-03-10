@@ -45,7 +45,8 @@ class BranchesController extends Controller
             'address' => 'required',
             'manager_name' => 'required',
             'phone' => 'required|numeric',
-            'image_original' => 'required|image|mimes:jpg,jpeg,png'
+            'image_original' => 'required|image|mimes:jpg,jpeg,png',
+            'page_url' => 'required|max:255'
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
             'orginal_id.required' => 'مشکلی در محاسبه آی دی بموجود آمده است، لطفا مجدد تلاش کنید',
@@ -55,7 +56,9 @@ class BranchesController extends Controller
             'phone.numeric' => 'شماره تلفن وارد شده صحیح نمی باشد',
             'image_original.required' => 'انتخاب تصویر برای شعبه الزامی ست',
             'image_original.image' => 'پسوند تصویر انتخاب شده صحیح نمی باشد',
-            'image_original.mimes' => 'پسوند تصویر انتخاب شده صحیح نمی باشد'
+            'image_original.mimes' => 'پسوند تصویر انتخاب شده صحیح نمی باشد',
+            'page_url.required' => 'وارد کردن ادرس یو ار ال صفحه الزامی ست',
+            'page_url.max' => 'تعداد کاراکتر یو ار ال وارد شده بیش از حد مجاز می باشد'
         ]);
 
         /*upload e aks*/
@@ -81,7 +84,9 @@ class BranchesController extends Controller
             'manager_name' => $request['manager_name'],
             'phone' => $request['phone'],
             'image_thumbnail' => $request['image_thumbnail'],
-            'image_original' => $image_url . '/' . $imageName
+            'image_original' => $image_url . '/' . $imageName,
+            'page_url' => $request['page_url'],
+            'page_url' => $request['page_url']
         ]);
         return redirect()->route('admin.branches.index');
     }
@@ -122,14 +127,17 @@ class BranchesController extends Controller
             'address' => 'required',
             'manager_name' => 'required',
             'phone' => 'required|numeric',
-            'image_original' => 'nullable|mimes:jpg,jpeg,png'
+            'image_original' => 'nullable|mimes:jpg,jpeg,png',
+            'page_url' => 'required|max:255'
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
             'address.required' => 'وارد کردن ادرس الزامی ست',
             'manager_name.required' => 'وارد کردن نام مدیر الزامی ست',
             'phone.required' => 'وارد کردن تلفن الزامی ست',
             'phone.numeric' => 'شماره تلفن وارد شده صحیح نمی باشد',
-            'image_original.mimes' => 'تصویر انتخاب شده فرمت مناسبی ندارد'
+            'image_original.mimes' => 'تصویر انتخاب شده فرمت مناسبی ندارد',
+            'page_url.required' => 'وارد نمودن یو ار ال شعبه الزامی ست',
+            'page_url.max' => 'تعداد کاراکتر وارد شده برای این فیلد بیش از حد مجاز است'
         ]);
 
         /*if image should be uploaded again*/

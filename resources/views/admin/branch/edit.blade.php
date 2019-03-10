@@ -66,6 +66,14 @@
                         </div>
                     </div>
 
+                    <div id="page_url_dec" class="form-group required">
+                        <label class="col-sm-2 control-label" for="seo_desc">Page URL</label>
+                        <div class="col-sm-6">
+                            <input id="slug" name="page_url" value="{{$branch->page_url}}" placeholder="page URL"  class="form-control" type="text" >
+                            <label style="color:red">{{$errors->first('page_url')}}</label>
+                        </div>
+                    </div>
+
                     <div id="image_original" class="form-group required">
                         <label class="col-sm-2 control-label" for="seo_desc">تصویر</label>
                         <div class="col-sm-4">
