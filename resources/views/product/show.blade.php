@@ -22,7 +22,9 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
 
+{{--
     <link href="{{ route('home') }}/css/xzoom.css" rel="stylesheet">
+--}}
     {{--
         <link href="{{ route('home') }}/css/magnific-popup.css" rel="stylesheet">
     --}}
@@ -30,7 +32,54 @@
     <link rel="stylesheet" href="{{asset('css/scroll.css')}}">
     <link rel="stylesheet" href="{{asset('css/slick.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}"/>
+    <!-- fotorama.css & fotorama.js. -->
+    <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+
     <style type="text/css">
+
+
+        /***fade image ********/
+
+        @keyframes animate {
+            0% {
+                opacity:1;
+            }
+            45% {
+                opacity:1;
+            }
+            55% {
+                opacity:1;
+            }
+            100% {
+                opacity:0;
+            }
+        }
+
+        .allimage img.top {
+            animation-name: animate;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            animation-direction: alternate;
+        }
+
+        /*.allimage{
+            height: 86px;
+            padding: 10px;
+        }*/
+
+        img.img-responsive.bastimg{
+            position: absolute;
+            width: auto;
+            left: 0px;
+        }
+        img.img-responsive.lockimg{
+            position: absolute;
+
+            width: 83%;
+            height: 96px;
+        }
+        /*fade image ********/
         .slick-prev:before,
         .slick-next:before {
             color: black;
@@ -55,6 +104,10 @@
             position:absolute;
             left:0px;
         }
+        .fotorama__fullscreen-icon{
+            top: 22px !important;
+            right: 28px !important;
+        }
 
     </style>
 
@@ -67,23 +120,14 @@
 <div class="container-fluid text-center">
     <div class="single-full ">
         <div class="single-right">
-            <div class="productbox" style="width: 60%; margin-right: 10%; margin-top: 5%">
-
-                <div class="xzoom-container">
-
-                    @if($products->images()->first())
-                        <img class="xzoom3" id="xzoom-fancy" src="{{route('media',$products->images()->first()->id)}}" xoriginal="{{route('media',$products->images()->first()->id)}}"/>
-                        <div class="xzoom-thumbs">
-
-                            @foreach($products->images as $image)
-                                <a href="{{route('media',$image->id)}}"><img class="xzoom-gallery3" width="60" src="{{route('media',$image->id)}}"  xpreview="{{route('media',$image->id)}}" ></a>
-                            @endforeach
-
-                        </div>
-
-                    @endif
-
+            <div class="productbox" style="width: 100%; height: 100%;  margin-top: 13%;margin-right: 13%">
+                <div class="fotorama"
+                     data-nav="thumbs">
+                    @foreach($products->images as $image)
+                    <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
+                    @endforeach
                 </div>
+
             </div>
         </div>
 
@@ -221,10 +265,12 @@
         @foreach($product_related as $product)
             <div class="blog-item hvr-float-shadow">
                 <div class="blog-item-image">
+                    <a href="{{url('product')}}/{{$product->category->slug}}/{{$product->slug}}" target="_blank">
                     <img src="{{route('media',$product->images()->first())}}" class="img-fluid">
+                    </a>
                 </div>
                 <div class="blog-item-content">
-                    <h5 class="text-center"><a class="text-dark" href="#"
+                    <h5 class="text-center"><a class="text-dark" href="{{url('product')}}/{{$product->category->slug}}/{{$product->slug}}"
                                                style="font-family: iranyekan;text-decoration: none; font-size: 15px">
                             {{$product->title}}
                         </a></h5>
@@ -504,216 +550,14 @@
 --}}
 <script src="https://payalord.github.io/xZoom/js/vendor/jquery.js" type="text/javascript"></script>
 
-
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
 <script src="{{route('home')}}/js/modernizr.js"></script>
-<script type="text/javascript" src="{{route('home')}}/js/xzoom.js"></script>
-{{--
-<script type="text/javascript" src="{{route('home')}}/js/hammer.min.js"></script>
---}}
-{{--
-<script type="text/javascript" src="{{route('home')}}/js/jquery.fancybox.js"></script>
---}}
-{{--
-<script type="text/javascript" src="{{route('home')}}/js/magnific-popup.js"></script>
---}}
-
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/jq.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/dist/sweetalert2.all.min.js"></script>
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 100,zoomHeight: 100, title: true, tint: '#333', Xoffset: 20});
-        $('.xzoom2, .xzoom-gallery2').xzoom({position: '#xzoom2-id', tint: '#ffa200'});
-        $('.xzoom3, .xzoom-gallery3').xzoom({
-
-            position: 'lens',
-            lensShape: 'circle',
-            //   sourceClass: 'xzoom-hidden',
-            //   zoomWidth: 100,
-            //zoomHeight: 100,
-            //  position: 'inside', //top, left, right, bottom, inside, lens, fullscreen, #ID
-            mposition: 'inside', //inside, fullscreen
-            rootOutput: true,
-            Xoffset: 0,
-            Yoffset: 0,
-            fadeIn: true,
-            fadeTrans: true,
-            fadeOut: true,
-            smoothZoomMove: 1,
-            smoothLensMove: 1,
-            smoothScale: 1,
-            defaultScale: -1, //from -1 to 1, that means -100% till 100% scale
-            scroll: false,
-            tint: false, //'#color'
-            tintOpacity: 0.1,
-            lens: true, //'#color'
-            lensOpacity: 0.1,
-            lensShape: 'circle', //'box', 'circle'
-            zoomWidth: '200',
-            zoomHeight: '200',
-            sourceClass: 'xzoom-source',
-            loadingClass: 'xzoom-loading',
-            lensClass: 'xzoom-lens',
-            zoomClass: 'xzoom-preview',
-            activeClass: 'xactive',
-            hover: false,
-            adaptive: true,
-            lensReverse: true,
-            adaptiveReverse: false,
-            title: false,
-            titleClass: 'xzoom-caption',
-            bg: true //zoom image output as background
-        });
-        $('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15,zoomWidth: 100,zoomHeight: 100, title: true});
-        $('.xzoom5, .xzoom-gallery5').xzoom({tint: '#006699', Xoffset: 15});
-
-        //Integration with hammer.js
-        var isTouchSupported = 'ontouchstart' in window;
-
-        if (isTouchSupported) {
-
-            //If touch device
-            $('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function(){
-                var xzoom = $(this).data('xzoom');
-                xzoom.eventunbind();
-            });
-
-            $('.xzoom, .xzoom2, .xzoom3').each(function() {
-                var xzoom = $(this).data('xzoom');
-                $(this).hammer().on("tap", function(event) {
-                    event.pageX = event.gesture.center.pageX;
-                    event.pageY = event.gesture.center.pageY;
-                    var s = 1, ls;
-
-                    xzoom.eventmove = function(element) {
-                        element.hammer().on('drag', function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            xzoom.movezoom(event);
-                            event.gesture.preventDefault();
-                        });
-                    }
-
-                    xzoom.eventleave = function(element) {
-                        element.hammer().on('tap', function(event) {
-                            xzoom.closezoom();
-                        });
-                    }
-                    xzoom.openzoom(event);
-                });
-            });
-
-            $('.xzoom4').each(function() {
-                var xzoom = $(this).data('xzoom');
-                $(this).hammer().on("tap", function(event) {
-                    event.pageX = event.gesture.center.pageX;
-                    event.pageY = event.gesture.center.pageY;
-                    var s = 1, ls;
-
-                    xzoom.eventmove = function(element) {
-                        element.hammer().on('drag', function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            xzoom.movezoom(event);
-                            event.gesture.preventDefault();
-                        });
-                    }
-
-                    var counter = 0;
-                    xzoom.eventclick = function(element) {
-                        element.hammer().on('tap', function() {
-                            counter++;
-                            if (counter == 1) setTimeout(openfancy,300);
-                            event.gesture.preventDefault();
-                        });
-                    }
-
-                    function openfancy() {
-                        if (counter == 2) {
-                            xzoom.closezoom();
-                            $.fancybox.open(xzoom.gallery().cgallery);
-                        } else {
-                            xzoom.closezoom();
-                        }
-                        counter = 0;
-                    }
-                    xzoom.openzoom(event);
-                });
-            });
-
-            $('.xzoom5').each(function() {
-                var xzoom = $(this).data('xzoom');
-                $(this).hammer().on("tap", function(event) {
-                    event.pageX = event.gesture.center.pageX;
-                    event.pageY = event.gesture.center.pageY;
-                    var s = 1, ls;
-
-                    xzoom.eventmove = function(element) {
-                        element.hammer().on('drag', function(event) {
-                            event.pageX = event.gesture.center.pageX;
-                            event.pageY = event.gesture.center.pageY;
-                            xzoom.movezoom(event);
-                            event.gesture.preventDefault();
-                        });
-                    }
-
-                    var counter = 0;
-                    xzoom.eventclick = function(element) {
-                        element.hammer().on('tap', function() {
-                            counter++;
-                            if (counter == 1) setTimeout(openmagnific,300);
-                            event.gesture.preventDefault();
-                        });
-                    }
-
-                    function openmagnific() {
-                        if (counter == 2) {
-                            xzoom.closezoom();
-                            var gallery = xzoom.gallery().cgallery;
-                            var i, images = new Array();
-                            for (i in gallery) {
-                                images[i] = {src: gallery[i]};
-                            }
-                            $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
-                        } else {
-                            xzoom.closezoom();
-                        }
-                        counter = 0;
-                    }
-                    xzoom.openzoom(event);
-                });
-            });
-
-        } else {
-            //If not touch device
-
-            //Integration with fancybox plugin
-            $('#xzoom-fancy').bind('click', function(event) {
-                var xzoom = $(this).data('xzoom');
-                xzoom.closezoom();
-                $.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
-                event.preventDefault();
-            });
-
-            //Integration with magnific popup plugin
-            $('#xzoom-magnific').bind('click', function(event) {
-                var xzoom = $(this).data('xzoom');
-                xzoom.closezoom();
-                var gallery = xzoom.gallery().cgallery;
-                var i, images = new Array();
-                for (i in gallery) {
-                    images[i] = {src: gallery[i]};
-                }
-                $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
-                event.preventDefault();
-            });
-        }
-
-    });
-
     $('.reserve_add').click(function () {
         Swal(
             'رزرو شما با موفقیت انجام شد!',
@@ -767,6 +611,15 @@
             // settings: "unslick"
             // instead of a settings object
         ]
+    });
+
+    $('.fotorama').fotorama({
+        maxwidth: '100%',
+        maxHeight: '100%',
+        height:'380',
+        width:'400',
+        allowfullscreen: true,
+        nav: 'thumbs'
     });
 </script>
 

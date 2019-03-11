@@ -327,7 +327,9 @@ a {
     float: right;
     height: auto;
     /*box-shadow: 0px 0px 35px 0 rgba(0, 0, 0, 0.1);*/
+    /*
     box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
+    */
     position: relative;
     /*margin-bottom: 30px;*/
 }
@@ -389,6 +391,8 @@ a {
     transform: translateZ(0);
     will-change: transform;
     /*border-radius: 4px;*/
+    background-attachment: fixed;
+
 }
 
 .img-backg .cover {
@@ -413,7 +417,7 @@ a {
     height: 100%;
     /*background: #0069d9;*/
     margin: 0 auto;
-    padding-bottom: 10px;
+    padding-bottom: 36px;
     padding-top: 100px;
     /*border-radius: 4px;*/
 }
@@ -488,6 +492,9 @@ a {
 .front-item {
     z-index: 2;
     transform: rotateY(0deg);
+    outline: 2px solid #ffffff57;
+    outline-offset: -11px;
+    box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.74);
 }
 
 .back-item {
@@ -542,9 +549,10 @@ a {
 }
 
 .back-item .btn1 p {
-    padding-top: 6%;
+    padding-top: 7%;
     color: red;
     transition: all .6s ease-in-out;
+    padding-bottom: 1%;
 }
 
 .back-item .middle:hover p {
@@ -562,7 +570,7 @@ a {
     .back-item .middle2 {
         position: absolute;
         width: 60%;
-        margin: 75px 20% 10% 20%;
+        margin: 112px 20% 10% 20%;
         /*top: 10%;*/
         /*left: 30%;*/
         border: 2px solid #df2726;
@@ -1687,23 +1695,23 @@ a {
 
 .section-left-ya .section-left-yaa p {
     font-family: iranyekan;
-    font-size: 20px;
+    font-size: 15px;
     /*font-weight: bolder;*/
-    color: #d6002a;
+    color: #707172;
     /*padding-top: 20px;*/
 
 }
 
 .section-left-ya .section-left-yaa p i {
     font-size: 15px;
-    color: #d6002a;
 }
 
 .section-left-ya .section-left-yaa h1 {
     font-family: iranyekan;
-    font-size: 20px;
+    font-size: 18px;
     /*font-weight: bolder;*/
-    color: #707172;
+    color: #d6002a;
+
 }
 
 .section-left-ya .section-left-yab {
@@ -1716,17 +1724,19 @@ a {
 
 .section-left-ya .section-left-yab p {
     font-family: iranyekan;
-    font-size: 20px;
+    font-size: 15px;
     /*font-weight: bolder;*/
-    color: #d6002a;
     padding-top: 0;
+    color: #707172;
+
 }
 
 .section-left-ya .section-left-yab h1 {
     font-family: iranyekan;
-    font-size: 20px;
+    font-size: 18px;
     /*font-weight: bolder;*/
-    color: #707172;
+    color: #d6002a;
+
 }
 
 .section-left-ya .section-left-yab p i {
@@ -2603,7 +2613,6 @@ a {
 
     .title-center h2 {
         float: right;
-        font-weight: none;
         color: black;
         font-family: iranyekan;
         font-size: 25px;
@@ -4088,3 +4097,87 @@ img.img-responsive.lockimg{
     height: 96px;
 }
 /*fade image ********/
+/***reflection box ****/
+@keyframes reflect{
+    10%{transform: scale(1);}
+    20%{transform: scale(1);}
+    30%{transform: scale(1);}
+    40%{transform: scale(1);}
+    50%{transform: scale(1);}
+    /*
+    55%{transform: scale(1.1);}
+    */
+    60%{transform: scale(1);}
+    70%{transform: scale(1);opacity: 0.9}
+    80%{transform: scale(1.1);}
+    90%{transform: scale(1);}
+    /*
+    95%{transform: scale(1.1);}
+    */
+    100%{transform: scale(1);}
+
+}
+.reflection-b{
+    animation: reflect;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 5s;
+
+}
+.reflection-m{
+    animation: reflect;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 5s;
+
+}
+div#reflection-info {
+    background: url('../images/backgrounds/bg.jpg') center center;
+}
+/***reflection box ****/
+
+/**animation title  ***/
+@keyframes bloglink{
+    10%{transform: scale(1);}
+    20%{transform: scale(1);}
+    30%{transform: scale(1);}
+    40%{transform: scale(1.1);}
+    50%{transform: scale(1);}
+    55%{transform: scale(1.1);}
+    60%{transform: scale(1);}
+    70%{transform: scale(1);}
+    80%{transform: scale(1);}
+    90%{transform: scale(1);}
+    95%{transform: scale(1.1);}
+    100%{transform: scale(1);}
+
+}
+.titlecard{
+    animation: bloglink;
+    animation-duration: 12s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    text-align: center !important;
+
+}
+
+/***animation title  **/
+
+/*** animation image cards ***/
+
+.Cards-col4 img:hover{
+   transform: scale(1.2);
+}
+
+.Cards-col4 img{
+    transition: all 1.4s ease-in-out;
+    -webkit-transition: all 1.4s ease-in-out;
+    transform: scale(1);
+
+
+}
+
+/*** animation image cards ***/

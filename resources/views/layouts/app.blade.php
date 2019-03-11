@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="{{asset('css/Bodybuilding.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
-@yield('head')
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+
+    @yield('head')
 
     <title>@yield('title',\Setting::get('site_name'))</title>
 
@@ -28,6 +30,8 @@
 <script src="{{asset('js/jquery-3.2.0.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/jq.js')}}"></script>
+<script src="{{asset('js/wow.min.js')}}"></script>
+
 @yield('footer')
 </body>
 </html>
