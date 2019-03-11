@@ -4173,8 +4173,8 @@ div#reflection-info {
 }
 
 .Cards-col4 img{
-    transition: all 2.3s ease-in-out;
-    -webkit-transition: all 2.3s ease-in-out;
+    transition: all 1.4s ease-in-out;
+    -webkit-transition: all 1.4s ease-in-out;
     transform: scale(1);
 
 
