@@ -12,7 +12,7 @@
                 <a href="{{$setting->ads_url}}"><img class="img-responsive bastimg bottom" src="{{url('/')}}/{{$setting->ads}}" alt=""></a>
                 <a href="{{$setting->ads_url}}"><img class="img-responsive bastimg top" src="{{url('/')}}/images/setting/2.png" alt=""></a>
             </div>--}}
-         <div class="allimage">
+         <div class="allimage" style="margin-top: 1%">
              @php $i=0; @endphp
                 @foreach($ads as $ad)
                  @php $i++; @endphp
