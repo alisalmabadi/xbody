@@ -67,6 +67,14 @@
                         </div>
                     </div>
 
+                    <div id="page_url_dec" class="form-group required">
+                        <label class="col-sm-2 control-label" for="seo_desc">Page URL</label>
+                        <div class="col-sm-6">
+                            <input id="page_url" name="page_url" value="{{old('page_url')}}" placeholder="page_url"  class="form-control" type="text">
+                            <label style="color:red">{{$errors->first('page_url')}}</label>
+                        </div>
+                    </div>
+
                     <div id="image_area" class="form-group required">
                         <label class="col-sm-2 control-label" for="seo_desc">تصویر</label>
                         <div class="col-sm-6">
