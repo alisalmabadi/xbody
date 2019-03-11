@@ -285,7 +285,6 @@
     <!--------------------- End SliderScroll ---------------------->
 </div>
 
-
 <!-- The Modal -->
 <div class="modal" id="reserve">
     <div class="modal-dialog">
@@ -299,111 +298,96 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-            <form class="form-horizontal" id="default" action="{{route('product.reserve')}}" method="POST">
+                {{--waiting gif--}}
+                <div class="container-fluid" id="div_wait" style="width: 100%;height: 100%;position: fixed;top: 0;z-index:5;display: none;">
+                    <img src="{{ asset('gifs/AppleLoading.gif') }}" style="margin-top: 62%;height: 200px;width: 200px;margin-left: 32%;">
+                </div>
+                {{--end of waiting gif--}}
+            <form class="form-horizontal frm-add-reserve" id="default" action="{{route('product.reserve')}}" method="POST">
                 {{csrf_field()}}
                 <div class="table-responsive">
-<table class="table" style="text-align:center;">
-    <thead>
-    <tr>
-        <th>عکس محصول</th>
-        <th>توضیحات کلی</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td style="width:59%;">
-           @if($products->images()->first())
-            <img src="{{route('media',$products->images()->first()->id)}}" class="img-thumbnail" style="width: 63%; height: 91px">
-       @endif
-        </td>
-        <td>
-                    <ul>
-                        <li><p>درباره محصول :</p></li>
-                        <li>
-                            <p class="abut-kala">
-                                {{$products->seo_desc}}
-                            </p>
-                        </li>
-
-                    </ul>
-
-
-
-
-
-        </td>
-
-
-    </tr>
-    <tr>
-        <td>   <div class=" offset-3"> {{$products->name}}</div></td>
-        <td>
-            قیمت محصول:
-            {{Convertnumber2english($products->price)}}
-
-        </td>
-    </tr>
-    </tbody>
-</table>
-                </div>
-
-<input name="product_id" type="hidden" value="{{$products->id}}">
-                <div class="form-group form-inline">
-                    <label class="col-sm-1 control-label d-inline-block">نام</label>
-                    <div class="col-sm-4">
-                        <input name="name" class="form-control" type="text"/>
-                    </div>
-                    <label class="col-sm-3 control-label d-inline-block">نام خانوادگی</label>
-                    <div class="col-sm-3">
-
-                            <input name="lastname" class="form-control" type="text"/>
-
-                    </div>
-
-
-                    </div>
-
-                <div class="form-group form-inline">
-                    <label class="col-sm-3 control-label d-inline-block">شماره تماس</label>
-                    <div class="col-sm-5">
-
-                        <input name="phonenumber" class="form-control" type="text" style="width: 100%"/>
-
-                    </div>
-                   <label class="col-sm-2 control-label d-inline-block">تعداد</label>
-                    <div class="col-sm-2">
-
-                           <select class="form-control" name="count">
-                               <option value="1">1</option>
-                               <option value="2">2</option>
-                               <option value="3">3</option>
-                               <option value="4">4</option>
-                               <option value="5">5</option>
-                               <option value="6">6</option>
-                               <option value="7">7</option>
-                               <option value="8">8</option>
-                               <option value="9">9</option>
-                               <option value="10">10</option>
-
-                           </select>
-
-                    </div>
-
-
-                </div>
-
-
-
-        <button class="btn btn-success reserve_add offset-4">ثبت رزرو محصول</button>
-
-            </form>
+                    <table class="table" style="text-align:center;">
+                        <thead>
+                        <tr>
+                            <th>عکس محصول</th>
+                            <th>توضیحات کلی</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:59%;">
+                               @if($products->images()->first())
+                                <img src="{{route('media',$products->images()->first()->id)}}" class="img-thumbnail" style="width: 63%; height: 91px">
+                           @endif
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><p>درباره محصول :</p></li>
+                                    <li>
+                                        <p class="abut-kala">
+                                            {{$products->seo_desc}}
+                                        </p>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class=" offset-3"> {{$products->name}}</div></td>
+                            <td>
+                                قیمت محصول:
+                                {{Convertnumber2english($products->price)}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <input name="product_id" type="hidden" value="{{$products->id}}">
+                <div class="form-group form-inline">
+                    <label class="control-label d-inline-block">نام</label>
+                    <div class="col-sm-12">
+                        <input name="name" class="form-control" type="text" placeholder="نام"/>
+                        <label id="name_error" style="color:red; display:none;" class="pull-right"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="control-label d-inline-block">نام خانوادگی</label>
+                    <div class="col-sm-12">
+                        <input name="lastname" class="form-control" type="text" placeholder="نام خانوادگی"/>
+                        <label id="lastname_error" style="color:red; display:none;" class="pull-right"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="control-label d-inline-block">شماره تماس</label>
+                    <div class="col-sm-12">
+                        <input name="phonenumber" class="form-control" type="text" style="width: 100%" placeholder="شماره تماس"/>
+                        <label id="phone_error" style="color:red; display:none;" class="pull-right"></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="control-label d-inline-block">تعداد</label>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="count">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+            <button class="btn btn-success form-control reserve_add offset-4">ثبت رزرو محصول</button>
+        </form>
+    </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
-            </div>
+    <!-- Modal footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+    </div>
 
         </div>
     </div>
@@ -558,12 +542,48 @@
 
 
 <script type="text/javascript">
-    $('.reserve_add').click(function () {
-        Swal(
-            'رزرو شما با موفقیت انجام شد!',
-            'به زودی با شما تماس خواهیم گرفت.',
-            'success'
-        )
+    $('.reserve_add').click(function (e) {
+        e.preventDefault();
+
+        $("#div_wait").css('display' , 'block');
+        $("#name_error").css('display' , 'none');
+        $("#lastname_error").css('display' , 'none');
+        $("#phone_error").css('display' , 'none');
+
+        var data = $(".frm-add-reserve").serialize();
+        var url = $(".frm-add-reserve").attr('action');
+        var type = $(".frm-add-reserve").attr('method');
+        console.log(url);
+        $.ajax({
+            data:data,
+            type:type,
+            url:url,
+            success:function(data){
+                Swal(
+                    'رزرو شما با موفقیت انجام شد!',
+                    'به زودی با شما تماس خواهیم گرفت.',
+                    'success'
+                )
+                $("#div_wait").css('display' , 'none');
+                location.reload();
+            },
+            error:function (error) {
+                console.log(error.responseJSON.errors);
+                if(error.responseJSON.errors.name){
+                    $("#name_error").text(error.responseJSON.errors.name[0]);
+                    $("#name_error").css('display' , 'block');
+                }
+                if(error.responseJSON.errors.lastname){
+                    $("#lastname_error").text(error.responseJSON.errors.lastname[0]);
+                    $("#lastname_error").css('display' , 'block');
+                }
+                if(error.responseJSON.errors.phonenumber){
+                    $("#phone_error").text(error.responseJSON.errors.phonenumber[0]);
+                    $("#phone_error").css('display' , 'block');
+                }
+                $("#div_wait").css('display' , 'none');
+            }
+        });
     });
 </script>
 

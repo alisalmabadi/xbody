@@ -220,6 +220,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::delete('branches/destroy',['as'=>'branches.destroy','uses'=>'BranchesController@destroy']);
     Route::resource('branches' , 'BranchesController' ,['except'=>['destroy']]);
 
+    /*admin message Routes*/
+    Route::get('message/delete/{id}' , 'MessageController@destroy')->name('message.delete');
+    Route::post('message/changeStatus' , 'MessageController@changeStatus')->name('message.changeStatus');
+    Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+
 });
 //product website side routes index
 
@@ -331,7 +336,7 @@ Route::get('sendsms',function (){
 });*/
 
 /*message routes*/
-Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+Route::post('message/store' , 'messageController@store')->name('message.store');
 
 /* contact us route, test, delete this later */
 Route::get('contactus' , function (){

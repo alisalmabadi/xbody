@@ -15,8 +15,23 @@ class ProductReserveController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request , [
+            'name' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
+            'lastname' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
+            'phonenumber' => 'required|numeric|digits:11'
+        ],[
+            'name.required' => 'لطفا نام خود را وارد کنید',
+            'name.regex' => 'در این فیلد فقط کاراکتر وارد کنید',
+            'name.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
+            'lastname.required' => 'لطفا نام خانوادگی خود را وارد کنید',
+            'lastname.regex' => 'در این فیلد فقط کاراکتر وارد کنید',
+            'lastname.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
+            'phonenumber.required' => 'لطفا شماره تلفن همراه خود را وارد کنید',
+            'phonenumber.numeric' => 'در این فیلد فقط عدد وارد کنید',
+            'phonenumber.digits' => 'شماره تلفن وارد شده صحیح نمی باشد'
+        ]);
 
-            $productreserve = ProductReserve::create($request->except('user_id', 'status', 'type'));
+        $productreserve = ProductReserve::create($request->except('user_id', 'status', 'type'));
 //            $productreserve->update([
 //                'u'
 //            ]);

@@ -25,5 +25,15 @@
         $(".row-container-first").paroller({ factor: 0.7, factorXs: 0.5, factorSm: 0.7, type: 'foreground', direction: 'vertical' , transition: 'transform 0.1s ease' });
 
     </script>
+
+
+    {{--bad az load shodane kolle safhe, be matne "ba xbody e iran tafavot ra lams konid" ke dar safhe 'partials.welcome' hastesh, class hayi ke animate typewrite mikone ro behesh add mikone - nokte: css e animate dar safhe 'partials.welcome' neveshte shode--}}
+    <script>
+        $(document).ready(function() {
+            $("#typewriter_text").css('display' , 'block');
+            $("#typewriter_text").addClass("line-1 anim-typewriter");
+        });
+    </script>
+    {{--END OF bad az load shodane kolle safhe, be matne "ba xbody e iran tafavot ra lams konid" ke dar safhe 'partials.welcome' hastesh, class hayi ke animate typewrite mikone ro behesh add mikone - nokte: css e animate dar safhe 'partials.welcome' neveshte shode--}}
     @endsection
         @endsection

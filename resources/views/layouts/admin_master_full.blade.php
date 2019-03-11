@@ -315,6 +315,32 @@
 
                         </ul>
                     </li>
+
+                    <li class="@if(strpos($current_route_name, 'ads.index')===6) active @endif treeview">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i> <span>تبلیغات</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@if(strpos($current_route_name, 'ads.')===6) active @endif"><a href="{{route('admin.ads.index')}}"><i class="fa fa-th"></i>کلیه تبلیغات</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="@if(strpos($current_route_name, 'message.index')===6) active @endif treeview">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i> <span>پیام ها</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@if(strpos($current_route_name, 'message.')===6) active @endif"><a href="{{route('admin.message.index')}}"><i class="fa fa-th"></i>کلیه پیام ها</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
