@@ -219,6 +219,7 @@
 --}}
                             <li class="@if(strpos($current_route_name, 'admin.admin.')===0) active @endif"><a href="{{route('admin.admin.index')}}"><i class="fa fa-users"></i>کاربران ادمین</a></li>
                             <li class="@if(strpos($current_route_name, 'admin.slider.')===0) active @endif"><a href="{{route('admin.slider.index')}}"><i class="fa fa-sliders"></i>اسلایدر</a></li>
+                            <li class="@if(strpos($current_route_name, 'admin.slider.')===0) active @endif"><a href="{{route('admin.slider.index')}}"><i class="fa fa-sliders"></i>تبلیغات</a></li>
                             <li class="@if(strpos($current_route_name, 'admin.menu.')===0) active @endif"><a href="{{route('admin.menu.index')}}"><i class="fa fa-bars"></i>منوی سایت</a></li>
                             <li class="@if(strpos($current_route_name, 'admin.setting')===0) active @endif"><a href="{{route('admin.setting')}}"><i class="fa fa-bars"></i>تنظیمات سایت</a></li>
 

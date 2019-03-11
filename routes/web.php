@@ -212,8 +212,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     });
 
     //admin.ads
+    Route::resource('ads', 'AdsController', ['except' => ['destroy']]);
+    Route::Delete('/ads/destroy',['as'=>'ads.destroy','uses'=>'AdsController@destroy']);
 
-    Route::get('ads','AdsController@index')->name('ads');
 
     /*Branches routes*/
     Route::delete('branches/destroy',['as'=>'branches.destroy','uses'=>'BranchesController@destroy']);
