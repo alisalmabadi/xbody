@@ -330,6 +330,9 @@ Route::get('sendsms',function (){
     return $res;
 });*/
 
+/*message routes*/
+Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+
 /* contact us route, test, delete this later */
 Route::get('contactus' , function (){
     return view('contactus');
