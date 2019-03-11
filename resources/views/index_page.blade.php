@@ -24,6 +24,18 @@
     <script>
         $(".row-container-first").paroller({ factor: 0.7, factorXs: 0.5, factorSm: 0.7, type: 'foreground', direction: 'vertical' , transition: 'transform 0.1s ease' });
 
+        // menu fixed
+        $(window).bind('scroll', function() {
+            // The value of where the "scroll" is.
+            if($(window).scrollTop() > 150){
+                $('nav').addClass('fixed-top');
+                $("#menu").addClass('fixed-top');
+            }else{
+                $('nav').removeClass('fixed-top');
+                $("#menu").removeClass('fixed-top');
+            }
+        });
+
     </script>
     @endsection
         @endsection
