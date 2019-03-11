@@ -39,11 +39,11 @@
             <div class="alert alert-danger" style="text-align:center;">موارد ستاره دار الزامی میباشند.</div>
         </div>
         <div class="container">
-            @if(!empty($errors))
+            {{--@if(!empty($errors))
                 @foreach($errors->all() as $error)
             <div class="alert alert-danger" style="text-align:center;">{{$error}}</div>
                 @endforeach
-            @endif
+            @endif--}}
         </div>
 
 
@@ -59,48 +59,39 @@
 
                     </header>
                     <div class="card-body">
-                        {{--  <div class="stepy-tab">
-                              <ul id="default-titles" class="stepy-titles clearfix">
-                                  <li id="default-title-0" class="current-step">
-                                      <div>انتخاب پکیج مورد نظر</div>
-                                  </li>
-                                  <li id="default-title-1" class="">
-                                      <div>جزئیات</div>
-                                  </li>
-                                  --}}{{-- <li id="default-title-2" class="">
-                                       <div>انتخاب روز ها</div>
-                                   </li>--}}{{--
-                              </ul>
-                          </div>--}}
-
-
-
                         <form class="form-horizontal" id="default" action="{{route('request.getreservesdays')}}" method="POST">
                             {{csrf_field()}}
                             <legend></legend>
                             <div class="form-group form-inline required">
-                                <label class="col-md-1 control-label" for="name">نام </label>
-                                <div class="col-md-2">
-                                    <input name="name" value="{{old('name')}}" class="form-control" style="width: 100%">
-
+                                <label class="col-md-2">نام <label style="color:red;">*</label></label>
+                                <div class="col-md-4">
+                                    <input name="name" value="{{old('name')}}" class="form-control" style="width: 100%" placeholder="نام">
+                                    @if(!empty($errors->first('name')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('name')}}</label>
+                                    @endif
                                 </div>
 
-                                <label class="col-md-3 control-label" for="lastname">نام خانوادگی</label>
-                                <div class="col-md-2">
-                                    <input name="lastname" value="{{old('lastname')}}" class="form-control required" style="width: 100%">
-
-                                </div>
-
-                                <label class="col-md-2 control-label" for="lastname">شماره همراه</label>
-                                <div class="col-md-2">
-                                    <input name="phonenumber" value="{{old('phonenumber')}}" type="number" class="form-control required" style="width: 100%">
-
+                                <label class="col-md-2">نام خانوادگی <label style="color:red">*</label></label>
+                                <div class="col-md-4">
+                                    <input name="lastname" value="{{old('lastname')}}" class="form-control required" style="width: 100%" placeholder="نام خانوادگی">
+                                    @if(!empty($errors->first('lastname')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('lastname')}}</label>
+                                    @endif
                                 </div>
                             </div>
+
                             <div class="form-group form-inline required">
-                                <label class="col-md-1 d-inline-block control-label" for="branch" style="text-align: right"> شعبه</label>
-                                <div class="col-md-3">
-                                    <select name="branch" id="branchs" class="form-control form-control-sm d-inline-block mb-2 mr-sm-2" style="width: 100%;">
+                                <label class="col-md-2 control-label" for="lastname">تلفن همراه</label>
+                                <div class="col-md-4">
+                                    <input name="phonenumber" value="{{old('phonenumber')}}" type="number" class="form-control required" style="width: 100%" placeholder="شماره تلفن همراه">
+                                    @if(!empty($errors->first('phonenumber')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('phonenumber')}}</label>
+                                    @endif
+                                </div>
+
+                                <label class="col-md-2 control-label" for="branch">شعبه</label>
+                                <div class="col-md-4">
+                                    <select name="branch" id="branchs" class="form-control" style="width: 100%;">
                                         <option value="0">
                                             انتخاب کنید
                                         </option>
@@ -108,55 +99,54 @@
                                             <option value="{{$branch->orginal_id}}">{{$branch->name}}</option>
                                         @endforeach
                                     </select>
-                                    {{--
-                                                                        <input type="text" class="form-control" placeholder="Full Name">
-                                    --}}
-
-
+                                @if(!empty($errors->first('branch')))
+                                    <label class="pull-right" style="color: red;">{{$errors->first('branch')}}</label>
+                                @endif
                                 </div>
+                            </div>
 
-                                <label class="col-lg-3 control-label">انتخاب پکیج </label>
-                                <div class="col-lg-5">
+                            <div class="form-group form-inline required">
+                                <label class="col-md-2 control-label">انتخاب پکیج </label>
+                                <div class="col-md-4">
                                     <select name="package" id="package" class="form-control" style="width: 100%;">
                                         <option value="0">
                                             انتخاب کنید
                                         </option>
-
                                     </select>
-
+                                    @if(!empty($errors->first('package')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('package')}}</label>
+                                    @endif
                                 </div>
+
+                                <label class="col-md-2 control-label">از تاریخ</label>
+
+                                    <div class="col-md-1">
+                                        <span class="input-group-text cursor-pointer" id="date4" data-mdpersiandatetimepicker="" data-mdpersiandatetimepicker-group="rangeSelector1" data-todate="" data-original-title="" title=""><i class="fa fa-calendar" style="margin-right: 25%"></i></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input name="date" type="text" class="form-control" id="toDate2" placeholder="از تاریخ" value="{{old('date')}}" aria-label="date4" aria-describedby="date4"/>
+                                        @if(!empty($errors->first('date')))
+                                            <label class="pull-right" style="color: red;">{{$errors->first('date')}}</label>
+                                        @endif
+                                    </div>
                             </div>
 
-
-
                             <div class="form-group form-inline required">
-                                <label class="col-sm-2 control-label" style="text-align: right !important;
-justify-content: left;">از تاریخ</label>
-
-                                <div class="input-group col-md-3">
-                                    <span class="input-group-text cursor-pointer" id="date4" data-mdpersiandatetimepicker="" data-mdpersiandatetimepicker-group="rangeSelector1" data-todate="" data-original-title="" title=""><i class="fa fa-calendar"></i> </span>
-
-                                    <input name="date" type="text" class="form-control" id="toDate2" placeholder="از تاریخ" value="{{old('date')}}" aria-label="date4"
-                                           aria-describedby="date4"/>
-                                </div>
-
-                                <label class="col-sm-1 control-label">نوع روز</label>
-                                <div class="col-sm-1">
+                                <label class="col-md-2 control-label">نوع روز</label>
+                                <div class="col-md-4">
                                     <select class="form-control" name="DayType">
                                         <option value="0">انتخاب کنید</option>
                                         <option value="1">روزهای زوج</option>
                                         <option value="2">روزهای فرد</option>
                                         <option value="3">تمامی روزها</option>
-
                                     </select>
-                                    {{--
-                                                                        <input type="text" class="form-control" placeholder="Phone">
-                                    --}}
+                                    @if(!empty($errors->first('DayType')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('DayType')}}</label>
+                                    @endif
                                 </div>
 
-
-                                <label class="col-sm-2 control-label mr-5">تعداد روزها در هفته</label>
-                                <div class="col-sm-2">
+                                <label class="col-md-2 control-label">تعداد روزها در هفته</label>
+                                <div class="col-md-4">
                                     <select name="countday" class="form-control">
                                         <option value="0">انتخاب کنید</option>
                                         <option value="1">یک روز در هفته</option>
@@ -166,33 +156,37 @@ justify-content: left;">از تاریخ</label>
                                         <option value="5">پنج روز در هفته</option>
                                         <option value="6">شش روز در هفته</option>
                                         <option value="7">هفت روز کامل</option>
-
                                     </select>
-                                    {{--
-                                                                        <input type="text" class="form-control" placeholder="Phone">
-                                    --}}
+                                    @if(!empty($errors->first('countday')))
+                                        <label class="pull-right" style="color: red;">{{$errors->first('countday')}}</label>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="form-group form-inline">
-                                <label class="col-sm-2 control-label">به جز روز های</label>
 
-                                <select name="days[]" class="expd col-md-9" multiple="">
+                            <div class="form-group form-inline required">
+                                <label class="col-md-2 control-label">به جز روز های</label>
+                                <select name="days[]" class="expd col-md-10" multiple="">
                                     @foreach($days as $day)
                                         <option value="{{$day->slug}}">{{$day->name}}</option>
                                     @endforeach
                                 </select>
+                                @if(!empty($errors->first('days')))
+                                    <label class="pull-right" style="color: red;">{{$errors->first('days')}}</label>
+                                @endif
                             </div>
+
                             <div class="form-group form-inline d-flex justify-content-xl-center  mb-3 control-label required">
                                 <label class="col-sm-3 control-label">لطفا کد امنیتی روبرو را وارد کنید:</label>
                                 <div id="formcap">
                                     {!! $captcha !!}
                                 </div>
                                 <input type="text" name="captcha" class="form-control col-md-5">
+                                @if(!empty($errors->first('captcha')))
+                                    <label class="pull-right" style="color: red;">{{$errors->first('captcha')}}</label>
+                                @endif
                             </div>
                             <input type="submit" class="finish btn btn-danger offset-5" value="نمایش روزهای پیشنهادی" />
-
                         </form>
-                        <div class="m-6"></div>
                     </div>
                 </section>
             </div>

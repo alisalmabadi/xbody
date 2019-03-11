@@ -329,3 +329,11 @@ Route::get('sendsms',function (){
     $res=send_sms($number,'test');
     return $res;
 });*/
+
+/*message routes*/
+Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+
+/* contact us route, test, delete this later */
+Route::get('contactus' , function (){
+    return view('contactus');
+});
