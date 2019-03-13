@@ -22,7 +22,7 @@
     </script>
     <script src="{{asset('js/jquery.paroller.min.js')}}"></script>
     <script>
-        $(".row-container-first").paroller({ factor: 0.7, factorXs: 0.5, factorSm: 0.7, type: 'foreground', direction: 'vertical' , transition: 'transform 0.1s ease' });
+      /*  $(".row-container-first").paroller({ factor: 0.7, factorXs: 0.5, factorSm: 0.7, type: 'foreground', direction: 'vertical' , transition: 'transform 0.1s ease' });*/
 
         // menu fixed
         $(window).bind('scroll', function() {
