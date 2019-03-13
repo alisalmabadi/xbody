@@ -25,12 +25,33 @@
         .desc-element{
             margin-left: 100%;
         }
+
+        @media only screen and (max-width: 800px) {
+            .naghshe{
+                height: 327px;
+            }
+            .naghshe-label{
+                margin-left: 30% !important;
+            }
+            .form{
+                margin-top: 20%;
+            }
+            .form-label{
+                display:inline-flex !important;
+                margin-left: 40%;
+            }
+            .register_gif{
+                margin-top: 15% !important;
+                margin-left: 10% !important;
+            }
+
         /*.xbody-form-group{*/
             /*background-color: darkgrey;*/
             /*border-radius: 30px;*/
         /*}*/
         .branchinfo{
             margin-bottom: 5%;
+
         }
     </style>
 @endsection
@@ -126,39 +147,40 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <label style="margin-left: 66%;">موقعیت شعبات روی نقشه</label>
-                <div id="mapid" style="height: 88%;"></div>
+            <div class="col-md-6 naghshe">
+                <label class="naghshe-label" style="margin-left: 66%;">موقعیت شعبات روی نقشه</label>
+                <div id="mapid" style="height: 88%; z-index: 2;"></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 form">
+                <label class="form-label" style="display: none;">فرم تماس با ما</label>
                 <form action="{{route('message.store')}}" method="post" id="frm-send-message">
                     {{csrf_field()}}
-                    <input type="hidden" name="status" value="1">
+                    <input type="hidden" name="status" value="0">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input class="form-control" type="text" id="field_name" name="name" placeholder="نام">
-                                <label id="name_error" class="pull-right" style="color:red; display: none;"></label>
+                                <label id="name_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <input class="form-control" type="text" id="field_lastname" name="lastname" placeholder="نام خانوادگی">
-                                <label id="lastname_error" class="pull-right" style="color:red; display: none;"></label>
+                                <label id="lastname_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="text" name="phonenumber" id="field_phonenumber" placeholder="تلفن همراه">
-                        <label id="phonenumber_error" class="pull-right" style="color:red; display: none;"></label>
+                        <label id="phonenumber_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="text" name="title" id="field_title" placeholder="عنوان">
-                        <label id="title_error" class="pull-right" style="color:red; display: none;"></label>
+                        <label id="title_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                     </div>
                     <div class="form-group">
                         <textarea name="text" rows="5" class="form-control" id="field_text" placeholder="متن"></textarea>
-                        <label id="text_error" class="pull-right" style="color:red; display: block;"></label>
+                        <label id="text_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                     </div>
                     <div class="form-group">
                         <button class="form-control btn btn-primary" id="btn-send-message">ارسال</button>
@@ -169,7 +191,7 @@
     </div>
     {{--waiting gif--}}
     <div class="container-fluid" id="register_wait" style="width: 100%;height: 100%;position: fixed;top: 0;background-color: #0000005c;z-index:5;display: none;">
-        <img src="{{ asset('gifs/AppleLoading.gif') }}" style="margin-top: 8%;height: 400px;width: 500px;margin-left: 36%;">
+        <img class="register_gif" src="{{ asset('gifs/AppleLoading.gif') }}" style="margin-top: 8%;height: 400px;width: 500px;margin-left: 36%;">
     </div>
     {{--end of waiting gif--}}
 @endsection

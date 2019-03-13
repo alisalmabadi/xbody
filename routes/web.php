@@ -220,6 +220,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::delete('branches/destroy',['as'=>'branches.destroy','uses'=>'BranchesController@destroy']);
     Route::resource('branches' , 'BranchesController' ,['except'=>['destroy']]);
 
+    /*admin message Routes*/
+    Route::get('message/delete/{id}' , 'MessageController@destroy')->name('message.delete');
+    Route::post('message/changeStatus' , 'MessageController@changeStatus')->name('message.changeStatus');
+    Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+
+    /*admin gallery routes*/
+    Route::get('gallery/changeStatus/{gallery}' , 'GalleryController@changeStatus')->name('gallery.changeStatus');
+    Route::post('/gallery/destroy' , 'GalleryController@destroy')->name('gallery.destroy');
+    Route::post('/gallery/storeValidation' , 'GalleryController@store_validation')->name('gallery.store_validation');
+    Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
+
 });
 //product website side routes index
 
@@ -331,7 +342,7 @@ Route::get('sendsms',function (){
 });*/
 
 /*message routes*/
-Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
+Route::post('message/store' , 'messageController@store')->name('message.store');
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

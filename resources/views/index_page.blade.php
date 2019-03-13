@@ -37,5 +37,15 @@
         });
 
     </script>
+
+
+    {{--bad az load shodane kolle safhe, be matne "ba xbody e iran tafavot ra lams konid" ke dar safhe 'partials.welcome' hastesh, class hayi ke animate typewrite mikone ro behesh add mikone - nokte: css e animate dar safhe 'partials.welcome' neveshte shode--}}
+    <script>
+        $(document).ready(function() {
+            $("#typewriter_text").css('display' , 'block');
+            $("#typewriter_text").addClass("line-1 anim-typewriter");
+        });
+    </script>
+    {{--END OF bad az load shodane kolle safhe, be matne "ba xbody e iran tafavot ra lams konid" ke dar safhe 'partials.welcome' hastesh, class hayi ke animate typewrite mikone ro behesh add mikone - nokte: css e animate dar safhe 'partials.welcome' neveshte shode--}}
     @endsection
         @endsection

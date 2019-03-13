@@ -14,7 +14,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+        return view('admin.message.index' , compact('messages'));
     }
 
     /**
@@ -104,6 +105,15 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::destroy($id);
+        flash('حذف گردید');
+        return redirect()->route('admin.message.index');
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $message = Message::find($request['id']);
+        $message->update(['status' => $request['value']]);
+        return response($message->id);
     }
 }
