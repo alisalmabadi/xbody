@@ -44,7 +44,7 @@
                         </div>
                     </form>
                     <div class="pull-left">
-                        <a href="{{route('admin.report.branchers.excelExport' , $branchers_id)}}"><button type="button" class="btn btn-bitbucket">excel export</button></a>
+                        <a href="{{route('admin.report.branchers.excelExport' , $branchers_id)}}"><button type="button" class="btn btn-bitbucket">دانلود اکسل اعضای این شعبه</button></a>
                     </div>
                 </div>
             </div>
