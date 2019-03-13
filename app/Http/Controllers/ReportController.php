@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use App\Branch;
 use App\Reserve;
+use Closure;
 use Illuminate\Support\Carbon;
 use App\User;
 use Illuminate\Http\Request;
 
-use App\Exports\UsersExport;
+use App\Exports\UserBranchesExport;
+use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
@@ -53,11 +55,31 @@ class ReportController extends Controller
 
     public function excelExport($id)
     {
+        $data=branchusers($id);
+        $data = json_decode($data);
+        $data = json_decode($data);
         /*$users=branchusers($id);
         $users=json_decode($users);
         $users=json_decode($users);*/
 //        return Excel::download(new UsersExport, 'users.xlsx');
-        return Excel::download(new UsersExport, 'users.xlsx');
+
+        $response = new Response();
+
+        //$response = $closure($request);
+   /*     $response->headers->set('Access-Control-Allow-Origin' , '*');
+        $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, Application');*/
+
+       return Excel::download(new UserBranchesExport($data), 'users.xlsx');
+        /*return response($response)->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, Application');*/
+     /*   $response->sendHeaders(array(
+            'Content-Type: application/vnd.ms-excel',
+            'Content-Disposition: attachment; filename="users.xlsx"',
+            'Access-Control-Allow-Origin' , '*',
+
+        ));*/
+
 //        dd($a);
 //        return redirect()->back();
     }
