@@ -225,6 +225,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::post('message/changeStatus' , 'MessageController@changeStatus')->name('message.changeStatus');
     Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
 
+    /*admin gallery routes*/
+    Route::get('gallery/changeStatus/{gallery}' , 'GalleryController@changeStatus')->name('gallery.changeStatus');
+    Route::post('/gallery/destroy' , 'GalleryController@destroy')->name('gallery.destroy');
+    Route::post('/gallery/storeValidation' , 'GalleryController@store_validation')->name('gallery.store_validation');
+    Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
+
 });
 //product website side routes index
 

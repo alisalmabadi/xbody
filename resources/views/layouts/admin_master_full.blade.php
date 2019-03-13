@@ -316,6 +316,19 @@
                         </ul>
                     </li>
 
+                    <li class="@if(strpos($current_route_name, 'gallery.index')===6) active @endif treeview">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i> <span>گالری</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@if(strpos($current_route_name, 'gallery.')===6) active @endif"><a href="{{route('admin.gallery.index')}}"><i class="fa fa-th"></i>کلیه گالری ها</a></li>
+                        </ul>
+                    </li>
+
                     <li class="@if(strpos($current_route_name, 'ads.index')===6) active @endif treeview">
                         <a href="#">
                             <i class="fa fa-shopping-bag"></i> <span>تبلیغات</span>
