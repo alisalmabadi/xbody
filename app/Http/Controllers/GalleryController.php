@@ -129,9 +129,12 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Gallery $gallery)
     {
-        //
+        $gallery->load('videos');
+        $gallery->load('photos');
+
+        return view('admin.gallery.edit' , compact('gallery'));
     }
 
     /**
