@@ -8,38 +8,52 @@
                 <div class="row-container-full" style="padding-top: 150px !important;">
                     <div class="row">
                         @php
-                        $m=0;
+                            $m=0;
                         @endphp
                         @foreach($branches as $branch)
 
-                        <div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6 @if($m==0) wow slideInLeft @elseif($m==1) wow flipOutY @elseif($m==2) wow zoomInDown  @elseif($m==3) wow rotateIn @endif"  data-wow-duration="3s">
-                            <div class="item-fool">
-                                <a href="#">
-                                    <div class="front-item">
-                                        <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
-                                        <div class="middle" style="background: #00000069;position: absolute;bottom: 36%;right: 17%;padding-right: 9px;padding-left: 9px;padding-top: 7px;padding-bottom: 7px; width: 67%;">
-                                            <a href="" class="btnx btn1">
-                                                <span style="color:white">{{$branch->name}}</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="back-item text-center">
+                            <div class="cover-bool col-lg-4 col-md-6 col-sm-6 col-6 @if($m==0) wow slideInLeft @elseif($m==1) wow flipOutY @elseif($m==2) wow zoomInDown  @elseif($m==3) wow rotateIn @else  wow slideInLeft  @endif"  data-wow-duration="3s" style="">
+                                <div class="item-fool">
+                                    <a href="#">
+                                        <div class="front-item">
+                                            <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
 
-                                    <div class="middle">
-                                           <a href="" class="btnx btn1">
-                                          <p>مشاهده</p>
-                                            </a>
-                                        </div>
 
-                                        <div class="middle2">
-                                            <a href="" class="btnx btn1">
-                                                <p>رزرو</p>
-                                            </a>
+                                            <div class="middle" style="/*background: #e61111;*/
+    position: absolute;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 177px;
+    bottom: 0%;
+    /*border-radius: 46% 0% 0% 46%;*/
+    height: 100%;">
+                                                <div class="middle" style="background: #00000069;position: absolute;bottom: 36%;right: 17%;padding-right: 9px;padding-left: 9px;padding-top: 7px;padding-bottom: 7px; width: 67%;">
+                                                    <a href="" class="btnx btn1">
+                                                        <span style="color:white">{{$branch->name}}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
-                                </a>
+                                        <div class="back-item text-center">
+
+                                            <div class="middle">
+                                                <a href="" class="btnx btn1">
+                                                    <p>مشاهده</p>
+                                                </a>
+                                            </div>
+
+                                            <div class="middle2">
+                                                <a href="" class="btnx btn1">
+                                                    <p>رزرو</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                             @php
                                 $m++
                             @endphp
@@ -114,6 +128,120 @@
                             </div>
                         </div>--}}
                     </div>
+
+
+                    {{--
+                                        <div class="row">
+                                            @php
+                                            $m=0;
+                                            @endphp
+                                            @foreach($branches as $branch)
+
+                                            <div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6 @if($m==0) wow slideInLeft @elseif($m==1) wow flipOutY @elseif($m==2) wow zoomInDown  @elseif($m==3) wow rotateIn @endif"  data-wow-duration="3s">
+                                                <div class="item-fool">
+                                                    <a href="#">
+                                                        <div class="front-item">
+                                                            <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
+                                                            <div class="middle" style="background: #00000069;position: absolute;bottom: 36%;right: 17%;padding-right: 9px;padding-left: 9px;padding-top: 7px;padding-bottom: 7px; width: 67%;">
+                                                                <a href="" class="btnx btn1">
+                                                                    <span style="color:white">{{$branch->name}}</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="back-item text-center">
+
+                                                        <div class="middle">
+                                                               <a href="" class="btnx btn1">
+                                                              <p>مشاهده</p>
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="middle2">
+                                                                <a href="" class="btnx btn1">
+                                                                    <p>رزرو</p>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                @php
+                                                    $m++
+                                                @endphp
+                                            @endforeach
+                                            --}}
+{{--<div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="item-fool">
+                                <a href="#">
+                                    <div class="front-item">
+                                        <img class="card-img-top" src="{{asset('images/index/x-body/xbody03.jpg')}}" alt="">
+                                    </div>
+                                    <div class="back-item text-center">
+
+                                        <!--<div class="middle">-->
+                                        <!--    <a href="" class="btnx btn1">-->
+                                        <!--        <p>مشاهده</p>-->
+                                        <!--    </a>-->
+                                        <!--</div>-->
+
+                                        <div class="middle2">
+                                            <a href="" class="btnx btn1">
+                                                <p>رزرو</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="item-fool">
+                                <a href="#">
+                                    <div class="front-item">
+                                        <img class="card-img-top" src="{{asset('images/index/x-body/xbody03.jpg')}}" alt="">
+                                    </div>
+                                    <div class="back-item text-center">
+
+                                        <!--<div class="middle">-->
+                                        <!--    <a href="" class="btnx btn1">-->
+                                        <!--        <p>مشاهده</p>-->
+                                        <!--    </a>-->
+                                        <!--</div>-->
+
+                                        <div class="middle2">
+                                            <a href="" class="btnx btn1">
+                                                <p>رزرو</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div class="item-fool">
+                                <a href="#">
+                                    <div class="front-item">
+                                        <img class="card-img-top" src="{{{asset('images/index/x-body/xbody03.jpg')}}}" alt="">
+                                    </div>
+                                    <div class="back-item text-center">
+
+                                        <!--<div class="middle">-->
+                                        <!--    <a href="" class="btnx btn1">-->
+                                        <!--        <p>مشاهده</p>-->
+                                        <!--    </a>-->
+                                        <!--</div>-->
+
+                                        <div class="middle2">
+                                            <a href="" class="btnx btn1">
+                                                <p>رزرو</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>--}}{{--
+
+                    </div>
+--}}
                 </div>
             </div>
             {{--<div class="row-container">
@@ -224,8 +352,8 @@
     height: 100%;
     -webkit-transform-origin:left;
     transform-origin: left;
-    -webkit-transform: rotate(5deg);
-    transform: rotate(5deg);
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
     position: absolute;background: white">
 
                     </div>
