@@ -168,7 +168,7 @@ return [
 	    Zarinpal\ZarinpalServiceProvider::class,
 	    Thetispro\Setting\SettingServiceProvider::class,
 	    Larabookir\Gateway\GatewayServiceProvider::class,
-//        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -250,7 +250,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Setting' => Thetispro\Setting\Facades\Setting::class,
         'Gateway' => Larabookir\Gateway\Gateway::class,
-//        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         //'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
         // 'Mellat' => Larabookir\Gateway\Mellat\Mellat::class,
