@@ -334,6 +334,4 @@ Route::get('sendsms',function (){
 Route::resource('message' , 'MessageController' ,['except' => ['destroy']]);
 
 /* contact us route, test, delete this later */
-Route::get('contactus' , function (){
-    return view('contactus');
-});
+Route::get('contactus' ,'HomeController@contactus');
