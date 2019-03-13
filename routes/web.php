@@ -345,6 +345,4 @@ Route::get('sendsms',function (){
 Route::post('message/store' , 'messageController@store')->name('message.store');
 
 /* contact us route, test, delete this later */
-Route::get('contactus' , function (){
-    return view('contactus');
-});
+Route::get('contactus' ,'HomeController@contactus');

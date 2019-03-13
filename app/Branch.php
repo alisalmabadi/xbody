@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Branch extends Model
 {
     use SoftDeletes;
-    protected $fillable=['name','orginal_id','address','manager_name','phone' , 'image_original' , 'image_thumbnail','page_url'];
+    protected $fillable=['name','orginal_id','address','manager_name','phone' , 'image_original' , 'image_thumbnail','page_url','description','social_media'];
 
     public function users()
     {

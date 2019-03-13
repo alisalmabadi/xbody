@@ -37,7 +37,7 @@ class ProductReserveController extends Controller
 //            ]);
         $message= 'با سلام و وقت بخیر; محصول مورد نظر شما با موفقیت رزرو گردید. ایکس بادی';
         /*        $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);*/
-        send_sms($request->phonenumber,$message);
+       // send_sms($request->phonenumber,$message);
             $data=json_encode([['product_id'=>$request->product_id,'reserve_id'=>$productreserve->id]]);
             $cookie=cookie('reserved',$data,600);
             return back()->withCookie($cookie);
@@ -54,7 +54,7 @@ class ProductReserveController extends Controller
         $user=User::where('id',$request->user_id)->first();
         $message= 'با سلام و وقت بخیر; محصول مورد نظر شما با موفقیت رزرو گردید. ایکس بادی';
 /*        $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);*/
-        send_sms($user->username,$message);
+        //send_sms($user->username,$message);
         //$productreserve=ProductReserve::where('')
         return back();
     }

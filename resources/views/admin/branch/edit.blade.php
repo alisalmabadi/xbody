@@ -42,11 +42,11 @@
                         </div>
                     </div>
 
-                    <div id="txt_area" class="form-group required">
-                        <label class="col-sm-2 control-label" for="name">آدرس</label>
+                    <div id="description" class="form-group required">
+                        <label class="col-sm-2 control-label" for="description">توضیحات</label>
                         <div class="col-sm-9">
-                            <textarea id="text" name="address"  placeholder="آدرس"  class="form-control" >{{$branch->address}}</textarea>
-                            <label style="color:red">{{$errors->first('address')}}</label>
+                            <textarea id="text" name="description"  placeholder="{{old('desciption')}}"  class="form-control" >{{$branch->description}}</textarea>
+                            <label style="color:red">{{$errors->first('description')}}</label>
                         </div>
                     </div>
 
@@ -65,15 +65,36 @@
                             <label style="color:red">{{$errors->first('phone')}}</label>
                         </div>
                     </div>
+                    <div id="addr" class="form-group required">
+                        <label class="col-sm-2 control-label" for="address">آدرس</label>
+                        <div class="col-sm-6">
+                            <input id="address" name="address" value="{{$branch->address}}" placeholder="آدرس"  class="form-control" type="text" >
+                            <label style="color:red">{{$errors->first('address')}}</label>
+                        </div>
+                    </div>
 
                     <div id="page_url_dec" class="form-group required">
-                        <label class="col-sm-2 control-label" for="seo_desc">Page URL</label>
+                        <label class="col-sm-2 control-label" for="seo_desc">صفحه معرفی شعبه</label>
                         <div class="col-sm-6">
                             <input id="slug" name="page_url" value="{{$branch->page_url}}" placeholder="page URL"  class="form-control" type="text" >
                             <label style="color:red">{{$errors->first('page_url')}}</label>
                         </div>
                     </div>
+                    <div id="telegram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="telegram_id">آی دی تلگرام</label>
+                        <div class="col-sm-6">
+                            <input id="telegram_id" name="telegram_id" value="@if($branch->social_media){{ json_decode($branch->social_media)->telegram_id}} @endif" placeholder="telegram_id"  class="form-control" type="text">
+                            <label style="color:red">{{$errors->first('telegram_id')}}</label>
+                        </div>
+                    </div>
 
+                    <div id="instagram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="instagram_id">آی دی اینستاگرام</label>
+                        <div class="col-sm-6">
+                            <input id="instagram_id" name="instagram_id" value="@if($branch->social_media) {{json_decode($branch->social_media)->instagram_id}} @endif" placeholder="instagram_id"  class="form-control" type="text">
+                            <label style="color:red">{{$errors->first('instagram_id')}}</label>
+                        </div>
+                    </div>
                     <div id="image_original" class="form-group required">
                         <label class="col-sm-2 control-label" for="seo_desc">تصویر</label>
                         <div class="col-sm-4">

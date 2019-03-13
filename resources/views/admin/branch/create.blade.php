@@ -44,10 +44,10 @@
                     </div>
 
                     <div id="txt_area" class="form-group required">
-                        <label class="col-sm-2 control-label" for="name">آدرس</label>
+                        <label class="col-sm-2 control-label" for="name">توضیحات</label>
                         <div class="col-sm-9">
-                            <textarea id="text" name="address"  placeholder="آدرس"  class="form-control" >{{old('address')}}</textarea>
-                            <label style="color:red">{{$errors->first('address')}}</label>
+                            <textarea id="text" name="description"  placeholder="description"  class="form-control" >{{old('description')}}</textarea>
+                            <label style="color:red">{{$errors->first('description')}}</label>
                         </div>
                     </div>
 
@@ -67,11 +67,35 @@
                         </div>
                     </div>
 
+                    <div id="addr" class="form-group required">
+                        <label class="col-sm-2 control-label" for="address">آدرس</label>
+                        <div class="col-sm-6">
+                            <input id="address" name="address" value="{{old('address')}}" placeholder="آدرس"  class="form-control" type="text" >
+                            <label style="color:red">{{$errors->first('address')}}</label>
+                        </div>
+                    </div>
+
                     <div id="page_url_dec" class="form-group required">
-                        <label class="col-sm-2 control-label" for="seo_desc">Page URL</label>
+                        <label class="col-sm-2 control-label" for="seo_desc">صفحه معرفی شعبه</label>
                         <div class="col-sm-6">
                             <input id="page_url" name="page_url" value="{{old('page_url')}}" placeholder="page_url"  class="form-control" type="text">
                             <label style="color:red">{{$errors->first('page_url')}}</label>
+                        </div>
+                    </div>
+
+                    <div id="telegram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="telegram_id">آی دی تلگرام</label>
+                        <div class="col-sm-6">
+                            <input id="telegram_id" name="telegram_id" value="{{old('telegram_id')}}" placeholder="telegram_id"  class="form-control" type="text">
+                            <label style="color:red">{{$errors->first('telegram_id')}}</label>
+                        </div>
+                    </div>
+
+                    <div id="instagram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="instagram_id">آی دی اینستاگرام</label>
+                        <div class="col-sm-6">
+                            <input id="instagram_id" name="instagram_id" value="{{old('instagram_id')}}" placeholder="instagram_id"  class="form-control" type="text">
+                            <label style="color:red">{{$errors->first('instagram_id')}}</label>
                         </div>
                     </div>
 
