@@ -9,6 +9,9 @@
                     <div class="row">
                         @php
                             $m=0;
+          $color=[
+          'sabz','ghermez','abi','banafsh','zard'
+          ];
                         @endphp
                         @foreach($branches as $branch)
 
@@ -19,7 +22,7 @@
                                             <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
 
 
-                                            <div class="middle" style="/*background: #e61111;*/
+                                            <div class="middle" style="background: url('images/backgrounds/<?php echo $color[array_rand($color)]; ?>.png') right;
     position: absolute;
     padding-right: 9px;
     padding-left: 9px;
@@ -29,7 +32,7 @@
     bottom: 0%;
     /*border-radius: 46% 0% 0% 46%;*/
     height: 100%;">
-                                                <div class="middle" style="background: #00000069;position: absolute;bottom: 36%;right: 17%;padding-right: 9px;padding-left: 9px;padding-top: 7px;padding-bottom: 7px; width: 67%;">
+                                                <div class="middle" style="background: #00000069;position: absolute;bottom: 14%;right: 9%;padding-right: 9px;padding-left: 9px;padding-top: 7px;padding-bottom: 7px; width: 67%;">
                                                     <a href="" class="btnx btn1">
                                                         <span style="color:white">{{$branch->name}}</span>
                                                     </a>
