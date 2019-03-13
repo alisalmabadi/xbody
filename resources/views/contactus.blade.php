@@ -17,6 +17,11 @@
             margin-top: 5%;
             border-radius: 50px;
         }
+        .titlebranch{
+            border-bottom: 1px solid #f7ced6;
+            font-weight: bold;
+            font-size: 25px;
+        }
         .desc-element{
             margin-left: 100%;
         }
@@ -24,22 +29,88 @@
             /*background-color: darkgrey;*/
             /*border-radius: 30px;*/
         /*}*/
+        .branchinfo{
+            margin-bottom: 5%;
+        }
     </style>
 @endsection
 @section('main_content')
     <div class="container-fluid">
         <div class="p-2 " style="width: 100%; height: 160px;"></div>
-        <div class="row xbody-form-group" style="display: inline-flex !important;">
-            <div class="col-md-4">
-                <img class="xbody-img" src="{{asset('images/contact/1.jpg')}}">
+        @php
+        $i=1;
+        @endphp
+        @foreach($branches as $branch)
+
+        <div class="row xbody-form-group" style=" @if($i==1) display: inline-flex !important; @endif">
+            @if($i%2)
+            <div class="col-md-3">
+                <img class="xbody-img" src="{{$branch->image_original}}">
             </div>
-            <div class="col-md-8">
-                <p style="text-align: right;">نام شعبه1</p>
-                <p style="text-align: right;">1- لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+            <div class="col-md-9">
+                <p class="titlebranch" style="text-align: right;">  شعبه {{$branch->name}}</p>
+                <div style="text-align: right;">
+                    {!! $branch->description !!}
+                </div>
+
+                <div class="branchinfo" style="text-align: center;">
+                   <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
+                    <span class="btn btn-primary"><i class="fa fa-map
+"></i> {{$branch->address}}</span>
+                    <a href="{{$branch->page_url}}" target="_blank">
+                    <span class="btn btn-warning"><i class="fa fa-tv"></i> صفحه شعبه</span>
+                    </a>
+                    @if($branch->social_media)
+                        @if(json_decode($branch->social_media)->telegram_id !=null)
+                        <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
+                    <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                        </a>
+                        @endif
+                            @if(json_decode($branch->social_media)->instagram_id !=null)
+                    <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
+                    <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                    </a>
+                                @endif
+                        @endif
+                </div>
             </div>
+                @else
+                <div class="col-md-9">
+                    <p class="titlebranch" style="text-align: right;">شعبه {{$branch->name}} </p>
+                    <p style="text-align: right;">
+                        {!! $branch->description !!}
+                    </p>
+                    <div class="branchinfo" style="text-align: center;">
+                        <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
+                        <span class="btn btn-primary"><i class="fa fa-map
+"></i> {{$branch->address}}</span>
+                        <a href="{{$branch->page_url}}" target="_blank">
+                            <span class="btn btn-warning"><i class="fa fa-tv"></i> صفحه شعبه</span>
+                        </a>
+                        @if($branch->social_media)
+                            @if(json_decode($branch->social_media)->telegram_id !=null)
+                                <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
+                                    <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                                </a>
+                            @endif
+                            @if(json_decode($branch->social_media)->instagram_id !=null)
+                                <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
+                                    <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                                </a>
+                            @endif
+                        @endif
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <img class="xbody-img" src="{{$branch->image_original}}">
+                </div>
+            @endif
         </div>
-
-
+            @php
+                $i++;
+            @endphp
+{{--
         <div class="row xbody-form-group">
             <div class="col-md-8">
                 <p style="text-align: right;">نام شعبه2</p>
@@ -49,6 +120,8 @@
                 <img class="xbody-img" src="{{asset('images/contact/1.jpg')}}">
             </div>
         </div>
+--}}
+            @endforeach
     </div>
 
     <div class="container">
