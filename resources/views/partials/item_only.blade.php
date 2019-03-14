@@ -1,12 +1,33 @@
 <!------------------------------ Item-Only ------------------------->
+
 <div class="container-fluid text-center Item-full">
-    <div class="row">
+    <div class="" style="width: 100%;height: 119px;position: absolute;overflow: visible;left: 0px!important;margin-top: -44px;z-index: 1;">
+        <div style="width: 100%;height: 100%; position: absolute;overflow: hidden !important;;">
+            <div class="transform" style="
+       right: -5px;
+    width: 125%;
+    height: 100%;
+    -webkit-transform-origin: left;
+    transform-origin: right;
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    position: absolute;
+    background: white;
+    z-index: 2;">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row wow zoomInUp">
+
         <div class="col-lg-5 col-md-6 ">
             <div class="img-item-only">
                 <img src="{{asset('images/index/style-body23.png')}}" alt="">
             </div>
         </div>
         <div class="col-lg-7 col-md-6 ">
+
             <div class="item-left">
                 <div class="title-item-only">
                     <p> فقط 2 جلسه 20 دقیقه ای در هفته کافیست </p>
