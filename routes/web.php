@@ -229,6 +229,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::get('gallery/changeStatus/{gallery}' , 'GalleryController@changeStatus')->name('gallery.changeStatus');
     Route::post('/gallery/destroy' , 'GalleryController@destroy')->name('gallery.destroy');
     Route::post('/gallery/storeValidation' , 'GalleryController@store_validation')->name('gallery.store_validation');
+    Route::get('gallery/deleteVideoFromGallery/{gallery}/{video}' , ['as'=>'gallery.delete_video_from_gallery' , 'uses' => 'GalleryController@deleteVideoFromGallery']);
     Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
 
 });
