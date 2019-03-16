@@ -100,7 +100,7 @@ class GalleryController extends Controller
                 $g_v->create([
                     'gallery_id' => $gallery->id,
                     'title' => $title,
-                    'video_path' => $video_url . $video_name,
+                    'video_path' => $video_url .'/'. $video_name,
                     'video_type' => $video_type,
                     'video_thumbnail' => ':|',
                     'status' => '1',
@@ -144,9 +144,13 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Gallery $gallery)
     {
-        //
+        $gallery->update([
+            'status' => $request['status'],
+            'name' => $request['name']
+        ]);
+        return redirect()->route('admin.gallery.index');
     }
 
     /**
@@ -172,5 +176,12 @@ class GalleryController extends Controller
             $gallery->update(['status' => '0']);
         }
         return redirect()->route('admin.gallery.index');
+    }
+
+    public function deleteVideoFromGallery(Gallery $gallery , GalleryVideos $video)
+    {
+        GalleryVideos::destroy($video->id);
+//        return redirect()->route('admin.gallery.edit',$gallery);
+        return response('deleted');
     }
 }
