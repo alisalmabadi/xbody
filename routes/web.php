@@ -230,6 +230,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::post('/gallery/destroy' , 'GalleryController@destroy')->name('gallery.destroy');
     Route::post('/gallery/storeValidation' , 'GalleryController@store_validation')->name('gallery.store_validation');
     Route::get('gallery/deleteVideoFromGallery/{gallery}/{video}' , ['as'=>'gallery.delete_video_from_gallery' , 'uses' => 'GalleryController@deleteVideoFromGallery']);
+    Route::post('gallery/videos/addVideoToGallery/{gallery}' , 'GalleryController@addVideo')->name('gallery.video.add_video');
+    Route::get('gallery/deletePhotoFromGallery/{gallery}/{photo}' , ['as'=>'gallery.deletePhotoFromGallery' , 'uses'=>'GalleryController@deletePhotoFromGallery']);
+    Route::post('gallery/photo/addPhotoToGallery/{gallery}' , 'GalleryController@addPhoto')->name('gallery.photo.add_photo');
     Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
 
 });
