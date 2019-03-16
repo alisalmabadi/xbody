@@ -1,7 +1,9 @@
     @extends('layouts.app')
 @section('head')
     <style>
-
+    .transform{
+        box-shadow: 36px 0px 5px 4px #8080804f;
+    }
 
     </style>
     @endsection

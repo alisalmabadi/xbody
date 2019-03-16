@@ -298,7 +298,19 @@
             height: 60%;
             margin: 0 15%;
             border-radius: 100%;
-            /*position: relative;*/
+            /* position: relative; */
+            border-right: 4px solid #00000029;
+            padding: 8px;
+            border-left: 4px solid #00000029;
+            box-shadow: 0px 6px 6px -3px #80808059;
+            margin-bottom: 12%;
+            transition: 1s all ease-in-out;
+
+        }
+        .item img:hover{
+            border-right: 4px solid rgba(0, 0, 0, 0.45);
+            border-left: 4px solid rgba(0, 0, 0, 0.45);
+            opacity: 0.999;
         }
 
         .item .item-title {

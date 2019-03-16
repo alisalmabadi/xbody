@@ -9,7 +9,7 @@
     @php
         $i=0;
     @endphp
-        <div class="proposal">
+        <div class="proposal wow slideInUp">
         @if(count($articles)>0)
             @foreach($articles as $article)
 
@@ -36,6 +36,7 @@
 
         @endforeach
         @endif
+
 
         {{--
                 <div class="row">
@@ -94,8 +95,14 @@
                 </div>
             </div>
         </div>--}}
+           {{-- <a href="{{route('blog.index')}}">
+                <button class="btn btn-danger center">مشاهده بیشتر</button>
+            </a>--}}
         </div>
+
     </div>
     </div>
+
 </div>
+
     <!---------------------------------- END Proposal ----------------------------------->

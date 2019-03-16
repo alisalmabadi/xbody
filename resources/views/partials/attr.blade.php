@@ -5,7 +5,7 @@
     <div class="" style="width: 100%;height: 63px; position: absolute;overflow: visible; left:0px!important; ">
         <div style="width: 100%;height: 100%; position: absolute;overflow: hidden !important;;">
             <div class="transform" style="
-    right: 0;
+    right: -2px;
     width: 110%;
     height: 100%;
     -webkit-transform-origin:right;
