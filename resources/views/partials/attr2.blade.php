@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-12">
-            <div class="section-2-full-right">
+            <div class="section-2-full-right wow zoomInUp">
                 <!--<div class="title-full"><h1>تمرینات عالی و منظم با برنامه ریزی ما تجربه کنید</h1></div>-->
                 <div class="title-center"><h2> دستیابی به تناسب اندامی باور نکردنی </h2></div>
                 <div class="br"></div>
@@ -36,13 +36,13 @@
     </div>
     <div class="row section-2-full text-center">
         <div class="col-lg-6 col-md-12">
-            <div class="section-2-full-left">
+            <div class="section-2-full-left wow zoomInUp">
                 <img class="card-img-top" src="{{asset('images/index/x-body/Home.gif')}}" style="height: 370px;" alt="">
             </div>
         </div>
 
         <div class="col-lg-6 col-md-12">
-            <div class="section-2-full-right">
+            <div class="section-2-full-right wow zoomInUp">
                 <!--<div class="title-full"><h1>تمرینات عالی و منظم با برنامه ریزی ما تجربه کنید</h1></div>-->
                 <div class="title-center"><h2>	عضله سازی و افزایش قدرت </h2></div>
                 <div class="br"></div>
@@ -62,13 +62,13 @@
     </div>
     <div class="row section-2-full text-center">
         <div class="col-lg-6 col-md-12">
-            <div class="section-2-full-left">
+            <div class="section-2-full-left wow zoomInUp">
                 <img class="card-img-top" src="{{asset('images/index/x-body/xbody3.gif')}}" style="height: 370px;" alt="">
             </div>
         </div>
 
         <div class="col-lg-6 col-md-12">
-            <div class="section-2-full-right">
+            <div class="section-2-full-right wow zoomInUp">
                 <!--<div class="title-full"><h1>تمرینات عالی و منظم با برنامه ریزی ما تجربه کنید</h1></div>-->
                 <div class="title-center"><h2>کاهش وزن و سایز </h2></div>
                 <div class="br"></div>

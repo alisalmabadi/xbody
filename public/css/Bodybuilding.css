@@ -24,7 +24,7 @@ a {
 @font-face {
     font-family: iranyekan;
     src: url("../fonts/iranyekanwebbold.eot?#") format("embedded-opentype"),
-    url("../fonts/iranyekanwebbold.ttf") format("truetype");
+    url("../fonts/IRANYekanBold(FaNum).ttf") format("truetype");
 }
 
 .font13 {
@@ -383,7 +383,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 700px;
+    height: 551px;
     background-size: cover;
     float: right;
     /*background-position: center center;*/
@@ -397,9 +397,9 @@ a {
 
 .img-backg .cover {
     width: 100%;
-    height: 700px;
+    height: 593px;
     /*background: #2c3e50;*/
-    background-image: linear-gradient(305deg, rgba(105, 0, 101, 0.6) 33%, rgba(0, 48, 65, 0.66) 93%);
+    background-image: linear-gradient(305deg, rgba(255, 255, 255, 0.75) 33%, rgba(0, 48, 65, 0.27) 93%);
 
 }
 
@@ -494,10 +494,11 @@ a {
 .front-item {
     z-index: 2;
     transform: rotateY(0deg);
-    outline: 2px solid #ffffff57;
-    outline-offset: -11px;
-    box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.74);
+    /*outline: 2px solid #ffffff57;
+    outline-offset: -11px;*/
+    box-shadow: 0px 3px 13px 3px rgba(0, 0, 0, 0.65);
     height: 146px;
+    border-radius: 10px;
 }
 
 /*.back-item {
@@ -508,19 +509,21 @@ a {
 .front-item img {
     width: 65%;
     height: 100%;
-    border-radius: 0;
+    border-radius: 10px 0 0 10px;
     float: left;
 }
 
 .back-item .middle {
     position: absolute;
-    /*width: 60%;*/
-    border: 2px solid #df2726;
-    bottom: 56%;
-    right: 57%;
-    width: 25%;
-    background: #ffffff8a;
-    height: 28%;
+    /* width: 60%; */
+    bottom: 4%;
+    right: 63%;
+    width: 15%;
+    background: #fdfefecc;
+    height: 21%;
+    font-size: 12px;
+    border-radius: 5px;
+    color: black;
 }
 
 .back-item .middle2 {
@@ -529,7 +532,9 @@ a {
     margin: 75px 20% 10% 20%;
     top: 0;
     /*left: 30%;*/
+    /*
     border: 2px solid #df2726;
+    */
 
 }
 
@@ -555,7 +560,7 @@ a {
 
 .back-item .btn1 p {
     padding-top: 7%;
-    color: red;
+    color: black;
     transition: all .6s ease-in-out;
     padding-bottom: 1%;
 }
@@ -572,15 +577,17 @@ a {
 
 @media (max-width: 1700px) {
 
-        .back-item .middle2 {
-            position: absolute;
-            width: 25%;
-            border: 2px solid #df2726;
-            height: 28%;
-            background: #ffffff8a;
-            right: 37%;
-            top: 9%;
-        }
+    .back-item .middle2 {
+        position: absolute;
+        width: 15%;
+        height: 21%;
+        background: #dc3545;
+        right: 59%;
+        top: 24%;
+        border-radius: 5px;
+        font-size: 12px;
+        box-shadow: 2px 6px 3px 6px #00000014;
+    }
 }
 
 /*@media (max-width: 1300px) {*/
@@ -1104,8 +1111,9 @@ a {
         background: rgba(253, 253, 255, 0.64);
         float: right;
         transition: all .7s;
-        backface-visibility: hidden;
+        backface-visibility: visible;
         /*margin: 7% 10%;*/
+        border-radius: 40px !important;
     }
 
     .front-item img {
@@ -1926,9 +1934,13 @@ a {
     background: #eee7de;
     margin-top: 40px;
     float: right;
+    /*
     border-top: 5px solid #2c3e50;
+    */
     border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+    /*
     box-shadow: 0 -11px 48px 10px rgba(0, 0, 0, 0.2);
+    */
     /*margin-top: 60px;*/
 }
 
@@ -1942,15 +1954,13 @@ a {
 .img-item-only img {
     width: auto;
     height: auto;
-    margin-top: 50px;
-    /*background: #0c5460;*/
-    /*margin-left: 25%;*/
+    margin-top: 142px;
 }
 
 .item-left {
     width: 90%;
     height: 500px;
-    /*background: red;*/
+    margin-top: 142px;
 }
 
 .title-item-only {

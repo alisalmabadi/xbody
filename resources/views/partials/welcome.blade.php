@@ -4,7 +4,7 @@
         /*top: 50%;*/
         width: 24em;
         margin: 0 auto;
-        border-right: 2px solid rgba(255,255,255,.75);
+        border-left: 2px solid rgba(0, 0, 0, 0.75);
         font-size: 180%;
         text-align: center;
         white-space: nowrap;
@@ -13,17 +13,16 @@
     }
 
     /* Animation */
-    .anim-typewriter{
-        animation: typewriter 4s steps(44) 1s 1 normal both,
-        blinkTextCursor 500ms steps(44) infinite normal;
+    .anim-typewriter {
+        animation: typewriter 4s steps(44) 1s infinite normal , blinkTextCursor 500ms steps(44) infinite normal;
     }
     @keyframes typewriter{
         from{width: 0;}
-        to{width: 24em;}
+        to{width: 17em;}
     }
     @keyframes blinkTextCursor{
-        from{border-right-color: rgba(255,255,255,.75);}
-        to{border-right-color: transparent;}
+        from{border-left-color: rgba(0, 0, 0, 0.75);}
+        to{border-left-color: transparent;}
     }
 </style>
 <!--------------------- WELCOME SECTION ------------------------>

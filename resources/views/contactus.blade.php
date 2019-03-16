@@ -11,11 +11,12 @@
 
     <style>
         .xbody-img{
-            width: 80%;
+            width: 100%;
             height:80%;
             margin-left: 10%;
-            margin-top: 5%;
-            border-radius: 50px;
+            margin-top: 13%;
+            border-radius: 17px;
+            box-shadow: 8px 9px 15px 0px grey;
         }
         .titlebranch{
             border-bottom: 1px solid #f7ced6;
@@ -27,30 +28,31 @@
         }
 
         @media only screen and (max-width: 800px) {
-            .naghshe{
+            .naghshe {
                 height: 327px;
             }
-            .naghshe-label{
+
+            .naghshe-label {
                 margin-left: 30% !important;
             }
-            .form{
+
+            .form {
                 margin-top: 20%;
             }
-            .form-label{
-                display:inline-flex !important;
+
+            .form-label {
+                display: inline-flex !important;
                 margin-left: 40%;
             }
-            .register_gif{
+
+            .register_gif {
                 margin-top: 15% !important;
                 margin-left: 10% !important;
             }
-
-        /*.xbody-form-group{*/
-            /*background-color: darkgrey;*/
-            /*border-radius: 30px;*/
-        /*}*/
+        }
         .branchinfo{
-            margin-bottom: 5%;
+            margin-top: 2%;
+            margin-bottom: 3%;
 
         }
     </style>
@@ -74,58 +76,60 @@
                     {!! $branch->description !!}
                 </div>
 
-                <div class="branchinfo" style="text-align: center;">
-                   <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
+            </div>
+                <div class="col-md-12 branchinfo" style="text-align: left;">
+                    <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
                     <span class="btn btn-primary"><i class="fa fa-map
 "></i> {{$branch->address}}</span>
                     <a href="{{$branch->page_url}}" target="_blank">
-                    <span class="btn btn-warning"><i class="fa fa-tv"></i> صفحه شعبه</span>
+                        <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
                     </a>
                     @if($branch->social_media)
                         @if(json_decode($branch->social_media)->telegram_id !=null)
-                        <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
-                    <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
-                        </a>
+                            <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
+                                <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                            </a>
                         @endif
-                            @if(json_decode($branch->social_media)->instagram_id !=null)
-                    <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
-                    <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
-                    </a>
-                                @endif
+                        @if(json_decode($branch->social_media)->instagram_id !=null)
+                            <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
+                                <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                            </a>
                         @endif
+                    @endif
                 </div>
-            </div>
-                @else
+
+            @else
                 <div class="col-md-9">
                     <p class="titlebranch" style="text-align: right;">شعبه {{$branch->name}} </p>
                     <p style="text-align: right;">
                         {!! $branch->description !!}
                     </p>
-                    <div class="branchinfo" style="text-align: center;">
-                        <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
-                        <span class="btn btn-primary"><i class="fa fa-map
-"></i> {{$branch->address}}</span>
-                        <a href="{{$branch->page_url}}" target="_blank">
-                            <span class="btn btn-warning"><i class="fa fa-tv"></i> صفحه شعبه</span>
-                        </a>
-                        @if($branch->social_media)
-                            @if(json_decode($branch->social_media)->telegram_id !=null)
-                                <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
-                                    <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
-                                </a>
-                            @endif
-                            @if(json_decode($branch->social_media)->instagram_id !=null)
-                                <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
-                                    <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
-                                </a>
-                            @endif
-                        @endif
-                    </div>
 
                 </div>
                 <div class="col-md-3">
                     <img class="xbody-img" src="{{$branch->image_original}}">
                 </div>
+                <div class="col-md-12 branchinfo" style="text-align: right;">
+                    <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
+                    <span class="btn btn-primary"><i class="fa fa-map
+"></i> {{$branch->address}}</span>
+                    <a href="{{$branch->page_url}}" target="_blank">
+                        <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
+                    </a>
+                    @if($branch->social_media)
+                        @if(json_decode($branch->social_media)->telegram_id !=null)
+                            <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
+                                <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                            </a>
+                        @endif
+                        @if(json_decode($branch->social_media)->instagram_id !=null)
+                            <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
+                                <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                            </a>
+                        @endif
+                    @endif
+                </div>
+
             @endif
         </div>
             @php

@@ -2,6 +2,7 @@
 <!------------------------- Cards ------------------------------------>
 <div class="container-fluid text-center Cards-full">
     <h1> مزیت های تکنولوژی EMS </h1>
+
     <div class="row margin-top">
         <div class="col-lg-4 col-md-4 text-center Cards-col4 wow bounceInRight" data-wow-duration="4s">
             <img src="{{asset('images/index/style-body.png')}}" alt="">
@@ -25,7 +26,7 @@
             <p  class="titlecard"> تقویت مفاصل </p>
             <h1> ایکس بادی بر خلاف ورزش با وزنه، بر روی مفاصل شما فشار وارد نمی کند و با تمرینات مخصوص می تواند برای درمان آسیب دیدگی یا درد مفاصل نیز استفاده شود. </h1>
         </div>
-        <div class="col-lg-4 col-md-4 text-center Cards-col4 wow bounceInRight" data-wow-duration="4s">
+        <div class="col-lg-4 col-md-4 text-center Cards-col4 wow slideInUp" data-wow-duration="4s">
             <img src="{{asset('images/index/style-body5.png')}}" alt="">
             <p  class="titlecard"> تعادل سیستم عضلانی </p>
             <h1> تمرینات EMS ایکس بادی برای بهبود نا هماهنگی عضلانی یا تقویت عضلات ضعیف در بدن مورد استفاده قرار می گیرد. هدف قرار دادن گروه های عضلانی مورد نظر توسط مربیان حرفه ای و متخصصی ایکس بادی ایران کار ساده ایست. </h1>
@@ -35,6 +36,9 @@
             <p  class="titlecard"> زمان ذخیره کنید </p>
             <h1> زمان پول است ! و این به ویژه در دنیای شلوغ امروزی بیشتر مورد توجه قرار می گیرد. با EMS شما می توانید نتایج یک تمرین 90 دقیقه ای را فقط در 20 دقیقه به دست بیاورید. </h1>
         </div>
+
     </div>
+
 </div>
+
 <!------------------------- End Cards ------------------------------------>
