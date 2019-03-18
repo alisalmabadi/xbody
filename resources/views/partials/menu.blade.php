@@ -75,7 +75,7 @@
         <div class="left-btn"><a href="{{route('login')}}" target="_blank"><button type="button" class="btn btn-danger login-btn" style="width: 150px;height: 42px;border-radius: 0px;">ورود اعضای شعبات</button> </a></div>
     --}}
     @if(session()->get('user')==null)
-        <div class="left-btn"><a href="{{route('login')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;">{{--<button type="button" class="btn btn-danger login-btn" style="width: 150px;height: 42px;border-radius: 0px;">--}}ورود اعضای شعبات{{--</button>--}} </a></div>
+        <div class="left-btn"><a href="{{route('login')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;background: #df0617;border: none;">{{--<button type="button" class="btn btn-danger login-btn" style="width: 150px;height: 42px;border-radius: 0px;">--}}ورود اعضای شعبات{{--</button>--}} </a></div>
     @else
         <div class="left-btn"><a href="{{url('user/panel')}}" target="_blank" class="btn btn-danger login-btn" style="width: auto;height: 39px;border-radius: 0px; margin-left: 1%;"> سلام {{$user->first_name}}  {{$user->last_name}}</a></div>
 

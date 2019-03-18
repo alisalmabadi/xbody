@@ -19,14 +19,14 @@
         </div>
     </div>
 
-    <div class="row wow zoomInUp">
+    <div class="row">
 
-        <div class="col-lg-5 col-md-6 ">
+        <div class="col-lg-5 col-md-6 wow slideInUp" data-wow-duration="4s">
             <div class="img-item-only">
                 <img src="{{asset('images/index/style-body23.png')}}" alt="">
             </div>
         </div>
-        <div class="col-lg-7 col-md-6 ">
+        <div class="col-lg-7 col-md-6 wow fadeInRight" data-wow-duration="4s">
 
             <div class="item-left">
                 <div class="title-item-only">

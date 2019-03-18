@@ -6,8 +6,8 @@
 @charset "UTF-8";
 @font-face {
     font-family: 'iransanse';
-    src: url(/fonts/IRANSansWeb.eot?e43cfbc1a67d90e910398ded8345cd32);
-    src: url(/fonts/IRANSansWeb.eot?e43cfbc1a67d90e910398ded8345cd32?#iefix) format("embedded-opentype"), url(/fonts/IRANSansWeb.woff?df14582918ca379a280e453bb3cc6ba5) format("woff"), url(/fonts/IRANSansWeb.ttf?ac22d187130d6c3433a49a1e98bfa968) format("truetype");
+    src: url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/eot/IRANSansWeb(FaNum).eot');
+    src: url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/ttf/IRANSansWeb(FaNum).eot?#iefix') format("embedded-opentype"), url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/woff/IRANSansWeb(FaNum).woff') format("woff"), url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/ttf/IRANSansWeb(FaNum).ttf') format("truetype");
 }
 /*
 @font-face {

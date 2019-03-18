@@ -312,6 +312,8 @@ Route::group(['prefix'=>'user','middleware'=>'xAuth','as'=>'user.'],function(){
 
     Route::get('productreserves',['as'=>'productreserve','uses'=>'ReserveController@productreserve']);
 
+    Route::get('lastreserves',['as'=>'lastreserves','uses'=>'ReserveController@lastreserves']);
+
 });
 route::get('test','UserController@test');
 
@@ -364,3 +366,10 @@ Route::get('g/gallery' , function (){
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');
+
+Route::get('jsondecode',function (){
+  $json=GetTheUserReserve(1,4201);
+   $json=json_decode($json);
+    $json=json_decode($json);
+dd($json);
+});
