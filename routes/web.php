@@ -359,10 +359,8 @@ Route::get('sendsms',function (){
 Route::post('message/store' , 'messageController@store')->name('message.store');
 
 /*gallery routes*/
-//Route::get('/gallery' , 'GalleryController@index_page')->name('gallery.index_page');
-Route::get('g/gallery' , function (){
-    return view('gallery.galleries');
-});
+Route::get('/interview/index' , 'InterviewController@index_page')->name('gallery.index_page');
+Route::get('/interview/showByCategory' , 'InterviewController@showByCategory')->name('interview.showByCategory');
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

@@ -127,9 +127,9 @@
                                 <tr>
                                     <td class="text-center">{{$video->title}}</td>
                                     <td class="text-center">
-                                        <video style="width:10%;" autoplay>
-                                            <source src="{{asset($video->video_path)}}">
-                                        </video>
+                                        <div style="width: 250px; height:250px; text-align: center;">
+                                            @php echo($video->video_path) @endphp
+                                        </div>
                                     </td>
                                     <td class="text-center">
                                         <a class="del_video" href="{{route('admin.gallery.delete_video_from_gallery',['gallery'=>$gallery,'video'=> $video])}}">
@@ -163,10 +163,8 @@
                             <input type="text" class="form-control" id="gallery_videos_title" name="gallery_videos_title" placeholder="عنوان" required="required">
                             <label>ویدئو <label style="color: red;">*</label> </label>
                             <div id="div-file">
-                                <input type="file" class="form-control" id="gallery_videos_video_original" name="gallery_videos_video_original" accept="video/*" required="required">
-                                <video autoplay controls class="video_display" style="width: 300px; height: 300px;margin-right: 20%;">
-                                    <source>
-                                </video>
+                                <textarea class="form-control" id="gallery_videos_video_original" name="gallery_videos_video_original"></textarea>
+                                <div class="video_display" style="width: 250px; height: 250px;"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -281,12 +279,20 @@
     </script>
     {{--END OF show video modal and add new one--}}
 
-    {{--namayesh e video before upload--}}
+    {{--namayesh e video before upload, file--}}
     <script>
-        $(document).on("change", "#gallery_videos_video_original", function(evt) {
+        /*$(document).on("change", "#gallery_videos_video_original", function(evt) {
             var $source = $('.video_display');
             $source[0].src = URL.createObjectURL(this.files[0]);
             $source.parent()[0].load();
+        });*/
+    </script>
+    {{--END OF namayesh e video before upload--}}
+
+    {{--namayesh e video before upload, aparat--}}
+    <script>
+        $(document).on("input", "#gallery_videos_video_original", function() {
+            $('.video_display').html($(this).val());
         });
     </script>
     {{--END OF namayesh e video before upload--}}

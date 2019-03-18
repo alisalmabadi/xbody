@@ -146,4 +146,18 @@ class InterviewController extends Controller
 
         return redirect()->route('admin.interview.index');
     }
+
+
+
+    public function index_page()
+    {
+        $categories = InterviewCategory::all();
+        return view('interview.index_page' , compact('categories'));
+    }
+
+    public function showByCategory(Request $request)
+    {
+        $interviews = Interview::where('interview_category_id' , $request['id'])->where('status' , 1)->get();
+        return response($interviews);
+    }
 }

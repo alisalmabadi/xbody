@@ -69,6 +69,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-sm-2 control-label" for="desc">توضیحات</label>
+                        <div class="col-sm-10">
+                            <textarea id="text" name="desc">{{old('desc')}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="slug">انتخاب عکس برای هدر گالری<label style="color:red;">*</label></label>
                         <div class="col-sm-10">
                             <input type="file" name="image_original" id="image_original" class="form-control">
@@ -257,23 +264,53 @@
     </script>
 {{--END OF namayesh e aks bedoon e upload--}}
 
-
-
-{{--namayesh e video before upload--}}
+{{--slot e gereftan e video, az aparat--}}
     <script>
-        $(document).on("change", ".file_multi_video:last", function(evt) {
+        $("#add-new-video").on('click' , function () {
+            $("#result-gallery").append('<div class="div_whole_video row" id="div_whole_video" style="margin-top: 5%;">\n' +
+                '                              <div class="col-md-8">\n' +
+                '                            <div class="row">\n' +
+                '                                <div class="col-md-12">\n' +
+                '                                    <label class="col-md-4">عنوان</label>\n' +
+                '                                    <input type="text" class="form-control video_titles" name="gallery_video_title[]" rows="5">\n' +
+                '                                    <label class="col-md-4">کد ویدئو</label>\n' +
+                '                                    <textarea class="form-control video_codes" name="gallery_video_video_original[]" rows="5"></textarea>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '<div class="show_aparat_video" style="width: 400px; height: 400px;"></div>\n'+
+                '                               </div>\n');
+        });
+    </script>
+{{--END OF slot e gereftan e video, az aparat--}}
+{{--namayeshe video az aparat--}}
+    <script>
+        $(document).on("input" , ".video_codes:last" , function(){
+            $(".show_aparat_video:last").html($(this).val());
+        });
+    </script>
+{{--END OF namayeshe video az aparat--}}
+
+
+
+{{--namayesh e video before upload with <input type="file"--}}
+    <script>
+        /*baraye zamani ke ba <input type="file" kar konim, felna disable*/
+        /*$(document).on("change", ".file_multi_video:last", function(evt) {
             var $source = $('.video_here:last');
             $source[0].src = URL.createObjectURL(this.files[0]);
             $source.parent()[0].load();
-        });
+        });*/
     </script>
 {{--END OF namayesh e video before upload--}}
 
 
 
-{{--Add new video--}}
+{{--Add new video with <input type="file"--}}
     <script>
-        $("#add-new-video").on('click' , function () {
+        /*baraye zamani ke ba <input type="file" kar konim, felna disable*/
+        /*$("#add-new-video").on('click' , function () {
             $("#result-gallery").append('<div class="div_whole_video row" id="div_whole_video" style="margin-top: 5%;">\n' +
                 '                              <div class="col-md-8">\n' +
                 '                            <div class="row">\n' +
@@ -285,12 +322,12 @@
                 '                        </div>\n' +
                 '                        <div class="col-md-4">\n' +
                 '                            <input type="hidden" value="" name="gallery_video_video_original[]">\n' +
-                    '<input type="file" name="gallery_video_video_original[]" class="btn btn-primary file_multi_video" style="width: 92%;t" accept="video/*">'+
+                    '<input type="file" name="gallery_video_video_original[]" class="btn btn-primary file_multi_video" style="width: 92%;t" accept="video/!*">'+
                 '<video width="400" controls autoplay>\n' +
                 '                            <source src="mov_bbb.mp4" id="video_here" class="video_here">\n' +
                 '                        </video>' +
         '                               </div>\n');
-        });
+        });*/
     </script>
 {{--END OF Add new video--}}
 
