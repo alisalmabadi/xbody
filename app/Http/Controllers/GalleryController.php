@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\GalleryPhoto;
 use App\GalleryVideos;
 use Illuminate\Http\Request;
 
@@ -81,7 +82,38 @@ class GalleryController extends Controller
         /*gallery photos*/
         if($gallery['type'] == '0')
         {
+            $titles = $request['gallery_photos_title'];
+            $alts = $request['gallery_photos_alt'];
+            $photos = $request['gallery_photos_image_original'];
 
+            /*tarkibe hame array ha tooye yeki*/
+            $all_inputs = array();
+            $index = 0;
+            foreach($titles as $item)
+            {
+                $all_inputs[] = ['index'=>$index , 'title'=>$titles[$index] , 'alt'=>$alts[$index] , 'photo'=>$photos[$index]];
+                $index += 1;
+            }
+
+            /*photos upload*/
+            foreach ($all_inputs as $input)
+            {
+                $photo_name = $gallery['slug'].'_photo_'.sha1($input['photo']->getClientOriginalName()).'.'.$input['photo']->getClientOriginalExtension();
+                $photo_url = 'Gallery/' . $gallery['slug'] . '/' . 'Photos';
+                $photo_type = $input['photo']->getClientOriginalExtension();
+                $input['photo']->move($photo_url , $photo_name);
+
+                $galleryPhoto = new GalleryPhoto();
+                $galleryPhoto->create([
+                    'gallery_id' => $gallery->id,
+                    'title' => $input['title'],
+                    'image_path' => $photo_url . '/'.$photo_name,
+                    'image_type' => $photo_type,
+                    'alt' => $input['alt'],
+                    'image_thumbnail' => 'later :|',
+                    'status' => '1'
+                ]);
+            }
         }/*gallery videos*/
         elseif ($gallery['type'] == '1')
         {
@@ -183,5 +215,65 @@ class GalleryController extends Controller
         GalleryVideos::destroy($video->id);
 //        return redirect()->route('admin.gallery.edit',$gallery);
         return response('deleted');
+    }
+
+    public function addVideo(Request $request , Gallery $gallery)
+    {
+        /*upload e video*/
+        $video = $request['gallery_videos_video_original'];
+        $video_name = $gallery->slug.'_video_'.sha1($video->getClientOriginalName()).'.'.$video->getClientOriginalExtension();
+        $video_url = 'Gallery/' . $gallery->slug . '/' . 'Videos';
+        $video_type = $video->getClientOriginalExtension();
+        $video->move($video_url , $video_name);
+
+        $new_video = new GalleryVideos();
+        $new_video = $new_video->create([
+            'gallery_id' => $gallery->id,
+            'title' => $request['gallery_videos_title'],
+            'video_path' => $video_url. '/' . $video_name,
+            'video_type' => $video_type,
+            'video_thumbnail' => ':|',
+            'status' => '1'
+        ]);
+
+        return redirect()->route('admin.gallery.edit' , $gallery);
+    }
+
+
+    public function deletePhotoFromGallery(Gallery $gallery , GalleryPhoto $photo)
+    {
+        GalleryPhoto::destroy($photo->id);
+        return response('photo deleted');
+    }
+
+    public function addPhoto(Request $request , Gallery $gallery)
+    {
+        /*upload e image*/
+        $photo = $request['gallery_photo_image_original'];
+        $photo_name = $gallery->slug . '_photo_' . sha1($photo->getClientOriginalName()).'.'.$photo->getClientOriginalExtension();
+        $photo_type = $photo->getClientOriginalExtension();
+        $photo_url = 'Gallery/' . $gallery->slug . 'Photos';
+
+        $photo->move($photo_url , $photo_name);
+
+        $image = new GalleryPhoto();
+        $image->create([
+           'gallery_id' => $gallery->id,
+           'title' => $request['gallery_photo_title'],
+            'alt' => $request['gallery_photo_alt'],
+            'image_path' => $photo_url . '/' . $photo_name,
+            'image_type' => $photo_type,
+            'image_thumbnail' => 'later :|',
+            'status' => '1'
+        ]);
+
+        return redirect()->route('admin.gallery.edit' , $gallery);
+    }
+
+
+    public function index_page()
+    {
+        dd('asd');
+        return view('gallery.galleries');
     }
 }

@@ -80,43 +80,12 @@
                     <br>
                     <label id="add-file-label" class="form-control label-primary" style="text-align: center;"></label>
                     <div>
-                        <button type="button" class="btn btn-primary" style="display: none;" id="add-new-photo" data-toggle="modal" data-target="#modal_add_gallery_photos"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-primary" style="display: none;" id="add-new-photo"><i class="fa fa-plus"></i></button>
                         <button type="button" class="btn btn-danger" style="display: none;" id="add-new-video"><i class="fa fa-plus"></i></button>
                     </div>
 
                     <div class="form-group" id="result-gallery">
 
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="modal_add_gallery_photos" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <form action="#" method="post" id="frm-modal-gallery-photos">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">عکس جدید</h4>
-                        </div>
-                        <div class="modal-body">
-                            <label>عنوان <label style="color: red;">*</label> </label>
-                            <input type="text" class="form-control" id="gallery_photos_title" name="gallery_photos_title" placeholder="عنوان">
-                            <label>متنی که در صورت بروز خطا نمایش دهد <label style="color: red;">*</label> </label>
-                            <input type="text" class="form-control" id="gallery_photos_alt" name="gallery_photos_alt" placeholder="متنی که در صورت بروز خطا نمایش دهد">
-                            <label>تصویر <label style="color: red;">*</label> </label>
-                            <div id="div-file">
-                                <input type="file" class="form-control" id="gallery_photos_image_original" name="gallery_photos_image_original">
-                                <input type="hidden" id="gallery_photos_hidden_image_original">
-                                <img class="img_gallery_photo" style="width: 150px; height: 150px;margin-right: 36%;">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                            <input type="submit" value="ذخیره" class="btn btn-primary">
-                        </div>
                     </div>
                 </form>
             </div>
@@ -240,82 +209,29 @@
 
 
 
-{{--Image modal functions--}}
+{{--Add new Image functions--}}
     <script>
-        $("#frm-modal-gallery-photos").on('submit' , function (e) {
-            e.preventDefault();
-            var title = $(this).find("#gallery_photos_title").val();
-            var alt = $(this).find("#gallery_photos_alt").val();
-            var pic = $(this).find("#gallery_photos_hidden_image_original").val();
-
-            /*validations*/
-            if(title == ''){
-                alert('لطفا فیلدها را کامل کنید');
-                $(this).find("#gallery_photos_title").animate({
-                    backgroundColor : 'red'
-                } , 1000);
-                $(this).find("#gallery_photos_title").animate({
-                    backgroundColor : 'white'
-                } , 1000);
-                return false;
-            }
-            if(alt == ''){
-                alert('لطفا فیلدها را کامل کنید');
-                $(this).find("#gallery_photos_alt").animate({
-                    backgroundColor : 'red'
-                } , 1000);
-                $(this).find("#gallery_photos_alt").animate({
-                    backgroundColor : 'white'
-                } , 1000);
-                return false;
-            }
-            if(pic == ''){
-                alert('لطفا عکس انتخاب کنید');
-                $(this).find('.img_gallery_photo').animate({
-                    backgroundColor : 'red'
-                },1000);
-                $(this).find('.img_gallery_photo').animate({
-                    backgroundColor : 'white'
-                },1000);
-                $(this).find('#gallery_photos_image_original').animate({
-                    backgroundColor : 'red'
-                },1000);
-                $(this).find('#gallery_photos_image_original').animate({
-                    backgroundColor : 'white'
-                },1000);
-                return false;
-            }
-            /*end of validation*/
-
-            $("#result-gallery").append('<div class="col-md-9" style="margin-top: 5%;">\n' +
-                '                            <div class="row">\n' +
-                '                                <label class="col-md-4">عنوان</label>\n' +
-                '                                <div class="col-md-8">\n' +
-                '                                    <input type="text" name="gallery_photo_title[]" class="form-control" value="'+title+'">\n' +
-                '                                </div>\n' +
+        $("#add-new-photo").on('click' , function () {
+            $("#result-gallery").append('<div class="div_whole_photos row" id="div_whole_photos" style="margin-top:2%;">\n' +
+                '                            <div class="col-md-4">\n' +
+                '                                <label>عنوان تصویر</label>\n' +
+                '                                <input type="text" class="form-control" name="gallery_photos_title[]" placeholder="عنوان تصویر" required="required">\n' +
                 '                            </div>\n' +
-                '                            <div class="row" style="margin-top: 7%;">\n' +
-                '                                <label class="col-md-4">توضیحات</label>\n' +
-                '                                <div class="col-md-8">\n' +
-                '                                    <input type="text" name="gallery_photo_alt[]" class="form-control" value="'+alt+'">\n' +
-                '                                </div>\n' +
+                '                            <div class="col-md-4">\n' +
+                '                                <label>متن خطا</label>\n' +
+                '                                <input type="text" class="form-control" name="gallery_photos_alt[]" placeholder="متن خطا" required="required">\n' +
                 '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-3" style="margin-top: 5%;">\n' +
-                '                        <input type="text" value="'+pic+'" name="gallery_photo_image_original[]" style="display:block;">\n' +
-                '                            <img src="'+pic+'" style="width: 150px; height: 150px;">\n' +
+                '                            <div class="col-md-2">\n' +
+                '                                <label>تصویر</label>\n' +
+                '                                <input type="file" name="gallery_photos_image_original[]" required="required" class="gallery_photos_image_original">\n' +
+                '                            </div>\n' +
+                '                            <div class="col-md-2">\n' +
+                '                                <img class="img_gallery_photo" style="width: 150px; height:150px;">' +
+                '                            </div>\n'+
                 '                        </div>');
-
-            $(this).find("#gallery_photos_title").val('');
-            $(this).find("#gallery_photos_alt").val('');
-            $(this).find("#gallery_photos_image_original").val('');
-            $(this).find("#gallery_photos_hidden_image_original").val('');
-            $(this).find(".img_gallery_photo").attr('src' , '#');
-
-            $("#modal_add_gallery_photos").modal('hide');
         });
     </script>
-{{--End of image modal functions--}}
+{{--End of add new image functions--}}
 
 
 
@@ -328,15 +244,14 @@
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    $(".img_gallery_photo").attr('src' , e.target.result);
-                    $("#gallery_photos_hidden_image_original").val(e.target.result);
+                    $(".img_gallery_photo:last").attr('src' , e.target.result);
                 }
 
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
-        $("#gallery_photos_image_original").change(function() {
+        $(document).on("change",".gallery_photos_image_original:last" , function(){
             readURL(this);
         });
     </script>
@@ -359,7 +274,8 @@
 {{--Add new video--}}
     <script>
         $("#add-new-video").on('click' , function () {
-            $("#result-gallery").append('<div class="col-md-8" style="margin-top: 5%;">\n' +
+            $("#result-gallery").append('<div class="div_whole_video row" id="div_whole_video" style="margin-top: 5%;">\n' +
+                '                              <div class="col-md-8">\n' +
                 '                            <div class="row">\n' +
                 '                                <div class="col-md-12">\n' +
                 '                                    <label class="col-md-4">عنوان</label>\n' +
@@ -367,18 +283,16 @@
                 '                                </div>\n' +
                 '                            </div>\n' +
                 '                        </div>\n' +
-                '                        <div class="col-md-4" style="margin-top: 5%;">\n' +
+                '                        <div class="col-md-4">\n' +
                 '                            <input type="hidden" value="" name="gallery_video_video_original[]">\n' +
                     '<input type="file" name="gallery_video_video_original[]" class="btn btn-primary file_multi_video" style="width: 92%;t" accept="video/*">'+
                 '<video width="400" controls autoplay>\n' +
                 '                            <source src="mov_bbb.mp4" id="video_here" class="video_here">\n' +
-                '                        </video>\n');
+                '                        </video>' +
+        '                               </div>\n');
         });
     </script>
 {{--END OF Add new video--}}
-
-
-
 
 
 
