@@ -42,4 +42,9 @@ class Article extends Model
         }
 
     }
+
+    public function image()
+    {
+        return $this->hasOne('App\ImageManagerFiles','id','img');
+    }
 }

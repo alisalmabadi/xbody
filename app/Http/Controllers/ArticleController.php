@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use File;
 use Illuminate\Http\Request;
 use App\ArticleCategory;
 use App\Article;
 use App\Category;
 use App\Keyword;
 use App\Slider;
+use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
@@ -88,7 +90,7 @@ class ArticleController extends Controller
 
         ],$messages);
 
-        $article=Article::create($request->all());
+        $article=Article::create($request->except('img_thumbnail'));
         $final_list=array();
         $keywords=array();
         if($request->get('keywords')){
@@ -106,6 +108,16 @@ class ArticleController extends Controller
             }
         }
         $article->keywords()->attach($final_list);
+
+
+        $firstimage = $article->image()->first();
+        $type = str_replace('image/', '', $firstimage->type);
+
+        $file_name = time() . '-' . sha1(time() . "_" . rand(21321, 465465465456));
+        $path = public_path('images/thumbnails') . "/" . $file_name . '.' . $type;
+        $img = Image::make(storage_path('file_manager/') . $firstimage->path)->resize(115,115)->save($path);
+        $article->update(['img_thumbnail' => $img->basename]);
+
 
         flashs('مقاله ذخیره شد','success');
         return back();
@@ -126,6 +138,7 @@ class ArticleController extends Controller
         $messages=array(
 
             'title.required'=>'وارد کردن عنوان مقاله الزامی است',
+            'short.required'=>'وارد کردن خلاصه مقاله الزامی است',
 
 
             'slug.required'=>'وارد کردن کلید ادرس یکتا الزامی است',
@@ -138,6 +151,7 @@ class ArticleController extends Controller
         {
             $this->validate($request,[
                 'title'=>'required',
+                'short'=>'required|',
 
                 'seo_desc'=>'nullable',
 
@@ -150,7 +164,7 @@ class ArticleController extends Controller
         {
             $this->validate($request,[
                 'title'=>'required',
-
+                'short'=>'required|max:92',
                 'seo_desc'=>'nullable',
 
 
@@ -188,16 +202,28 @@ class ArticleController extends Controller
         }
 
         $article->keywords()->sync($final_list);
+        $firstimage = $article->image()->first();
 
+        if(is_null($article->img_thumbnail)){
 
+            $type = str_replace('image/', '', $firstimage->type);
 
-
-
+            $file_name = time() . '-' . sha1(time() . "_" . rand(21321, 465465465456));
+            $path = public_path('images/thumbnails') . "/" . $file_name . '.' . $type;
+            $img = Image::make(storage_path('file_manager/') . $firstimage->path)->resize(115,115)->save($path);
+            $article->update(['img_thumbnail' => $img->basename]);
+        }else{
+            $previous='images/thumbnails/'.$article->thumbnail;
+            $result= File::delete($previous);
+            $type = str_replace('image/', '', $firstimage->type);
+            $file_name = time() . '-' . sha1(time() . "_" . rand(21321, 465465465456));
+            $path = public_path('images/thumbnails') . "/" . $file_name . '.' . $type;
+            $img = Image::make(storage_path('file_manager/') . $firstimage->path)->resize(115,115)->save($path);
+            $article->update(['img_thumbnail' => $img->basename]);
+        }
 
         flashs(' مقاله ویرایش شد','success');
         return back();
-
-
 
 
     }

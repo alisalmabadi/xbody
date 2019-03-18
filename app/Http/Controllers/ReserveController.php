@@ -189,4 +189,16 @@ class ReserveController extends Controller
       //  dd($reserves);
         return view('user.reserve.all_reserve',compact('reserves'));
     }
+
+    public function lastreserves()
+    {
+        $user=User::where([['orginal_id',session()->get('user')['UserID']],['branch_id',session()->get('user')['BranchNo']]])->first();
+
+        $reserves=GetTheUserReserve($user->branch_id,$user->orginal_id);
+
+        $reserves=json_decode($reserves);
+        $reserves=json_decode($reserves);
+        return view('user.reserve.branch_reserves',compact('reserves'));
+
+    }
 }

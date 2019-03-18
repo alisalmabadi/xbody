@@ -114,15 +114,22 @@
                         <label class="col-sm-2 control-label" for="short_id">خلاصه مطلب</label>
                         <div class="col-sm-6">
                             <textarea id="short_id" name="short" placeholder="خلاصه مطلب 100  کاراکتر"  class="form-control" type="text" max="100" >{{old('short')}}</textarea>
+<span class="help-block">حداکثر 90 کاراکتر</span>
+            @if($errors->has('short'))
+                <span class="help block">
+                    <strong>{{$errors->first('short')}}</strong>
+                </span>
+                @endif
+
                         </div>
                     </div>
                     <hr>
-                    <div class="form-group required">
+                  {{--  <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">تصویر بند انگشتی مقاله</label>
 
                         {!! ImageManager::getField(['text' => 'انتخاب عکس', 'class' => 'btn btn-primary', 'field_name' => 'img_thumbnail', 'default' => '1']) !!}
 
-                    </div>
+                    </div>--}}
                     <hr>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">تصویر مقاله</label>

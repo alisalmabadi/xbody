@@ -50,7 +50,8 @@ class HomeController extends Controller
 /*          $categories=Category::where('state','=','1')->get();
           $posts=Post::where('post_type','1')->orderBy('order','ASC')->get();*/
             //$articles=Article::skip(0)->take(4)->get();
-        $articles=Article::orderBy('id','desc')->limit(4)->get();
+/*        $articles=Article::orderBy('id','desc')->limit(4)->get();*/
+            $articles=Article::orderBy('id','desc')->take(4)->get();
 
         $branches = Branch::all()->take(4);
         return view('index_page',compact('menus','slider','articles','branches'));

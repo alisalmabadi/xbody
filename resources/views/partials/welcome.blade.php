@@ -14,7 +14,7 @@
 
     /* Animation */
     .anim-typewriter {
-        animation: typewriter 4s steps(44) 1s infinite normal , blinkTextCursor 500ms steps(44) infinite normal;
+        animation: typewriter 4s steps(44) infinite normal , blinkTextCursor 500ms steps(44) infinite normal;
     }
     @keyframes typewriter{
         from{width: 0;}

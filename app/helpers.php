@@ -814,6 +814,20 @@ function getpackages($branch_id){
        return view('errors.database');
    }
 }
+
+function GetTheUserReserve($branch_id,$user_id){
+    $token='c6ef92be07fbd8091aaff53e455f6a24b1bae4d4';
+    $api_url=env('WEBSERIVE_URL','http://192.168.1.35:8182/').'Users/GetTheUserReserve';
+    try{
+        $response=file_get_contents($api_url.'?id='.$branch_id.'&userID='.$user_id.'&token='.$token);
+        return $response;
+    }catch (Exception $e){
+        report($e);
+        Log::error($e);
+        return view('errors.database');
+    }
+}
+
 function Convertnumber2english($srting) {
     $srting = str_replace('0','۰', $srting);
     $srting = str_replace('1','۱', $srting);
@@ -899,7 +913,7 @@ function SetReservationInfo($json){
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $result=curl_exec($curl);
     return $result;
-    dd($result);
+
 }
 
 function shamsi($data){
@@ -916,4 +930,31 @@ function shamsi($data){
 function branchName($id){
     $branch=\App\Branch::where('orginal_id',$id)->first();
     return $branch->name;
+}
+
+function PersianDay($id){
+    switch ($id) {
+        case 1:
+            return 'شنبه';
+            break;
+        case 2:
+            return 'یکشنبه';
+            break;
+        case 3:
+            return 'دوشنبه';
+            break;
+        case 4:
+            return 'سه شنبه';
+            break;
+        case 5:
+            return 'چهارشنبه';
+            break;
+        case 6:
+            return 'پنجشنبه';
+            break;
+        case 7:
+            return 'جمعه';
+            break;
+
+    }
 }
