@@ -269,4 +269,11 @@ class GalleryController extends Controller
 
         return redirect()->route('admin.gallery.edit' , $gallery);
     }
+
+
+    public function index_page()
+    {
+        dd('asd');
+        return view('gallery.galleries');
+    }
 }

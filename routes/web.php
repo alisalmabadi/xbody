@@ -235,6 +235,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::post('gallery/photo/addPhotoToGallery/{gallery}' , 'GalleryController@addPhoto')->name('gallery.photo.add_photo');
     Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
 
+    /*admin interviewCategory routes*/
+    Route::resource('interviewCategory' , 'InterviewCategoryController' , ['except' ,['destroy']]);
+
+    /*admin interview routes*/
+    Route::get('interview/changeStatus/{interview}' , ['uses'=>'InterviewController@changeStatus' , 'as'=>'interview.changeStatus']);
+    Route::post('/interview/destroy' , 'InterviewController@destroy')->name('interview.destroy');
+    Route::resource('interview' , 'InterviewController' , ['except' ,['destroy']]);
+
 });
 //product website side routes index
 
@@ -347,6 +355,12 @@ Route::get('sendsms',function (){
 
 /*message routes*/
 Route::post('message/store' , 'messageController@store')->name('message.store');
+
+/*gallery routes*/
+//Route::get('/gallery' , 'GalleryController@index_page')->name('gallery.index_page');
+Route::get('g/gallery' , function (){
+    return view('gallery.galleries');
+});
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

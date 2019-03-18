@@ -354,6 +354,21 @@
                             <li class="@if(strpos($current_route_name, 'message.')===6) active @endif"><a href="{{route('admin.message.index')}}"><i class="fa fa-th"></i>کلیه پیام ها</a></li>
                         </ul>
                     </li>
+
+                    <li class="@if(strpos($current_route_name, 'interview')===6 || strpos($current_route_name, 'interviewCategory')) active @endif treeview">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i> <span>مصاحبه ها</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@if(strpos($current_route_name, 'interview.')===6) active @endif"><a href="{{route('admin.interviewCategory.index')}}"><i class="fa fa-th"></i>دسته بندی مصاحبه ها</a></li>
+                            <li class="@if(strpos($current_route_name, 'interview.')===6) active @endif"><a href="{{route('admin.interview.create')}}"><i class="fa fa-th"></i>مصاحبه جدید</a></li>
+                            <li class="@if(strpos($current_route_name, 'interview.')===6) active @endif"><a href="{{route('admin.interview.index')}}"><i class="fa fa-th"></i>کلیه مصاحبه ها</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
