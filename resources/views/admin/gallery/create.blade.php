@@ -36,13 +36,13 @@
                         <label class="col-sm-2 control-label" for="name">نام <label style="color:red;">*</label> </label>
                         <div class="col-sm-4">
                             <input id="title" name="name" value="{{old('name')}}" placeholder="نام"  class="form-control" type="text">
-                                <label style="color: red;display: none;" id="name_error">{{$errors->first('name')}}</label>
+                            <label style="color: red;display: none;" id="name_error">{{$errors->first('name')}}</label>
                         </div>
 
                         <label class="col-sm-2 control-label" for="slug">نام انگلیسی <label style="color:red;">*</label></label>
                         <div class="col-sm-4">
                             <input id="title" name="slug" value="{{old('slug')}}" placeholder="فقط حروف انگلیسی وارد شود, بدون فاصله"  class="form-control" type="text">
-                                <label style="color: red;display: none;" id="slug_error">{{$errors->first('slug')}}</label>
+                            <label style="color: red;display: none;" id="slug_error">{{$errors->first('slug')}}</label>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                                 <option value="1">فعال</option>
                                 <option value="0">غیر فعال</option>
                             </select>
-                                <label style="color: red;display: none;" id="status_error">{{$errors->first('status')}}</label>
+                            <label style="color: red;display: none;" id="status_error">{{$errors->first('status')}}</label>
                         </div>
 
                         <label class="col-sm-2 control-label" for="slug">نوع گالری <label style="color:red;">*</label></label>
@@ -64,7 +64,7 @@
                                 <option id="picture_value" value="0">گالری عکس</option>
                                 <option id="video_value" value="1">گالری ویدئو</option>
                             </select>
-                                <label style="color: red;display: none;" id="type_error">{{$errors->first('type')}}</label>
+                            <label style="color: red;display: none;" id="type_error">{{$errors->first('type')}}</label>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                         <label class="col-sm-2 control-label" for="slug">انتخاب عکس برای هدر گالری<label style="color:red;">*</label></label>
                         <div class="col-sm-10">
                             <input type="file" name="image_original" id="image_original" class="form-control">
-                                <label style="color: red; display: none;" id="image_original_error">{{$errors->first('image_original')}}</label>
+                            <label style="color: red; display: none;" id="image_original_error">{{$errors->first('image_original')}}</label>
                             <input type="hidden" name="hidden_image_original" id="hidden_image_original">
                         </div>
                     </div>
@@ -121,25 +121,25 @@
                         confirmButtonText: 'بله'
                     }).then((result) => {
                         if (result.value) {
-                            Swal.fire(
-                                'تغییر حالت!',
-                                'موفقیت آمیز',
-                                'success'
-                            )
-                        $("#result-gallery").html('');
+                    Swal.fire(
+                        'تغییر حالت!',
+                        'موفقیت آمیز',
+                        'success'
+                    )
+                    $("#result-gallery").html('');
 
-                        $("#div_select_photos").css('display' , 'block');
-                        $("#add-new-photo").css('display' , 'block');
-                        $("#div_select_videos").css('display' , 'none');
-                        $("#add-new-video").css('display' , 'none');
+                    $("#div_select_photos").css('display' , 'block');
+                    $("#add-new-photo").css('display' , 'block');
+                    $("#div_select_videos").css('display' , 'none');
+                    $("#add-new-video").css('display' , 'none');
 
-                        $("#add-file-label").text('');
-                        $("#add-file-label").append('<i class="fa fa-arrow-down"></i>' + ' انتخاب تصاویر برای این گالری ' +'<i class="fa fa-arrow-down"></i>');
-                        }
-                        else{
-                            $("#select_type").find("#video_value").prop('selected' , 'selected');
-                        }
-                    })
+                    $("#add-file-label").text('');
+                    $("#add-file-label").append('<i class="fa fa-arrow-down"></i>' + ' انتخاب تصاویر برای این گالری ' +'<i class="fa fa-arrow-down"></i>');
+                }
+                else{
+                    $("#select_type").find("#video_value").prop('selected' , 'selected');
+                }
+                })
                 }
                 else{
                     $("#div_select_photos").css('display' , 'block');
@@ -165,25 +165,25 @@
                         confirmButtonText: 'بله'
                     }).then((result) => {
                         if (result.value) {
-                            Swal.fire(
-                                'تغییر حالت!',
-                                'موفقیت آمیز',
-                                'success'
-                            )
-                        $("#result-gallery").html('');
+                    Swal.fire(
+                        'تغییر حالت!',
+                        'موفقیت آمیز',
+                        'success'
+                    )
+                    $("#result-gallery").html('');
 
-                        $("#div_select_photos").css('display', 'none');
-                        $("#div_select_videos").css('display', 'block');
-                        $("#add-new-photo").css('display', 'none');
-                        $("#add-new-video").css('display', 'block');
+                    $("#div_select_photos").css('display', 'none');
+                    $("#div_select_videos").css('display', 'block');
+                    $("#add-new-photo").css('display', 'none');
+                    $("#add-new-video").css('display', 'block');
 
-                        $("#add-file-label").text('');
-                        $("#add-file-label").append('<i class="fa fa-arrow-down"></i>' + ' انتخاب ویدئوها برای این گالری ' + '<i class="fa fa-arrow-down"></i>');
-                        }
-                        else{
-                            $("#select_type").find("#picture_value").prop('selected' , 'selected');
-                        }
-                    })
+                    $("#add-file-label").text('');
+                    $("#add-file-label").append('<i class="fa fa-arrow-down"></i>' + ' انتخاب ویدئوها برای این گالری ' + '<i class="fa fa-arrow-down"></i>');
+                }
+                else{
+                    $("#select_type").find("#picture_value").prop('selected' , 'selected');
+                }
+                })
                 }
                 else{
                     $("#div_select_photos").css('display', 'none');
@@ -209,7 +209,7 @@
 
 
 
-{{--Add new Image functions--}}
+    {{--Add new Image functions--}}
     <script>
         $("#add-new-photo").on('click' , function () {
             $("#result-gallery").append('<div class="div_whole_photos row" id="div_whole_photos" style="margin-top:2%;">\n' +
@@ -231,11 +231,11 @@
                 '                        </div>');
         });
     </script>
-{{--End of add new image functions--}}
+    {{--End of add new image functions--}}
 
 
 
-{{--namayesh e aks bedoon e upload--}}
+    {{--namayesh e aks bedoon e upload--}}
     <script>
         /*** namayesh e tasvire entekhab shode bedoone upload ***/
         function readURL(input) {
@@ -255,11 +255,11 @@
             readURL(this);
         });
     </script>
-{{--END OF namayesh e aks bedoon e upload--}}
+    {{--END OF namayesh e aks bedoon e upload--}}
 
 
 
-{{--namayesh e video before upload--}}
+    {{--namayesh e video before upload--}}
     <script>
         $(document).on("change", ".file_multi_video:last", function(evt) {
             var $source = $('.video_here:last');
@@ -267,11 +267,11 @@
             $source.parent()[0].load();
         });
     </script>
-{{--END OF namayesh e video before upload--}}
+    {{--END OF namayesh e video before upload--}}
 
 
 
-{{--Add new video--}}
+    {{--Add new video--}}
     <script>
         $("#add-new-video").on('click' , function () {
             $("#result-gallery").append('<div class="div_whole_video row" id="div_whole_video" style="margin-top: 5%;">\n' +
@@ -285,14 +285,14 @@
                 '                        </div>\n' +
                 '                        <div class="col-md-4">\n' +
                 '                            <input type="hidden" value="" name="gallery_video_video_original[]">\n' +
-                    '<input type="file" name="gallery_video_video_original[]" class="btn btn-primary file_multi_video" style="width: 92%;t" accept="video/*">'+
+                '<input type="file" name="gallery_video_video_original[]" class="btn btn-primary file_multi_video" style="width: 92%;t" accept="video/*">'+
                 '<video width="400" controls autoplay>\n' +
                 '                            <source src="mov_bbb.mp4" id="video_here" class="video_here">\n' +
                 '                        </video>' +
-        '                               </div>\n');
+                '                               </div>\n');
         });
     </script>
-{{--END OF Add new video--}}
+    {{--END OF Add new video--}}
 
 
 
@@ -345,11 +345,11 @@
             $("#type_error").css('display' , 'none');
             $("#image_original_error").css('display' , 'none');
 
-           var data = $("#form-category").serialize();
-           var url = $("#btn_form_validation").attr('data-url');
-           var type = $("#form-category").attr('method');
+            var data = $("#form-category").serialize();
+            var url = $("#btn_form_validation").attr('data-url');
+            var type = $("#form-category").attr('method');
 
-           $.ajax({
+            $.ajax({
                 data:data,
                 url:url,
                 type:type,
@@ -359,32 +359,32 @@
                     $("#register_wait").css('display' , 'none');
                     $("#submit_button_of_form").trigger('click');
                 },
-               error:function (error) {
-                   console.log(error.responseJSON.errors);
-                   if(error.responseJSON.errors.name){
-                       $("#name_error").css('display' , 'block');
-                       $("#name_error").text(error.responseJSON.errors.name[0]);
-                   }
-                   if(error.responseJSON.errors.slug){
-                       $("#slug_error").css('display' , 'block');
-                       $("#slug_error").text(error.responseJSON.errors.slug[0]);
-                   }
-                   if(error.responseJSON.errors.status){
-                       $("#status_error").css('display' , 'block');
-                       $("#status_error").text(error.responseJSON.errors.status[0]);
-                   }
-                   if(error.responseJSON.errors.type){
-                       $("#type_error").css('display' , 'block');
-                       $("#type_error").text(error.responseJSON.errors.type[0]);
-                   }
-                   if(error.responseJSON.errors.hidden_image_original){
-                       $("#image_original_error").css('display' , 'block');
-                       $("#image_original_error").text(error.responseJSON.errors.hidden_image_original[0]);
-                   }
+                error:function (error) {
+                    console.log(error.responseJSON.errors);
+                    if(error.responseJSON.errors.name){
+                        $("#name_error").css('display' , 'block');
+                        $("#name_error").text(error.responseJSON.errors.name[0]);
+                    }
+                    if(error.responseJSON.errors.slug){
+                        $("#slug_error").css('display' , 'block');
+                        $("#slug_error").text(error.responseJSON.errors.slug[0]);
+                    }
+                    if(error.responseJSON.errors.status){
+                        $("#status_error").css('display' , 'block');
+                        $("#status_error").text(error.responseJSON.errors.status[0]);
+                    }
+                    if(error.responseJSON.errors.type){
+                        $("#type_error").css('display' , 'block');
+                        $("#type_error").text(error.responseJSON.errors.type[0]);
+                    }
+                    if(error.responseJSON.errors.hidden_image_original){
+                        $("#image_original_error").css('display' , 'block');
+                        $("#image_original_error").text(error.responseJSON.errors.hidden_image_original[0]);
+                    }
 
-                   $("#register_wait").css('display' , 'none');
-               }
-           });
+                    $("#register_wait").css('display' , 'none');
+                }
+            });
         });
     </script>
     {{--END OF ajax validation--}}
