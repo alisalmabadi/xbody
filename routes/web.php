@@ -358,9 +358,14 @@ Route::get('sendsms',function (){
 /*message routes*/
 Route::post('message/store' , 'messageController@store')->name('message.store');
 
-/*gallery routes*/
+/*Interview routes*/
 Route::get('/interview/index' , 'InterviewController@index_page')->name('gallery.index_page');
 Route::get('/interview/showByCategory' , 'InterviewController@showByCategory')->name('interview.showByCategory');
+
+/*Gallery routes*/
+Route::get('/gallery/index' , 'GalleryController@index_page')->name('gallery.index_page');
+Route::get('/gallery/showByCategory' , 'GalleryController@showByCategory')->name('gallery.showByCategory');
+
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

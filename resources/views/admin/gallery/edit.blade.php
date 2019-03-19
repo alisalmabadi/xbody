@@ -64,9 +64,18 @@
                             </select>
                             <label style="color: red;display: none;" id="type_error">{{$errors->first('type')}}</label>
                         </div>
+                    </div>
 
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="desc">توضیحات</label>
+                            <div class="col-sm-10">
+                                <textarea id="text" name="desc">{{$gallery->desc}}</textarea>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="slug">هدر گالری<label style="color:red;">*</label></label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-10">
                             <img src="{{asset($gallery->image_original)}}" style="width: 100px; height: 100px;">
                         </div>
                     </div>

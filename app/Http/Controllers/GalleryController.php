@@ -277,4 +277,27 @@ class GalleryController extends Controller
 
         return redirect()->route('admin.gallery.edit' , $gallery);
     }
+
+
+
+    public function index_page()
+    {
+        $galleries = Gallery::where('status' , '1')->get();
+        return view('gallery.index_page' , compact('galleries'));
+    }
+
+
+    public function showByCategory(Request $request)
+    {
+        /*Gallery_photos*/
+        if($request['type'] == '0')
+        {
+            $gallery = GalleryPhoto::where('gallery_id' , $request['id'])->get();
+        }/*Gallery_videos*/
+        else if($request['type'] == '1')
+        {
+            $gallery = GalleryVideos::where('gallery_id' , $request['id'])->get();
+        }
+        return response($gallery);
+    }
 }
