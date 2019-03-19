@@ -97,51 +97,51 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                            @if(!empty($gallery->photos))
-                            @foreach($gallery->photos as $image)
-                                <tr>
-                                    <td class="text-center">{{$image->title}}</td>
-                                    <td class="text-center">{{$image->alt}}</td>
-                                    <td class="text-center">
-                                        <img src="{{asset($image->image_path)}}" style="width: 200px; height: 200px;">
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="del_photo" href="{{route('admin.gallery.deletePhotoFromGallery' , ['gallery'=>$gallery , 'photo'=>$image])}}"><button type="button" class="btn btn-danger">حذف از گالری</button></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            @endif
+                                @if(!empty($gallery->photos))
+                                    @foreach($gallery->photos as $image)
+                                        <tr>
+                                            <td class="text-center">{{$image->title}}</td>
+                                            <td class="text-center">{{$image->alt}}</td>
+                                            <td class="text-center">
+                                                <img src="{{asset($image->image_path)}}" style="width: 200px; height: 200px;">
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="del_photo" href="{{route('admin.gallery.deletePhotoFromGallery' , ['gallery'=>$gallery , 'photo'=>$image])}}"><button type="button" class="btn btn-danger">حذف از گالری</button></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
 
-                        @elseif($gallery->type == 1)
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <td class="text-center">نام</td>
-                                    <td class="text-center">ویدئو</td>
-                                    <td class="text-center">عملیات</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                            @if(!empty($gallery->videos))
-                            @foreach($gallery->videos as $video)
-                                <tr>
-                                    <td class="text-center">{{$video->title}}</td>
-                                    <td class="text-center">
-                                        <video style="width:10%;" autoplay>
-                                            <source src="{{asset($video->video_path)}}">
-                                        </video>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="del_video" href="{{route('admin.gallery.delete_video_from_gallery',['gallery'=>$gallery,'video'=> $video])}}">
-                                            <button type="button" class="btn btn-danger">حذف از گالری</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            @endif
-                        @endif
-                            </tbody>
-                        </table>
+                                @elseif($gallery->type == 1)
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td class="text-center">نام</td>
+                                            <td class="text-center">ویدئو</td>
+                                            <td class="text-center">عملیات</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @if(!empty($gallery->videos))
+                                            @foreach($gallery->videos as $video)
+                                                <tr>
+                                                    <td class="text-center">{{$video->title}}</td>
+                                                    <td class="text-center">
+                                                        <video style="width:10%;" autoplay>
+                                                            <source src="{{asset($video->video_path)}}">
+                                                        </video>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a class="del_video" href="{{route('admin.gallery.delete_video_from_gallery',['gallery'=>$gallery,'video'=> $video])}}">
+                                                            <button type="button" class="btn btn-danger">حذف از گالری</button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                        @endif
+                                        </tbody>
+                                    </table>
                     </div>
                 </form>
             </div>
@@ -244,30 +244,30 @@
                 confirmButtonText: 'بله'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'حذف',
-                        'موفقیت آمیز',
-                        'success'
-                    )
-                    /*ajax deleting*/
-                    var url = $(this).attr('href');
-                    $.get({
-                        data:'',
-                        url:url,
-                        type:'GET',
-                        success:function(){
-                          location.reload();
-                        },
-                        error:function(){
-                            console.log('errr');
-                        }
-                    });
-                    /*END OF ajax deleting*/
-                }
-                else{
-                    e.preventDefault();
-                }
-            });
+                Swal.fire(
+                    'حذف',
+                    'موفقیت آمیز',
+                    'success'
+                )
+                /*ajax deleting*/
+                var url = $(this).attr('href');
+                $.get({
+                    data:'',
+                    url:url,
+                    type:'GET',
+                    success:function(){
+                        location.reload();
+                    },
+                    error:function(){
+                        console.log('errr');
+                    }
+                });
+                /*END OF ajax deleting*/
+            }
+        else{
+                e.preventDefault();
+            }
+        });
         });
     </script>
     {{--END OF Delete video--}}
@@ -276,7 +276,7 @@
     {{--show video modal and add new one--}}
     <script>
         $("#add-new-video").on('click' , function () {
-           $("#modal_add_gallery_videos").modal("show");
+            $("#modal_add_gallery_videos").modal("show");
         });
     </script>
     {{--END OF show video modal and add new one--}}
@@ -315,30 +315,30 @@
                 confirmButtonText: 'بله'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'حذف',
-                        'موفقیت آمیز',
-                        'success'
-                    )
-                    /*ajax deleting*/
-                    var url = $(this).attr('href');
-                    $.get({
-                        data:'',
-                        url:url,
-                        type:'GET',
-                        success:function(){
-                            location.reload();
-                        },
-                        error:function(){
-                            console.log('errr_photo');
-                        }
-                    });
-                    /*END OF ajax deleting*/
-                }
-                else{
-                    e.preventDefault();
-                }
-            });
+                Swal.fire(
+                    'حذف',
+                    'موفقیت آمیز',
+                    'success'
+                )
+                /*ajax deleting*/
+                var url = $(this).attr('href');
+                $.get({
+                    data:'',
+                    url:url,
+                    type:'GET',
+                    success:function(){
+                        location.reload();
+                    },
+                    error:function(){
+                        console.log('errr_photo');
+                    }
+                });
+                /*END OF ajax deleting*/
+            }
+        else{
+                e.preventDefault();
+            }
+        });
         });
     </script>
     {{--END OF Delete photo--}}
