@@ -24,7 +24,7 @@
                  $color='sabz';
                      }
         @endphp
-                            <div class="cover-bool col-lg-4 col-md-6 col-sm-6 col-6  @if($m==0) wow slideInUp @elseif($m==1) wow slideInUp @elseif($m==2) wow slideInUp  @elseif($m==3) wow slideInUp @else  wow slideInUp  @endif"  data-wow-duration="3s" style="">
+                            <div class="cover-bool col-lg-4 col-md-6 col-sm-12 col-12  @if($m==0) wow slideInUp @elseif($m==1) wow slideInUp @elseif($m==2) wow slideInUp  @elseif($m==3) wow slideInUp @else  wow slideInUp  @endif"  data-wow-duration="3s" style="">
                                 <div class="item-fool">
                                     <a href="#">
                                         <div class="front-item">
@@ -72,7 +72,7 @@
                             @endphp
                         @endforeach
 
-                        <div class="cover-bool col-lg-4 col-md-6 col-sm-6 col-6   wow slideInUp"  data-wow-duration="3s" style="">
+                        <div class="cover-bool col-lg-4 col-md-12 col-sm-6 col-12   wow slideInUp"  data-wow-duration="3s" style="">
                             <div class="item-fool">
                                 <a href="#">
                                     <div class="front-item">
@@ -117,7 +117,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="cover-bool col-lg-4 col-md-6 col-sm-6 col-6   wow slideInUp"  data-wow-duration="3s" style="">
+                        <div class="cover-bool col-lg-4 col-md-6 col-sm-12 col-12   wow slideInUp"  data-wow-duration="3s" style="">
                             <div class="item-fool">
                                 <a href="#">
                                     <div class="front-item">
