@@ -80,6 +80,7 @@
         color:white
     }
     </style>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/multislider.css')}}">
     @endsection
     @section('main_content')
 
@@ -90,14 +91,25 @@
         @include('partials.cards')
         @include('partials.item_only')
         @include('partials.attr2')
+{{--
         @include('partials.blog')
+--}}
+<br>
+        @include('partials.blog2')
 
 
 
-@section('footer')
+    @section('footer')
+    <script src="{{asset('js/multislider.min.js')}}" type="text/javascript"></script>
     <script>
         new WOW().init();
+        $('#exampleSlider').multislider({
+            interval: 3000,
+            /*slideAll: true,*/
+            duration: 750
+        });
     </script>
+
 {{--
     <script src="{{asset('js/jquery.paroller.min.js')}}"></script>
 --}}
