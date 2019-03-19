@@ -1,0 +1,85 @@
+
+#exampleSlider {
+  position: relative;
+}
+@media (max-width: 767px) {
+  #exampleSlider {
+    border-color: transparent;
+  }
+}
+#exampleSlider .MS-content {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-top: 27px;
+  padding-bottom: 20px;
+}
+@media (max-width: 767px) {
+  #exampleSlider .MS-content {
+    margin: 0;
+  }
+}
+#exampleSlider .MS-content .item {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  width: 25%;
+}
+@media (max-width: 1200px) {
+  #exampleSlider .MS-content .item {
+    width: 25%;
+  }
+}
+@media (max-width: 992px) {
+  #exampleSlider .MS-content .item {
+    width: 33.3333%;
+  }
+}
+@media (max-width: 767px) {
+  #exampleSlider .MS-content .item {
+    width: 100%;
+  }
+}
+#exampleSlider .MS-content .item p {
+  white-space: pre-line;
+}
+#exampleSlider .MS-controls span {
+  position: absolute;
+  outline: 0;
+  top: 35px;
+}
+@media (max-width: 767px) {
+  #exampleSlider .MS-controls span {
+    display: none;
+  }
+}
+#exampleSlider .MS-controls button:hover {
+  cursor: pointer;
+}
+#exampleSlider .MS-controls .MS-left {
+  left: 10px;
+  background: white;
+  border-radius: 138%;
+  padding: 9px;
+  width: 32px;
+  top: 139px;
+  box-shadow: 5px 5px 42px 2px #000000ab;
+}
+@media (max-width: 992px) {
+  #exampleSlider .MS-controls .MS-left {
+    left: -2px;
+  }
+}
+#exampleSlider .MS-controls .MS-right {
+  right: 10px;
+  background: white;
+  border-radius: 138%;
+  padding: 9px;
+  width: 32px;
+  top: 139px;
+  box-shadow: 5px 5px 42px 2px #000000ab;
+}
+@media (max-width: 992px) {
+  #exampleSlider .MS-controls .MS-right {
+    right: -2px;
+  }
+}
