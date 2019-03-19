@@ -12,7 +12,7 @@
     <div class="row section-2-full text-center">
         <div class="col-lg-6 col-md-12">
             <div class="section-2-full-left">
-                <img class="card-img-top" src="{{asset('images/index/x-body/danble.gif')}}" style="height: 370px;" alt="">
+                <img class="card-img-top" src="{{asset('images/index/x-body/danble.gif')}}" style="height: 395px !important; width: 295px;" alt="">
             </div>
         </div>
         <div class="col-lg-6 col-md-12">
