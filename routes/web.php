@@ -360,8 +360,10 @@ Route::post('message/store' , 'messageController@store')->name('message.store');
 
 /*gallery routes*/
 //Route::get('/gallery' , 'GalleryController@index_page')->name('gallery.index_page');
-Route::get('g/gallery' , function (){
-    return view('gallery.galleries');
+Route::group(['prefix'=>'gallery','as'=>'gallery.'] , function (){
+    Route::get('images','GalleryController@index_photo')->name('index');
+    Route::post('getimages','GalleryController@getimages')->name('getimages');
+
 });
 
 /* contact us route, test, delete this later */
