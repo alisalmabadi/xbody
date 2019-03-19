@@ -274,6 +274,26 @@ class GalleryController extends Controller
     public function index_page()
     {
         dd('asd');
-        return view('gallery.galleries');
+        return view('galleries.gallery_photo');
+    }
+
+
+    public function index_photo()
+    {
+       /* $galleries=Gallery::where('status',1)->with(['photos'=>function($query){
+            $query->where('status',1);
+        }])->get();*/
+
+        $galleries=Gallery::whereHas('photos')->where('status',1)->get();
+
+      //  dd($galleries);
+        return view('galleries.gallery_photo',compact('galleries'));
+    }
+
+    public function getimages(Request $request)
+    {
+      /*  $gallery_images=Gallery::where([['status',1],['id',$request->id]])->with*/
+      $galleryphotos=GalleryPhoto::where([['status',1],['gallery_id',$request->id]])->get();
+      return response()->json($galleryphotos,200);
     }
 }
