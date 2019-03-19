@@ -1,7 +1,7 @@
 <!------------------------------ Item-Only ------------------------->
 
 <div class="container-fluid text-center Item-full">
-    <div class="" style="width: 100%;height: 119px;position: absolute;overflow: visible;left: 0px!important;margin-top: -44px;z-index: 1;">
+    <div class="item-box-only" style="width: 100%;height: 119px;position: absolute;overflow: visible;left: 0px!important;margin-top: -44px;z-index: 1;">
         <div style="width: 100%;height: 100%; position: absolute;overflow: hidden !important;;">
             <div class="transform" style="
        right: -5px;
@@ -23,7 +23,7 @@
 
         <div class="col-lg-5 col-md-6 wow slideInUp" data-wow-duration="4s">
             <div class="img-item-only">
-                <img src="{{asset('images/index/style-body23.png')}}" alt="">
+                <img src="{{asset('images/Pre-comp-1_3-selective.gif')}}" alt="">
             </div>
         </div>
         <div class="col-lg-7 col-md-6 wow fadeInRight" data-wow-duration="4s">
