@@ -213,7 +213,7 @@
     }
     .footer-fine2 .footer-left p{
         /*padding-left: 20px;*/
-        font-size: 2vw;
+        font-size: 13px;
         text-align:center;
     }
     
@@ -223,7 +223,7 @@
         /*font-weight: bolder;*/
         font-family: iranyekan;
         text-align: center;
-        font-size: 2vw;
+        font-size: 5vw;
         color: #dadcdc;
         /*padding-right: 40px;*/
         

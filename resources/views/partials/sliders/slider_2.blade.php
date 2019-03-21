@@ -1,6 +1,6 @@
 @if($slider)
 <!------------------------ SLIDER-2 -->
-<div id="carouselExampleIndicators" class="carousel slide slider-2" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide slider-2 d-none d-sm-block" data-ride="carousel">
     <ol class="carousel-indicators">
         @foreach($slider->slides as $slides)
         <li data-target="#carouselExampleIndicators" data-slide-to="{{$slides->id}}" class="active"></li>

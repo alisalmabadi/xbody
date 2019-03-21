@@ -316,6 +316,7 @@
                         </ul>
                     </li>
 
+
                     <li class="@if(strpos($current_route_name, 'gallery.')===6) active @endif treeview">
                         <a href="#">
                             <i class="fa fa-shopping-bag"></i> <span>گالری</span>

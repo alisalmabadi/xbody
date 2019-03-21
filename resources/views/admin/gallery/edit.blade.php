@@ -106,6 +106,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
                             @if(!empty($gallery->photos))
                             @foreach($gallery->photos as $image)
                                 <tr>
@@ -251,30 +252,30 @@
                 confirmButtonText: 'بله'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'حذف',
-                        'موفقیت آمیز',
-                        'success'
-                    )
-                    /*ajax deleting*/
-                    var url = $(this).attr('href');
-                    $.get({
-                        data:'',
-                        url:url,
-                        type:'GET',
-                        success:function(){
-                          location.reload();
-                        },
-                        error:function(){
-                            console.log('errr');
-                        }
-                    });
-                    /*END OF ajax deleting*/
-                }
-                else{
-                    e.preventDefault();
-                }
-            });
+                Swal.fire(
+                    'حذف',
+                    'موفقیت آمیز',
+                    'success'
+                )
+                /*ajax deleting*/
+                var url = $(this).attr('href');
+                $.get({
+                    data:'',
+                    url:url,
+                    type:'GET',
+                    success:function(){
+                        location.reload();
+                    },
+                    error:function(){
+                        console.log('errr');
+                    }
+                });
+                /*END OF ajax deleting*/
+            }
+        else{
+                e.preventDefault();
+            }
+        });
         });
     </script>
     {{--END OF Delete video--}}
@@ -283,7 +284,7 @@
     {{--show video modal and add new one--}}
     <script>
         $("#add-new-video").on('click' , function () {
-           $("#modal_add_gallery_videos").modal("show");
+            $("#modal_add_gallery_videos").modal("show");
         });
     </script>
     {{--END OF show video modal and add new one--}}
@@ -330,30 +331,30 @@
                 confirmButtonText: 'بله'
             }).then((result) => {
                 if (result.value) {
-                    Swal.fire(
-                        'حذف',
-                        'موفقیت آمیز',
-                        'success'
-                    )
-                    /*ajax deleting*/
-                    var url = $(this).attr('href');
-                    $.get({
-                        data:'',
-                        url:url,
-                        type:'GET',
-                        success:function(){
-                            location.reload();
-                        },
-                        error:function(){
-                            console.log('errr_photo');
-                        }
-                    });
-                    /*END OF ajax deleting*/
-                }
-                else{
-                    e.preventDefault();
-                }
-            });
+                Swal.fire(
+                    'حذف',
+                    'موفقیت آمیز',
+                    'success'
+                )
+                /*ajax deleting*/
+                var url = $(this).attr('href');
+                $.get({
+                    data:'',
+                    url:url,
+                    type:'GET',
+                    success:function(){
+                        location.reload();
+                    },
+                    error:function(){
+                        console.log('errr_photo');
+                    }
+                });
+                /*END OF ajax deleting*/
+            }
+        else{
+                e.preventDefault();
+            }
+        });
         });
     </script>
     {{--END OF Delete photo--}}

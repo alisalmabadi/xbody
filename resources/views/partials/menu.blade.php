@@ -4,7 +4,12 @@
     <div class="container-fluid">
 
         <div class="responsive-menu-icon">
-            <img src="{{asset('images/index/menu.svg')}}" alt="">
+            <img src="{{asset('images/backgrounds/menu.png')}}"  alt="" style="-webkit-mask-image: url(images/index/menu.svg);
+       width: 26px;
+    height: 28px;
+    -webkit-mask-size: auto;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;">
         </div>
         <ul class="menu-level-1">
 
