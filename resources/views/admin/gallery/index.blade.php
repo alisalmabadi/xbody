@@ -36,7 +36,7 @@
                                 <td class="text-center">نام</td>
                                 <td class="text-center">نام انگلیسی</td>
                                 <td class="text-center">تصویر</td>
-                                <td class="text-center">نوع تصویر</td>
+                                <td class="text-center">توضیحات</td>
                                 <td class="text-center">وضعیت</td>
                                 <td class="text-center">نوع گالری</td>
                                 <td class="text-center">عملیات</td>
@@ -53,7 +53,7 @@
                                     <td class="text-center">
                                         <img src="{{asset($gallery->image_original)}}" style="width: 100px; height: 100px;">
                                     </td>
-                                    <td class="text-center">{{$gallery->image_type}}</td>
+                                    <td class="text-center">{{$gallery->desc}}</td>
                                     <td class="text-center">
                                         @if($gallery->status == 0)
                                             <a href="{{route('admin.gallery.changeStatus' , $gallery)}}"><button class="btn btn-danger" type="button">غیر فعال</button></a>

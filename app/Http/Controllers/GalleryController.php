@@ -6,6 +6,7 @@ use App\Gallery;
 use App\GalleryPhoto;
 use App\GalleryVideos;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class GalleryController extends Controller
 {
@@ -68,13 +69,19 @@ class GalleryController extends Controller
         $image_type = $request['image_original']->getClientOriginalExtension();
         $request['image_original']->move($file_url , $file_name);
 
+        /*upload gallery_header thumbnail*/
+        $path = public_path('Gallery/thumbnail') . "/" . $file_name;
+        $img = Image::make(public_path('Gallery/'.$request['slug'].'/') . $file_name)->resize(115,115)->save($path);
+        $thumbnail = 'Gallery/thumbnail/'.$img->basename;
+
         $gallery = new Gallery();
         $gallery = $gallery->create([
            'name' => $request['name'],
            'slug' => $request['slug'],
+            'desc'=> $request['desc'],
             'image_original' => $file_url . '/' . $file_name,
             'image_type' => $image_type,
-            'image_thumbnail' => 'later :|',
+            'image_thumbnail' => $thumbnail,
             'status' => $request['status'],
             'type' => $request['type']
         ]);
@@ -122,18 +129,18 @@ class GalleryController extends Controller
             foreach (array_combine($titles,$videos) as $title=>$video)
             {
                 /*Upload*/
-                $video_name = $gallery['slug'].'_video_'.sha1($video->getClientOriginalName()).'.'.$video->getClientOriginalExtension();
+                /*$video_name = $gallery['slug'].'_video_'.sha1($video->getClientOriginalName()).'.'.$video->getClientOriginalExtension();
                 $video_url = 'Gallery/' . $gallery['slug'] . '/' . 'Videos';
                 $video_type = $video->getClientOriginalExtension();
-                $video->move($video_url , $video_name);
+                $video->move($video_url , $video_name);*/
 
                 /*save to database*/
                 $g_v = new GalleryVideos();
                 $g_v->create([
                     'gallery_id' => $gallery->id,
                     'title' => $title,
-                    'video_path' => $video_url .'/'. $video_name,
-                    'video_type' => $video_type,
+                    'video_path' => $video,
+                    'video_type' => 'from aparat',
                     'video_thumbnail' => ':|',
                     'status' => '1',
                 ]);
@@ -180,7 +187,8 @@ class GalleryController extends Controller
     {
         $gallery->update([
             'status' => $request['status'],
-            'name' => $request['name']
+            'name' => $request['name'],
+            'desc' => $request['desc'],
         ]);
         return redirect()->route('admin.gallery.index');
     }
@@ -220,18 +228,18 @@ class GalleryController extends Controller
     public function addVideo(Request $request , Gallery $gallery)
     {
         /*upload e video*/
-        $video = $request['gallery_videos_video_original'];
+        /*$video = $request['gallery_videos_video_original'];
         $video_name = $gallery->slug.'_video_'.sha1($video->getClientOriginalName()).'.'.$video->getClientOriginalExtension();
         $video_url = 'Gallery/' . $gallery->slug . '/' . 'Videos';
         $video_type = $video->getClientOriginalExtension();
-        $video->move($video_url , $video_name);
+        $video->move($video_url , $video_name);*/
 
         $new_video = new GalleryVideos();
         $new_video = $new_video->create([
             'gallery_id' => $gallery->id,
             'title' => $request['gallery_videos_title'],
-            'video_path' => $video_url. '/' . $video_name,
-            'video_type' => $video_type,
+            'video_path' => $request['gallery_videos_video_original'],
+            'video_type' => 'aparat',
             'video_thumbnail' => ':|',
             'status' => '1'
         ]);
@@ -271,9 +279,10 @@ class GalleryController extends Controller
     }
 
 
+
     public function index_page()
     {
-        dd('asd');
+//         dd('asd');
         return view('galleries.gallery_photo');
     }
 
@@ -293,7 +302,25 @@ class GalleryController extends Controller
     public function getimages(Request $request)
     {
       /*  $gallery_images=Gallery::where([['status',1],['id',$request->id]])->with*/
-      $galleryphotos=GalleryPhoto::where([['status',1],['gallery_id',$request->id]])->get();
-      return response()->json($galleryphotos,200);
+//       $galleryphotos=GalleryPhoto::where([['status',1],['gallery_id',$request->id]])->get();
+//       return response()->json($galleryphotos,200);
+
+      $galleries = Gallery::where('status' , '1')->get();
+        return view('gallery.index_page' , compact('galleries'));
+    }
+
+
+    public function showByCategory(Request $request)
+    {
+        /*Gallery_photos*/
+        if($request['type'] == '0')
+        {
+            $gallery = GalleryPhoto::where('gallery_id' , $request['id'])->get();
+        }/*Gallery_videos*/
+        else if($request['type'] == '1')
+        {
+            $gallery = GalleryVideos::where('gallery_id' , $request['id'])->get();
+        }
+        return response($gallery);
     }
 }

@@ -316,7 +316,8 @@
                         </ul>
                     </li>
 
-                    <li class="@if(strpos($current_route_name, 'galleries')===6) active @endif treeview">
+
+                    <li class="@if(strpos($current_route_name, 'gallery.')===6) active @endif treeview">
                         <a href="#">
                             <i class="fa fa-shopping-bag"></i> <span>گالری</span>
                             <span class="pull-right-container">
@@ -325,7 +326,8 @@
 
                         </a>
                         <ul class="treeview-menu">
-                            <li class="@if(strpos($current_route_name, 'gallery.')===6) active @endif"><a href="{{route('admin.gallery.index')}}"><i class="fa fa-th"></i>کلیه گالری ها</a></li>
+                            <li class="@if(strpos($current_route_name, 'gallery.create')===6) active @endif"><a href="{{route('admin.gallery.create')}}"><i class="fa fa-plus"></i>افزودن گالری</a></li>
+                            <li class="@if(strpos($current_route_name, 'gallery.index')===6) active @endif"><a href="{{route('admin.gallery.index')}}"><i class="fa fa-th"></i>کلیه گالری ها</a></li>
                         </ul>
                     </li>
 
