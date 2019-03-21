@@ -15,14 +15,29 @@ class ProductReserveController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request , [
+            'name' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
+            'lastname' => 'required|regex:/^[\pL\s\-]+$/u|max:100',
+            'phonenumber' => 'required|numeric|digits:11'
+        ],[
+            'name.required' => 'لطفا نام خود را وارد کنید',
+            'name.regex' => 'در این فیلد فقط کاراکتر وارد کنید',
+            'name.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
+            'lastname.required' => 'لطفا نام خانوادگی خود را وارد کنید',
+            'lastname.regex' => 'در این فیلد فقط کاراکتر وارد کنید',
+            'lastname.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
+            'phonenumber.required' => 'لطفا شماره تلفن همراه خود را وارد کنید',
+            'phonenumber.numeric' => 'در این فیلد فقط عدد وارد کنید',
+            'phonenumber.digits' => 'شماره تلفن وارد شده صحیح نمی باشد'
+        ]);
 
-            $productreserve = ProductReserve::create($request->except('user_id', 'status', 'type'));
+        $productreserve = ProductReserve::create($request->except('user_id', 'status', 'type'));
 //            $productreserve->update([
 //                'u'
 //            ]);
         $message= 'با سلام و وقت بخیر; محصول مورد نظر شما با موفقیت رزرو گردید. ایکس بادی';
         /*        $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);*/
-        send_sms($request->phonenumber,$message);
+       // send_sms($request->phonenumber,$message);
             $data=json_encode([['product_id'=>$request->product_id,'reserve_id'=>$productreserve->id]]);
             $cookie=cookie('reserved',$data,600);
             return back()->withCookie($cookie);
@@ -39,7 +54,7 @@ class ProductReserveController extends Controller
         $user=User::where('id',$request->user_id)->first();
         $message= 'با سلام و وقت بخیر; محصول مورد نظر شما با موفقیت رزرو گردید. ایکس بادی';
 /*        $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);*/
-        send_sms($user->username,$message);
+        //send_sms($user->username,$message);
         //$productreserve=ProductReserve::where('')
         return back();
     }

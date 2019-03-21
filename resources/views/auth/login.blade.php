@@ -187,7 +187,7 @@ $cookie=json_decode($cookie);
                             </div>
                             <select class="form-control" id="branch_select">
                                 <option value="0">انتخاب کنید</option>
-                                @foreach($branchesha as $branch)
+                                @foreach($branches as $branch)
                                     <option value="{{$branch->orginal_id}}">{{$branch['name']}}</option>
                                 @endforeach
                             </select>

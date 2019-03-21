@@ -1,9 +1,35 @@
+<style>
+    .line-1{
+        /*position: relative;*/
+        /*top: 50%;*/
+        width: 24em;
+        margin: 0 auto;
+        border-left: 2px solid rgba(0, 0, 0, 0.75);
+        font-size: 180%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-50%);
+    }
 
+    /* Animation */
+    .anim-typewriter {
+        animation: typewriter 4s steps(44) infinite normal , blinkTextCursor 500ms steps(44) infinite normal;
+    }
+    @keyframes typewriter{
+        from{width: 0;}
+        to{width: 17em;}
+    }
+    @keyframes blinkTextCursor{
+        from{border-left-color: rgba(0, 0, 0, 0.75);}
+        to{border-left-color: transparent;}
+    }
+</style>
 <!--------------------- WELCOME SECTION ------------------------>
 <div class="container-fluid padding">
     <div class="row welcome text-center">
         <div class="col-12">
-            <p> با ایکس بادی ایران تفاوت را لمس کنید </p>
+            <p id="typewriter_text" style="display: none;" class=""> با ایکس بادی ایران تفاوت را لمس کنید </p>
         </div>
         <hr>
         <div class="col-12">
@@ -14,3 +40,4 @@
     </div>
 </div>
 <!--------------------- END WELCOME SECTION ------------------------>
+

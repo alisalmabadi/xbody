@@ -50,9 +50,10 @@ class HomeController extends Controller
 /*          $categories=Category::where('state','=','1')->get();
           $posts=Post::where('post_type','1')->orderBy('order','ASC')->get();*/
             //$articles=Article::skip(0)->take(4)->get();
-        $articles=Article::orderBy('id','desc')->limit(4)->get();
+/*        $articles=Article::orderBy('id','desc')->limit(4)->get();*/
+            $articles=Article::orderBy('id','desc')->take(4)->get();
 
-        $branches = Branch::all()->random(4);
+        $branches = Branch::all()->take(4);
         return view('index_page',compact('menus','slider','articles','branches'));
 
     }
@@ -62,5 +63,11 @@ class HomeController extends Controller
         \Setting::set('site_name', $request->config_site_name);
         flashs('تنظیمات بروز رسانی شد!','success');
         return back();
+    }
+
+    public function contactus()
+    {
+        $branches=Branch::all();
+        return view('contactus',compact('branches'));
     }
 }

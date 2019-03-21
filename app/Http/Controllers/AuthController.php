@@ -23,27 +23,29 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-      /*  if(is_null($request->session()->get('user',null))) {
-            $branches = getbranches();
-            $branches = json_decode($branches, true);
-            $branches = json_decode($branches, true);
-            dd($branches);
-            if(is_null($branches)){
-                return view('errors.database');
-            }else{
-                foreach($branches as $branch) {
-                    $branchesa = Branch::updateOrCreate(['name'=>$branch['BranchName'],'manager_name'=>$branch['BranchManagerName'],'address'=>$branch['BranchAddress'],'orginal_id'=>$branch['BranchNo'],'phone'=>$branch['BranchTelNumber']]);
-                }
-                return view('auth/login', compact('branches'));
-            }
-        }else{
-            return redirect(route('user.home'));
-        }*/
+        $branches=null;
+        /*  if(is_null($request->session()->get('user',null))) {
+              $branches = getbranches();
+              $branches = json_decode($branches, true);
+              $branches = json_decode($branches, true);
+              dd($branches);
+              if(is_null($branches)){
+                  return view('errors.database');
+              }else{
+                  foreach($branches as $branch) {
+                      $branchesa = Branch::updateOrCreate(['name'=>$branch['BranchName'],'manager_name'=>$branch['BranchManagerName'],'address'=>$branch['BranchAddress'],'orginal_id'=>$branch['BranchNo'],'phone'=>$branch['BranchTelNumber']]);
+                  }
+                  return view('auth/login', compact('branches'));
+              }
+          }else{
+              return redirect(route('user.home'));
+          }*/
 
-          if(is_null($request->session()->get('user',null))) {
-             $branches = getbranches();
+        if(is_null($request->session()->get('user',null))) {
+            /*   $branches = getbranches();
              $branches = json_decode($branches, true);
-             $branches = json_decode($branches, true);
+             $branches = json_decode($branches, true);*/
+            /* $branches=null;
              if(!is_null($branches)){
                  foreach($branches as $branch) {
                      $branchesa = Branch::updateOrCreate(['name'=>$branch['BranchName'],'manager_name'=>$branch['BranchManagerName'],'address'=>$branch['BranchAddress'],'orginal_id'=>$branch['BranchNo'],'phone'=>$branch['BranchTelNumber']]);
@@ -51,69 +53,71 @@ class AuthController extends Controller
                  $branchesha=Branch::all();
                  return view('auth/login', compact('branchesha'));
 
-             }elseif(is_null($branches)){
+             }elseif($branches==null){
                  $branchesha=Branch::all();
                  return view('auth/login', compact('branchesha'));
 
-             }
-         }else{
-             return redirect(route('user.home'));
-         }
+             }*/
+            $branches=Branch::all();
+            return view('auth/login', compact('branches'));
+        }else{
+            return redirect(route('user.home'));
+        }
     }
 
     public function check_login(Request $request)
     {
-             $flag=false;
-             $res=[];
-            $res = branchusers($request->branchid);
-            $res = json_decode($res, true);
-            $res = json_decode($res, true);
+        $flag=false;
+        $res=[];
+        $res = branchusers($request->branchid);
+        $res = json_decode($res, true);
+        $res = json_decode($res, true);
 
-            if(is_null($res)) {
-                return view('errors.database');
-            }else{
-                foreach ($res as $user) {
-                    // dd($user);
-                    if ($user['Mobile'] == $request->username && $user['PResult'] == $request->password) {
-                        $flag = true;
-                        $result = $user;
-                    }
-                }
-                // dd($result);
-                if ($flag) {
-                    session(['authenticated' => true, 'user' => $result]);
-                    if (User::where([['orginal_id', $result['UserID']], ['branch_id', $result['BranchNo']]])->first() == null) {
-                        $gender = ($result['Gender'] == 'مرد') ? 1 : 0;
-                        $usersam = User::create([
-                            'first_name' => $result['FirstName'],
-                            'last_name' => $result['LastName'],
-                            'username' => $result['Mobile'],
-                            'password' => $result['PResult'],
-                            'gender' => $gender,
-                            'branch_id' => $result['BranchNo'],
-                            'orginal_id' => $result['UserID']
-                        ]);
-                        //   $cookie=\Cookie('datas',$usersam->id,500);
-                        return redirect(route('user.home'));
-                    } else {
-                        session(['authenticated' => true, 'user' => $result]);
-
-                        return redirect(route('user.home'));
-                    }
-
-                } else {
-                    $error_array = ['message' => 'نام کاربری و یا رمزعبور اشتباه وارد شده اند.'];
-                    $json_error = json_encode($error_array);
-                    $cookie = cookie('error_login', $json_error, 500);
-                    return back()->withCookie($cookie);
+        if(is_null($res)) {
+            return view('errors.database');
+        }else{
+            foreach ($res as $user) {
+                // dd($user);
+                if ($user['Mobile'] == $request->username && $user['PResult'] == $request->password) {
+                    $flag = true;
+                    $result = $user;
                 }
             }
+            // dd($result);
+            if ($flag) {
+                session(['authenticated' => true, 'user' => $result]);
+                if (User::where([['orginal_id', $result['UserID']], ['branch_id', $result['BranchNo']]])->first() == null) {
+                    $gender = ($result['Gender'] == 'مرد') ? 1 : 0;
+                    $usersam = User::create([
+                        'first_name' => $result['FirstName'],
+                        'last_name' => $result['LastName'],
+                        'username' => $result['Mobile'],
+                        'password' => $result['PResult'],
+                        'gender' => $gender,
+                        'branch_id' => $result['BranchNo'],
+                        'orginal_id' => $result['UserID']
+                    ]);
+                    //   $cookie=\Cookie('datas',$usersam->id,500);
+                    return redirect(route('user.home'));
+                } else {
+                    session(['authenticated' => true, 'user' => $result]);
+
+                    return redirect(route('user.home'));
+                }
+
+            } else {
+                $error_array = ['message' => 'نام کاربری و یا رمزعبور اشتباه وارد شده اند.'];
+                $json_error = json_encode($error_array);
+                $cookie = cookie('error_login', $json_error, 500);
+                return back()->withCookie($cookie);
+            }
+        }
     }
 
-   /* public function users_login(Request $request)
-    {
+    /* public function users_login(Request $request)
+     {
 
-    }*/
+     }*/
 
     /*public function register()
     {

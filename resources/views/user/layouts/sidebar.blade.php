@@ -19,7 +19,7 @@
                     <li><a class="" href="{{route('user.reserve')}}">رزرو کردن</a></li>
                     <li><a class="" href="{{route('user.reserves')}}">جلسات فعلی</a></li>
                     <li><a class="" href="{{route('user.productreserve')}}">محصولات رزرو شده</a></li>
-
+                    <li><a class="" href="{{route('user.lastreserves')}}">آخرین قرارداد در شعبه</a></li>
                     {{--<li><a class="" href="widget.html">ویجت ها</a></li>
                     <li><a class="" href="slider.html">اسلایدر ها</a></li>
                     <li><a class="" href="font_awesome.html">فونت های شکل دار</a></li>--}}

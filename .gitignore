@@ -10,3 +10,9 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+/storage/logs
+/storage/framework/sessions
+public/Gallery/a/a_header.jpg
+public/Gallery/a/a_header.jpg
+public/Gallery/a/Videos/a_video_1552474955.mp4
+public/Gallery/b/b_header.jpg

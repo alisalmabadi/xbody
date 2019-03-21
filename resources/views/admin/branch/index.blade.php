@@ -39,6 +39,7 @@
                                 <td class="text-center">نام مدیر</td>
                                 <td class="text-center">تلفن</td>
                                 <td class="text-center">تصویر</td>
+                                <td class="text-center">ادرس</td>
                                 <td class="text-center">عملیات</td>
                             </tr>
                             </thead>
@@ -55,6 +56,7 @@
                                     <td class="text-center">
                                         <img src="{{asset($branch->image_original)}}" style="width: 100px;height:100px;">
                                     </td>
+                                    <td class="text-center">{{$branch->page_url}}</td>
                                     <td class="text-center">
                                         <a href="{{route('admin.branches.edit' , $branch)}}"><button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button></a>
                                     </td>

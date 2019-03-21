@@ -70,7 +70,7 @@ class ReserveController extends Controller
                     $reserve->update(['status' => 1]);
                     $message= 'با سلام و وقت بخیر; رزرو جلسات شما با شماره رزروی _num_ با موفقیت انجام گردید. ایکس بادی';
                     $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);
-                    send_sms($user->username,$message);
+                   // send_sms($user->username,$message);
                     flashs('رزرو شما با موفقیت انجام شد.', 'success');
                     return redirect(route('user.reserves'));
                 } else {
@@ -149,7 +149,7 @@ class ReserveController extends Controller
                     $reserve->update(['status' => 1,'stage'=>0]);
                     $message= 'با سلام و وقت بخیر; رزرو جلسات شما با شماره رزروی _num_ با موفقیت انجام گردید. ایکس بادی';
                     $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);
-                    send_sms($request->phonenumber,$message);
+                    //send_sms($request->phonenumber,$message);
                     $resam=1;
                     return view('request.final',compact('resam','res'));
                 } else {
@@ -188,5 +188,17 @@ class ReserveController extends Controller
        // $reserves=$reserves->ReserveDetails();
       //  dd($reserves);
         return view('user.reserve.all_reserve',compact('reserves'));
+    }
+
+    public function lastreserves()
+    {
+        $user=User::where([['orginal_id',session()->get('user')['UserID']],['branch_id',session()->get('user')['BranchNo']]])->first();
+
+        $reserves=GetTheUserReserve($user->branch_id,$user->orginal_id);
+
+        $reserves=json_decode($reserves);
+        $reserves=json_decode($reserves);
+        return view('user.reserve.branch_reserves',compact('reserves'));
+
     }
 }
