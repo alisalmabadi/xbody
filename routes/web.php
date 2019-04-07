@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Mail\UserEmailNotification;
+use Illuminate\Support\Facades\Mail;
 Route::get('/',function (){
     return view('errors.404');
 });
@@ -145,7 +148,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
 /*    Route::get('/product/reserves',['as'=>'product.reservess','uses'=>'ProductReserveController@indddex']);*/
 
 
-    Route::get('/products/reserves',['as'=>'product.reservess','uses'=>'ProductReserveController@index']);
+        Route::get('/products/reserves',['as'=>'product.reservess','uses'=>'ProductReserveController@index']);
     Route::post('/products/reserves/filter',['as'=>'product.reserves.filter','uses'=>'ProductReserveController@filter']);
     Route::get('/products/reserves/filter',['as'=>'reserves.changes','uses'=>'ProductReserveController@filter']);
     Route::post('/products/reserves/change',['as'=>'reserves.change','uses'=>'ProductReserveController@change']);
@@ -376,3 +379,43 @@ Route::get('jsondecode',function (){
     $json=json_decode($json);
 dd($json);
 });
+
+Route::get('sendemail',function (){
+   /* $e = FlattenException::create($exception);
+
+    $handler = new SymfonyExceptionHandler();
+
+    $html = $handler->getHtml($e);*/
+ /*  try{
+        $transport = new Swift_SmtpTransport('mail.uclearn.ir', '465', 'ssl');
+        $transport->setUsername('info@uclearn.ir');
+        $transport->setPassword('79380254Ali');
+        $mailer = new Swift_Mailer($transport);
+        $mailer->getTransport()->start();
+        return 'ok';
+    } catch (Swift_TransportException $e) {
+        return $e->getMessage();
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }*/
+
+ $res1= \Mail::to(['s.alisalmabadi@yahoo.com','alihasani7938@gmail.com'])->send(new UserEmailNotification);
+
+
+   $res2 = \Mail::send('email.UserNotification', [], function($message)
+    {
+        $message->from('info@demo7.ir', 'Laravel');
+
+        $message->to('s.alisalmabadi@yahoo.com')->cc('bar@example.com');
+
+    });
+// Laravel tells us exactly what email addresses failed, let's send back the first
+    $fail = Mail::failures();
+    if(!empty($fail)) throw new \Exception('Could not send message to '.$fail[0]);
+
+   /* if(empty($res1) || empty($re2)) throw new \Exception('Email could not be sent.');*/
+
+// Now do what you do
+return view('email.UserNotification');
+});
+
