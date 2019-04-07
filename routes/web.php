@@ -366,6 +366,11 @@ Route::get('/interview/showByCategory' , 'InterviewController@showByCategory')->
 /*Gallery routes*/
 Route::get('/gallery/index' , 'GalleryController@index_page')->name('gallery.index_page');
 Route::get('/gallery/showByCategory' , 'GalleryController@showByCategory')->name('gallery.showByCategory');
+Route::group(['prefix'=>'gallery','as'=>'gallery.'] , function (){
+    Route::get('images','GalleryController@index_photo')->name('index');
+    Route::post('getimages','GalleryController@getimages')->name('getimages');
+
+});
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

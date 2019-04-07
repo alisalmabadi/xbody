@@ -283,7 +283,8 @@ class GalleryController extends Controller
     public function index_page()
     {
 //         dd('asd');
-        return view('galleries.gallery_photo');
+        $galleries = Gallery::where('status' , 1)->get();
+        return view('galleries.gallery_photo' , compact('galleries'));
     }
 
 
@@ -301,12 +302,12 @@ class GalleryController extends Controller
 
     public function getimages(Request $request)
     {
-      /*  $gallery_images=Gallery::where([['status',1],['id',$request->id]])->with*/
-//       $galleryphotos=GalleryPhoto::where([['status',1],['gallery_id',$request->id]])->get();
-//       return response()->json($galleryphotos,200);
+        // $gallery_images=Gallery::where([['status',1],['id',$request->id]])->with
+      $galleryphotos=GalleryPhoto::where([['status',1],['gallery_id',$request->id]])->get();
+      return response()->json($galleryphotos,200);
 
-      $galleries = Gallery::where('status' , '1')->get();
-        return view('gallery.index_page' , compact('galleries'));
+      // $galleries = Gallery::where('status' , '1')->get();
+      //   return view('gallery.index_page' , compact('galleries'));
     }
 
 
