@@ -110,12 +110,14 @@
                             @if(!empty($gallery->photos))
                             @foreach($gallery->photos as $image)
                                 <tr>
-                                    <td class="text-center">{{$image->title}}</td>
-                                    <td class="text-center">{{$image->alt}}</td>
+                                    <td class="text-center" id="image_title_{{$image->id}}">{{$image->title}}</td>
+                                    <td class="text-center" id="image_alt_{{$image->id}}">{{$image->alt}}</td>
                                     <td class="text-center">
-                                        <img src="{{asset($image->image_path)}}" style="width: 200px; height: 200px;">
+                                        <img id="image_src_{{$image->id}}" src="{{asset($image->image_path)}}" style="width: 200px; height: 200px;">
                                     </td>
                                     <td class="text-center">
+                                        <a class="edit_photo" data-id="{{$image->id}}" href="#"><button type="button" class="btn btn-warning">ویرایش تصویر</button></a>
+
                                         <a class="del_photo" href="{{route('admin.gallery.deletePhotoFromGallery' , ['gallery'=>$gallery , 'photo'=>$image])}}"><button type="button" class="btn btn-danger">حذف از گالری</button></a>
                                     </td>
                                 </tr>
@@ -137,8 +139,21 @@
                                 <tr>
                                     <td class="text-center">{{$video->title}}</td>
                                     <td class="text-center">
-                                        <div style="width: 250px; height:250px; text-align: center;">
-                                            @php echo($video->video_path) @endphp
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span style="width: 250px; height: 250px;" id="span_show_video_{{$video->id}}">
+                                                    @php echo($video->video_path) @endphp
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="col-md-12">برای ویرایش ویدئو, کد مربوطه را کپی کنید</label>
+                                                <textarea class="form-control video_path_{{$video->id}}" rows="6">
+                                                    {{$video->video_path}}
+                                                </textarea>
+                                                <a class="edit_video" data-id="{{$video->id}}" href="">
+                                                    <button type="button" class="btn btn-warning form-control">ویرایش ویدئو</button>
+                                                </a>
+                                            </div>
                                         </div>
                                     </td>
                                     <td class="text-center">
@@ -206,12 +221,44 @@
                             <label>ویدئو <label style="color: red;">*</label> </label>
                             <div id="div-file">
                                 <input type="file" class="form-control gallery_photo_image_original" id="gallery_photo_image_original" name="gallery_photo_image_original" required="required">
-                                <img class="photo_display" style="width: 300px; height: 300px;margin-right: 20%;">
+                                <img class="photo_display" id="gallery_photo_img" style="width: 300px; height: 300px;margin-right: 20%;">
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                            <input type="submit" value="ذخیره" class="btn btn-primary">
+                            <input type="submit" value="ذخیره" class="btn btn-primary modal_submit_btn">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal - add new photo -->
+        <div class="modal fade" id="modal_edit_gallery_photo" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <form action="{{route('admin.gallery.photo.edit_photo' , $gallery)}}" method="post" id="frm-modal-edit-gallery-photos" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">ویدئو جدید</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="edit_gallery_photo_id" name="edit_gallery_photo_id">
+                            <label>عنوان <label style="color: red;">*</label> </label>
+                            <input type="text" class="form-control" id="edit_gallery_photo_title" name="edit_gallery_photo_title" placeholder="عنوان" required="required">
+                            <label>متن خطا <label style="color: red;">*</label> </label>
+                            <input type="text" class="form-control" id="edit_gallery_photo_alt" name="edit_gallery_photo_alt" placeholder="متن خطا" required="required">
+                            <label>ویدئو <label style="color: red;">*</label> </label>
+                            <div id="div-file">
+                                <input type="file" class="form-control gallery_photo_image_original" id="edit_gallery_photo_image_original" name="edit_gallery_photo_image_original">
+                                <img class="photo_display" id="edit_gallery_photo_img" style="width: 300px; height: 300px;margin-right: 20%;">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                            <input type="submit" value="ذخیره" class="btn btn-primary modal_submit_btn">
                         </div>
                     </div>
                 </form>
@@ -384,8 +431,57 @@
     {{--show photo modal and add new one--}}
     <script>
         $("#add-new-photo").on('click' , function () {
+            $("#gallery_photo_id").val('');
+            $("#gallery_photo_title").val('');
+            $("#gallery_photo_alt").val('');
+            $("#gallery_photo_img").prop('src' , '');
             $("#modal_add_gallery_photo").modal('show');
         });
     </script>
     {{--END OF show photo modal and add new one--}}
+
+
+    {{--edit image--}}
+    <script>
+        $(".edit_photo").on('click' , function (e) {
+           e.preventDefault();
+           var image_id = $(this).data('id');
+            /*baz shodan e modal va meghdar dehi beheshun*/
+            $("#edit_gallery_photo_id").val(image_id);
+            $("#edit_gallery_photo_title").val($("#image_title_" + image_id).text());
+            $("#edit_gallery_photo_alt").val($("#image_alt_" + image_id).text());
+            $("#edit_gallery_photo_img").prop('src' , $("#image_src_" + image_id).attr("src"));
+            $("#edit_gallery_photo_image_original").val('');
+            $("#modal_edit_gallery_photo").modal('show');
+
+        });
+    </script>
+    {{--end of edit image--}}
+
+
+    {{--Edit e video--}}
+    <script>
+        $(".edit_video").on('click' , function (e) {
+            e.preventDefault();
+            $("#register_wait").css('display' , 'block');
+            var vid_id = $(this).data('id');
+            var new_video = $(".video_path_" + vid_id).val();
+            console.log(new_video);
+            var url = "{{route('admin.gallery.edit_video_from_gallery')}}";
+            $.ajax({
+                data:{'id':vid_id, 'video_path':new_video},
+                url:url,
+                type:'GET',
+                success:function (data) {
+                    location.reload();
+                    $("#register_wait").css('display' , 'block');
+                },
+                error:function(){
+                    alert('error in editing video');
+                    $("#register_wait").css('display' , 'block');
+                }
+            });
+        });
+    </script>
+    {{--end of Edit e video--}}
 @stop

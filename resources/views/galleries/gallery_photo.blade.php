@@ -205,6 +205,10 @@
         -ms-transform: rotate(56.5deg) translateX(-1px);
         transform: rotate(56.5deg) translateX(-1px);
     }
+
+    .open_fancybox:hover{
+        cursor: pointer;
+    }
 </style>
 @endsection
 

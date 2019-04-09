@@ -1,20 +1,66 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{asset('css/Bodybuilding.css')}}">
 
+<style>
+    .header-interview{
+        text-align: center;
+        margin-top: 10%;
+    }
+    .gallery-header{
+        font-size: xx-large;
+        text-align: center;
+    }
+    .gallery-header-logo{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+    .category-buttons-spot{
+        margin-top: 2%;
+    }
+    .category-buttons{
+        width: 100%;
+        height: 3%;
+        overflow: hidden;
+        font-size: 12px;
+        border-radius: 10%;
+        color: white;
+        text-align: center;
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+    .category-buttons:hover {opacity: 1}
+
+    .category-buttons-active{opacity: 1}
+</style>
+
 @section('main_content')
 
-    <div class="container-fluid" style="background-image: url({{asset('img/pass.jpg')}}); background-repeat: no-repeat; background-size: cover; clear: both;">
-        <div class="row" style="height: 20px;"></div>
+    <div class="container-fluid">
+        <div class="" style="height: 20px;"></div>
         <div style="background-color: rgba(255,255,255,0.3); !important; width: 90%; height: 1005px; margin-right: 5%;">
-            <header class="header-interview" style="text-align: right;">
-                <h1>گالری</h1>
-                @foreach($categories as $category)
-                    <div class="col-md-1 float-right">
-                        <a href="{{route('interview.showByCategory')}}" class="show_videos" data-id="{{$category->id}}"><button type="button" class="btn-danger" style="width: 100%;height: 5%; overflow: hidden;margin-left: 2%;">{{$category->name}}</button></a>
+            <header class="header-interview">
+                <span class="col-md-12 gallery-header"><img class="gallery-header-logo" src="{{asset('images/xbody_logo1.jpg')}}">گالری ویدئوهای <span style="color:red">XBody</span></span>
+
+                <div class="col-md-12 category-buttons-spot">
+                    <div class="col-md-1 float-right" style="margin-left: -1%;">
+                        <a href="{{route('interview.showByCategory.showAll')}}" class="show_all_interviews"><button type="button" class="btn-danger category-buttons category-buttons-active" style="">نمایش همه</button></a>
                     </div>
-                @endforeach
+                    @foreach($categories as $category)
+                        <div class="col-md-1 float-right" style="margin-left: -1%;">
+                            <a href="{{route('interview.showByCategory')}}" class="show_videos" data-id="{{$category->id}}"><button type="button" class="btn-danger category-buttons">{{$category->name}}</button></a>
+                        </div>
+                    @endforeach
+                </div>
             </header>
-            <div class="" id="result">
+            <div class="col-md-12" style="margin-top: 4%;" id="result">
+                @foreach($categories as $category)
+                    @foreach($category->interviews as $interview)
+                        <div class="col-md-4 float-right" style="margin-top: 5%;">
+                            @php echo $interview->video @endphp
+                        </div>
+                    @endforeach
+                @endforeach
             </div>
         </div>
         <div class="row" style="height: 20px;"></div>
@@ -32,6 +78,8 @@
 
         $(".show_videos").on('click' , function (e) {
            e.preventDefault();
+           $(".category-buttons").removeClass("category-buttons-active");
+           $(this).find(".category-buttons").addClass("category-buttons-active");
            var id = $(this).data('id');
            var url = $(this).attr('href');
            $.ajax({
@@ -44,7 +92,7 @@
                     $("#result").html('');
 
                     $.each(data , function (interview) {
-                       $("#result").append('<div class="col-md-4 float-left" style="margin-top: 5%;">\n' +
+                       $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
                            '                    \n' +
                            '                    '+data[interview].video+'\n' +
                            '                </div>').fadeIn('slow');
@@ -56,4 +104,34 @@
            });
         });
     </script>
+
+    {{--show all--}}
+    <script>
+        $(".show_all_interviews").on('click' , function (e) {
+           e.preventDefault();
+            $(".category-buttons").removeClass("category-buttons-active");
+            $(this).find(".category-buttons").addClass("category-buttons-active");
+           var url = $(this).attr('href');
+           $.ajax({
+              data:'',
+              url:url,
+              type:'GET',
+              success:function (data) {
+                  $("#result").fadeOut('slow');
+                  $("#result").html('');
+
+                  $.each(data , function (interview) {
+                      $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
+                          '                    \n' +
+                          '                    '+data[interview].video+'\n' +
+                          '                </div>').fadeIn('slow');
+                  });
+              },
+               error:function () {
+                   console.log('error in getting all interviews by ajax');
+               }
+           });
+        });
+    </script>
+    {{--end of show all--}}
 @endsection
