@@ -227,7 +227,7 @@
                 <div class="content">
                     <h2>{{$gallery->name}}</h2>
                     <p>این توضیحات مربوط به این عکس میباشد که به صورت زیر نمایش داده شده است.</p>
-{{--
+        {{--
                     <a href="#" class="info">Read More</a>
 --}}
                 </div>
