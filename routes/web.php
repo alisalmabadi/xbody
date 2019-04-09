@@ -234,8 +234,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::post('/gallery/storeValidation' , 'GalleryController@store_validation')->name('gallery.store_validation');
     Route::get('gallery/deleteVideoFromGallery/{gallery}/{video}' , ['as'=>'gallery.delete_video_from_gallery' , 'uses' => 'GalleryController@deleteVideoFromGallery']);
     Route::post('gallery/videos/addVideoToGallery/{gallery}' , 'GalleryController@addVideo')->name('gallery.video.add_video');
+    Route::get('gallery/editVideoFromGallery' , ['as'=>'gallery.edit_video_from_gallery' , 'uses'=>'GalleryController@editVideoFromGallery']);
     Route::get('gallery/deletePhotoFromGallery/{gallery}/{photo}' , ['as'=>'gallery.deletePhotoFromGallery' , 'uses'=>'GalleryController@deletePhotoFromGallery']);
     Route::post('gallery/photo/addPhotoToGallery/{gallery}' , 'GalleryController@addPhoto')->name('gallery.photo.add_photo');
+    Route::post('gallery/photo/editPhotoFromGallery/{gallery}' , 'GalleryController@editPhoto')->name('gallery.photo.edit_photo');
     Route::resource('gallery' , 'GalleryController' , ['except' => ['destroy']]);
 
     /*admin interviewCategory routes*/
@@ -365,6 +367,7 @@ Route::post('message/store' , 'messageController@store')->name('message.store');
 /*Interview routes*/
 Route::get('/interview/index' , 'InterviewController@index_page')->name('gallery.index_page');
 Route::get('/interview/showByCategory' , 'InterviewController@showByCategory')->name('interview.showByCategory');
+Route::get('/interview/showByCategory/showAll' , 'InterviewController@showByCategory_showAll')->name('interview.showByCategory.showAll');
 
 /*Gallery routes*/
 Route::get('/gallery/index' , 'GalleryController@index_page')->name('gallery.index_page');

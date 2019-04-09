@@ -247,6 +247,13 @@ class GalleryController extends Controller
         return redirect()->route('admin.gallery.edit' , $gallery);
     }
 
+    public function editVideoFromGallery(Request $request)
+    {
+        $video = GalleryVideos::find($request['id']);
+        $video->update(['video_path' => $request['video_path']]);
+        return response($video);
+    }
+
 
     public function deletePhotoFromGallery(Gallery $gallery , GalleryPhoto $photo)
     {
@@ -278,6 +285,30 @@ class GalleryController extends Controller
         return redirect()->route('admin.gallery.edit' , $gallery);
     }
 
+    public function editPhoto(Request $request , Gallery $gallery)
+    {
+        $image = GalleryPhoto::find($request['edit_gallery_photo_id']);
+
+        /*agar image vared karde bood upload kone*/
+        if($request['edit_gallery_photo_image_original'])
+        {
+            $photo = $request['edit_gallery_photo_image_original'];
+            $photo_name = $gallery->slug . '_photo_' . sha1($photo->getClientOriginalName()).'.'.$photo->getClientOriginalExtension();
+            $photo_type = $photo->getClientOriginalExtension();
+            $photo_url = 'Gallery/' . $gallery->slug . 'Photos';
+
+            $photo->move($photo_url , $photo_name);
+
+            $image->image_path = $photo_url . '/' . $photo_name;
+            $image->image_type = $photo_type;
+        }
+
+        $image->title = $request['edit_gallery_photo_title'];
+        $image->alt = $request['edit_gallery_photo_alt'];
+
+        $image->update();
+        return redirect()->route('admin.gallery.edit' , $gallery);
+    }
 
 
     public function index_page()
@@ -324,4 +355,5 @@ class GalleryController extends Controller
         }
         return response($gallery);
     }
+
 }

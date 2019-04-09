@@ -152,14 +152,29 @@ class InterviewController extends Controller
     public function index_page()
     {
         $categories = InterviewCategory::all();
-        $interviews = Interview::all();
-/*dd($interviews);*/
-        return view('interview.index_page' , compact('categories','interviews'));
+        foreach ($categories as $c){
+            $c->load('interviews');
+        }
+        return view('interview.index_page' , compact('categories'));
     }
 
     public function showByCategory(Request $request)
     {
         $interviews = Interview::where('interview_category_id' , $request['id'])->where('status' , 1)->get();
         return response($interviews);
+    }
+
+    public function showByCategory_showAll()
+    {
+        $categories = InterviewCategory::all();
+        $index = 0; $result = [];
+        foreach ($categories as $c){
+            foreach($c->interviews as $i)
+            {
+                $result[$index] = $i;
+                $index ++;
+            }
+        }
+        return response($result);
     }
 }
