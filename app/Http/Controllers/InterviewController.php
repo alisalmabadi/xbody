@@ -152,7 +152,9 @@ class InterviewController extends Controller
     public function index_page()
     {
         $categories = InterviewCategory::all();
-        return view('interview.index_page' , compact('categories'));
+        $interviews = Interview::all();
+/*dd($interviews);*/
+        return view('interview.index_page' , compact('categories','interviews'));
     }
 
     public function showByCategory(Request $request)

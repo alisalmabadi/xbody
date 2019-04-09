@@ -205,6 +205,9 @@
         -ms-transform: rotate(56.5deg) translateX(-1px);
         transform: rotate(56.5deg) translateX(-1px);
     }
+    .open_fancybox:hover{
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -223,7 +226,7 @@
                 <div class="content">
                     <h2>{{$gallery->name}}</h2>
                     <p>این توضیحات مربوط به این عکس میباشد که به صورت زیر نمایش داده شده است.</p>
-{{--
+        {{--
                     <a href="#" class="info">Read More</a>
 --}}
                 </div>

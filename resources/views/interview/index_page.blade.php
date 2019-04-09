@@ -7,14 +7,23 @@
         <div class="row" style="height: 20px;"></div>
         <div style="background-color: rgba(255,255,255,0.3); !important; width: 90%; height: 1005px; margin-right: 5%;">
             <header class="header-interview" style="text-align: right;">
-                <h1>گالری</h1>
+                <h1 style="text-align: center">مصاحبه ها</h1>
+                <div class="col-md-12">
                 @foreach($categories as $category)
                     <div class="col-md-1 float-right">
-                        <a href="{{route('interview.showByCategory')}}" class="show_videos" data-id="{{$category->id}}"><button type="button" class="btn-danger" style="width: 100%;height: 5%; overflow: hidden;margin-left: 2%;">{{$category->name}}</button></a>
+                        <a href="{{route('interview.showByCategory')}}" class="show_videos" data-id="{{$category->id}}"><button type="button" class="btn-danger" style="width: 100%;height: 5%; overflow: hidden;margin-left: 2%; font-size: 13px;">{{$category->name}}</button></a>
                     </div>
                 @endforeach
+                </div>
             </header>
+            <div class="row" style="height: 20px; width: 100%;"></div>
+
             <div class="" id="result">
+                @foreach($interviews as $inter)
+                    <div class="col-md-4 float-left" style="margin-top: 5%;">
+                {!!  $inter->video !!}
+                                       </div>
+                    @endforeach
             </div>
         </div>
         <div class="row" style="height: 20px;"></div>
