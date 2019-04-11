@@ -327,8 +327,16 @@ class GalleryController extends Controller
 
         $galleries=Gallery::whereHas('photos')->where('status',1)->get();
 
-      //  dd($galleries);
+/*       dd($galleries);*/
         return view('galleries.gallery_photo',compact('galleries'));
+    }
+
+    public function index_video()
+    {
+        $videos=Gallery::whereHas('videos')->where('status',1)->get();
+
+             /*  dd($videos);*/
+        return view('galleries.gallery_video',compact('videos'));
     }
 
     public function getimages(Request $request)
@@ -354,6 +362,13 @@ class GalleryController extends Controller
             $gallery = GalleryVideos::where('gallery_id' , $request['id'])->get();
         }
         return response($gallery);
+    }
+
+    public function showByCategory_showAll()
+    {
+        $gallery = GalleryVideos::all();
+        return response($gallery);
+
     }
 
 }
