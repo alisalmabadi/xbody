@@ -14,7 +14,7 @@
     }
 
     .images-group {
-        padding-top: 5%;
+        padding-top: 1%;
         height: auto;
         background: #ffffffa3;
         height: 510px;
@@ -27,14 +27,15 @@
         color: white;
     }
     .titlegallery {
-        text-align: right;
+        text-align: center;
         border-bottom: 2px solid red;
         margin-bottom: 3%;
         padding-right: 39px;
-        background: url(../images/xmark.png) no-repeat;
+       /* background: url(../images/xmark.png) no-repeat;*/
         background-position: right;
         background-size: 32px;
         font-size: 24px;
+        font-weight: bold;
     }
 
     .view {
@@ -213,11 +214,11 @@
 @endsection
 
 @section('main_content')
-<div class="container-fluid whole-image_gallery" style="clear: both;background: url(../images/backgrounds/bggallery.jpg) no-repeat;
-    background-size: cover;">
+<div class="container-fluid whole-image_gallery" style="clear: both;/*background: url(../images/backgrounds/bggallery.jpg) no-repeat;
+    background-size: cover;*/">
     <div class="row" style="height: 30px;"></div>
     <div class="col-xl-12 col-md-12 images-group">
-        <div class="titlegallery">گالری تصاویر</div>
+        <div class="titlegallery"><img style="width: 31px;height: 31px;margin-bottom: 4px;" src="../images/xmark.png"> گالری تصاویر</div>
         @foreach($galleries as $gallery)
         <div class="col-md-4 photo_item view view-ninth">
             <a class="open_fancybox" data-id="{{$gallery->id}}" data-token="{{csrf_token()}}">
