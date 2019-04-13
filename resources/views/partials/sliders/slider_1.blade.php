@@ -31,7 +31,7 @@
                                             <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
 
 
-                                            <div class="middle" style="background: url('images/backgrounds/<?php echo $color; ?>.png') right no-repeat;
+                                            <div class="middle" style="background: url('images/backgrounds/ghermez.png') right no-repeat;
     background-size: cover;
     position: absolute;
     padding-right: 9px;
@@ -79,7 +79,7 @@
                                         <img class="card-img-top" src="{{asset('images/q.jpg')}}" alt="">
 
 
-                                        <div class="middle" style="background: url('images/backgrounds/abi.png') right no-repeat;
+                                        <div class="middle" style="background: url('images/backgrounds/ghermez.png') right no-repeat;
                                                 background-size: cover;
                                                 position: absolute;
                                                 padding-right: 9px;
@@ -124,7 +124,7 @@
                                         <img class="card-img-top" src="{{asset('images/q.jpg')}}" alt="">
 
 
-                                        <div class="middle" style="background: url('images/backgrounds/sabz.png') right no-repeat;
+                                        <div class="middle" style="background: url('images/backgrounds/ghermez.png') right no-repeat;
                                                 background-size: cover;
                                                 position: absolute;
                                                 padding-right: 9px;

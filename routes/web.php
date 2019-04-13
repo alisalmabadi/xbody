@@ -365,18 +365,18 @@ Route::post('message/store' , 'messageController@store')->name('message.store');
 
 
 /*Interview routes*/
-Route::get('/interview/index' , 'InterviewController@index_page')->name('gallery.index_page');
+Route::get('/interview' , 'InterviewController@index_page')->name('gallery.index_page');
 Route::get('/interview/showByCategory' , 'InterviewController@showByCategory')->name('interview.showByCategory');
 Route::get('/interview/showByCategory/showAll' , 'InterviewController@showByCategory_showAll')->name('interview.showByCategory.showAll');
 
-/*Gallery routes*/
-Route::get('/gallery/index' , 'GalleryController@index_page')->name('gallery.index_page');
-Route::get('/gallery/showByCategory' , 'GalleryController@showByCategory')->name('gallery.showByCategory');
-Route::group(['prefix'=>'gallery','as'=>'gallery.'] , function (){
-    Route::get('images','GalleryController@index_photo')->name('index');
-    Route::post('getimages','GalleryController@getimages')->name('getimages');
+Route::get('/gallery/showByCategory/showAll' , 'GalleryController@showByCategory_showAll')->name('gallery.showByCategory.showAll');
 
-});
+/*Gallery routes*/
+/*Route::get('/gallery/index' , 'GalleryController@index_page')->name('gallery.index_page');*/
+Route::get('/gallery/showByCategory' , 'GalleryController@showByCategory')->name('gallery.showByCategory');
+Route::get('gallery-images','GalleryController@index_photo')->name('gallery.index');
+Route::get('gallery-videos','GalleryController@index_video')->name('gallery.video');
+Route::post('gallery/getimages','GalleryController@getimages')->name('gallery.getimages');
 
 /* contact us route, test, delete this later */
 Route::get('contactus' ,'HomeController@contactus');

@@ -47,7 +47,9 @@
         <div class="" style="height: 20px;"></div>
         <div style="background-color: rgba(255,255,255,0.3); !important; width: 90%; height: 1005px; margin-right: 5%;">
             <header class="header-interview">
+
                 <span class="col-md-12 gallery-header"><img class="gallery-header-logo" src="{{asset('images/xmark.png')}}">گالری ویدئوهای <span style="color:red">XBody</span></span>
+
 
                 <div class="col-md-12 category-buttons-spot">
                     <div class="col-md-1" style="margin-left: -1%;">
@@ -84,12 +86,12 @@
         });
 
         $(".show_videos").on('click' , function (e) {
-           e.preventDefault();
-           $(".category-buttons").removeClass("category-buttons-active");
-           $(this).find(".category-buttons").addClass("category-buttons-active");
-           var id = $(this).data('id');
-           var url = $(this).attr('href');
-           $.ajax({
+            e.preventDefault();
+            $(".category-buttons").removeClass("category-buttons-active");
+            $(this).find(".category-buttons").addClass("category-buttons-active");
+            var id = $(this).data('id');
+            var url = $(this).attr('href');
+            $.ajax({
                 data:{'id' : id},
                 url:url,
                 type:'GET',
@@ -99,45 +101,45 @@
                     $("#result").html('');
 
                     $.each(data , function (interview) {
-                       $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
-                           '                    \n' +
-                           '                    '+data[interview].video+'\n' +
-                           '                </div>').fadeIn('slow');
+                        $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
+                            '                    \n' +
+                            '                    '+data[interview].video+'\n' +
+                            '                </div>').fadeIn('slow');
                     });
                 },
                 error:function (e) {
                     console.log('error in interview show');
                 }
-           });
+            });
         });
     </script>
 
     {{--show all--}}
     <script>
         $(".show_all_interviews").on('click' , function (e) {
-           e.preventDefault();
+            e.preventDefault();
             $(".category-buttons").removeClass("category-buttons-active");
             $(this).find(".category-buttons").addClass("category-buttons-active");
-           var url = $(this).attr('href');
-           $.ajax({
-              data:'',
-              url:url,
-              type:'GET',
-              success:function (data) {
-                  $("#result").fadeOut('slow');
-                  $("#result").html('');
+            var url = $(this).attr('href');
+            $.ajax({
+                data:'',
+                url:url,
+                type:'GET',
+                success:function (data) {
+                    $("#result").fadeOut('slow');
+                    $("#result").html('');
 
-                  $.each(data , function (interview) {
-                      $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
-                          '                    \n' +
-                          '                    '+data[interview].video+'\n' +
-                          '                </div>').fadeIn('slow');
-                  });
-              },
-               error:function () {
-                   console.log('error in getting all interviews by ajax');
-               }
-           });
+                    $.each(data , function (interview) {
+                        $("#result").append('<div class="col-md-4 float-right" style="margin-top: 5%;">\n' +
+                            '                    \n' +
+                            '                    '+data[interview].video+'\n' +
+                            '                </div>').fadeIn('slow');
+                    });
+                },
+                error:function () {
+                    console.log('error in getting all interviews by ajax');
+                }
+            });
         });
     </script>
     {{--end of show all--}}

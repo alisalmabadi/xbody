@@ -1382,7 +1382,7 @@ a {
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
     .img-backg .cover {
     height: 1178px;
@@ -1454,7 +1454,7 @@ a {
     .back-item .middle {
         position: absolute;
         width: 17vw;
-        top: 62%;
+        top: 59%;
         left: 30%;
         right: 62%;
         z-index: +5;
@@ -2898,7 +2898,7 @@ button span {
 
 }
 
-@media (max-width: 400px ) {
+@media (max-width: 450px ) {
     .title-item-only {
         margin: 30px 11% 0 15%;
     }
@@ -4063,7 +4063,7 @@ button span {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 .section-left-y{
     margin-top: 63%;
 }
