@@ -124,7 +124,7 @@
                 <div class="fotorama"
                      data-nav="thumbs">
                     @foreach($products->images as $image)
-                    <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
+                        <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
                     @endforeach
                 </div>
 
@@ -146,7 +146,13 @@
                 <div class="single-body-left">
                     <ul>
                         <li><p>{{$products->model}}</p></li>
-                        <li><p> {{Convertnumber2english($products->price)  }}  تومان</p></li>
+                        <li>
+                            @if($products->price != 0)
+                                <p> {{Convertnumber2english($products->price)  }}  تومان</p>
+                            @else
+                                <p><a href="#phones" id="phones" data-toggle="modal" data-target="#phonesModal">تماس بگیرید</a></p>
+                            @endif
+                        </li>
                         <li>
                             <p class="abut-kala">
                                 {{$products->seo_desc}}
@@ -523,6 +529,31 @@
     </div>
 </div>
 @endif
+<!-- show phones modal -->
+<div class="modal" id="phonesModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background:white;">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">اطلاعات تماس</h4>
+                <button type="button" class="close dokmebaste" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p>...021</p>
+                <p>...021</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of show phones modal -->
 @include('partials.footer')
 
 
