@@ -55,6 +55,10 @@
             margin-bottom: 3%;
 
         }
+        .btn-address{
+            background-color:#343e44;
+            border-color:#dc3545;
+        }
     </style>
 @endsection
 @section('main_content')
@@ -79,8 +83,7 @@
             </div>
                 <div class="col-md-12 branchinfo" style="text-align: left;">
                     <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
-                    <span class="btn btn-primary"><i class="fa fa-map
-"></i> {{$branch->address}}</span>
+                    <span class="btn btn-primary btn-address"><i class="fa fa-map"></i> {{$branch->address}}</span>
                     <a href="{{$branch->page_url}}" target="_blank">
                         <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
                     </a>
@@ -111,8 +114,7 @@
                 </div>
                 <div class="col-md-12 branchinfo" style="text-align: right;">
                     <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
-                    <span class="btn btn-primary"><i class="fa fa-map
-"></i> {{$branch->address}}</span>
+                    <span class="btn btn-primary btn-address"><i class="fa fa-map"></i> {{$branch->address}}</span>
                     <a href="{{$branch->page_url}}" target="_blank">
                         <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
                     </a>
