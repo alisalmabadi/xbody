@@ -4,17 +4,37 @@
     <link rel="stylesheet" href="{{asset('css/jquery.Bootstrap-PersianDateTimePicker.css')}}">
     <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
 
+    {{--select2 for select hours--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    {{--end of select2 for select hours--}}
+
+
     <style type="text/css">
         tbody tr:hover td,tbody tr:hover th {
-            background-color: #00ff34 !important;
+            background-color: grey !important;
+            color:white !important;
             transition: all ease-in-out 1s;
         }
 
+        /*select2 for select hours*/
+        .select2-results__option {
+            color:grey;
+        }
+        .select2-results__option--highlighted {
+            color: white !important;
+            background-color: red !important;
+        }
+        .select2-container--default .select2-results__option[aria-selected=true] {
+            background-color: darkgray;
+        }
+        /*end of select2 for select hours*/
 
     </style>
 @endsection
 @section('content')
-    <div class="alert alert-info" style="text-align: center">
+    <div class="alert" style="text-align: center; background-color:grey; color:white;border:1px solid red;">
         برای رزرو بعد از انتخاب تاریخ مورد نظر ساعت آن روز را انتخاب کرده و در پایان ثبت روزهای رزروی را بزنید.
     </div>
 
@@ -72,11 +92,11 @@
 
                                     <div class="whole-row">
                                         <div class="times" style="display: none;">
-                                            <select name="hour[]" class="form-control">
+                                            <select name="hour[]" id="hours" class="hours" style="width: 100% !important;">
                                                 <option value="">انتخاب کنید</option>
                                                 @foreach($item->AvailableTimes as $time)
 
-                                                    <option value="{{$time->TimeID}}">{{$time->TimeText}}</option>
+                                                    <option  class="op" value="{{$time->TimeID}}">{{$time->TimeText}}</option>
 
                                                 @endforeach
                                             </select>
@@ -138,4 +158,10 @@
         });
     </script>
 
+
+    {{--select2 for select Hours--}}
+    <script>
+        $(".hours").select2();
+    </script>
+    {{--end of select2 for select Hours--}}
 @endsection
