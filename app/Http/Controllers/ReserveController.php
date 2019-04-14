@@ -71,7 +71,7 @@ class ReserveController extends Controller
                     $message= 'با سلام و وقت بخیر; رزرو جلسات شما با شماره رزروی _num_ با موفقیت انجام گردید. ایکس بادی';
                     $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);
                    // send_sms($user->username,$message);
-                    flashs('رزرو شما با موفقیت انجام شد.', 'success');
+//                    flashs('رزرو شما با موفقیت انجام شد.', 'success');
                     return redirect(route('user.reserves'));
                 } else {
                     flashs('مشکلی در مرحله ثبت در دیتابیس وجود داشته با پشتیبانی تماس بگیرید.', 'danger');
