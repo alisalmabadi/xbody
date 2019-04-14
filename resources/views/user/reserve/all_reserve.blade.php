@@ -73,7 +73,7 @@
                                 </ul>
                             </td>
 
-                            <td class="hidden-phone">@if($reserve->status==1) <button class="btn btn-success" style="width: 82.53px;!important;"> ثبت شده </button> @else <button class="btn btn-danger">ثبت نشده</button> @endif</td>
+                            <td class="hidden-phone">@if($reserve->status==1) <button class="btn" style="width: 82.53px;!important; background-color: grey; color:white; border:1px solid red;"> ثبت شده </button> @else <button class="btn btn-danger" style="border:1px solid grey;">ثبت نشده</button> @endif</td>
                         </tr>
                     @endforeach
                     </tbody>
