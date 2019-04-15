@@ -72,8 +72,8 @@
                             <th style="width: 8px;">
                                 <input name="dates[]" type="checkbox" class="group-checkable"  data-set="#sample_1 .checkboxes" />
                             </th>
-                            <th>تاریخ روز های پیشنهادی</th>
-                            <th>ساعت ها</th>
+                            <th style="text-align:center;">تاریخ روز های پیشنهادی</th>
+                            <th style="text-align:center;">ساعت ها</th>
                             {{--    <th class="hidden-phone">Points</th>
                                 <th class="hidden-phone">Joined</th>
                                 <th class="hidden-phone"></th>--}}
@@ -161,7 +161,9 @@
 
     {{--select2 for select Hours--}}
     <script>
-        $(".hours").select2();
+        $(".hours").select2({
+            dir:"rtl",
+        });
     </script>
     {{--end of select2 for select Hours--}}
 @endsection
