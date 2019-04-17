@@ -44,7 +44,7 @@
                             <td class="hidden-phone"><a href="{{url('product/')}}/{{$productreserveha->product->category->slug}}/{{$productreserveha->product->slug}}">{{$productreserveha->product->name}}</a></td>
                             <td class="hidden-phone">{{Convertnumber2english($productreserveha->count)}}</td>
 
-                            <td class="hidden-phone">@if($productreserveha->status==1) <button class="btn btn-success" type="button">تماس گرفته شد</button>  @else <button class="btn btn-danger" type="button">در انتظار تماس</button>  @endif </td>
+                            <td class="hidden-phone">@if($productreserveha->status==1) <button class="btn btn-success" style="background: white;color: black;border: 1px solid#2a3542;"  type="button">تماس گرفته شد</button>  @else <button class="btn btn-danger" type="button">در انتظار تماس</button>  @endif </td>
 
                         </tr>
                     @endforeach
