@@ -208,9 +208,11 @@
 				id		= this.attr('id'),
 				opt		= this.data('options');
 
-        	$('<a/>', { id: id + '-back-' + index, href: 'javascript:void(0);', 'class': 'button-back btn btn-info', html: opt.backLabel }).click(function() {
+        	$('<a/>', { id: id + '-back-' + index, href: 'javascript:void(0);', 'class': 'button-back btn','style':'margin-right:45%;background-color:#343e44;color:white;', html: opt.backLabel }).click(function() {
         		if (!opt.back || methods.execute.call($this, opt.back, index - 1)) {
         			methods.step.call($this, (index - 1) + 1);
+                    $("#second-container").addClass('disabled');
+                    $("#second-progress").removeClass('active-progress');
         		}
             }).appendTo($('#' + id + '-buttons-' + index));
         }, createNextButton: function(index) {
@@ -218,9 +220,19 @@
 				id		= this.attr('id'),
 				opt		= this.data('options');
 
-        	$('<a/>', { id: id + '-next-' + index, href: 'javascript:void(0);', 'class': 'button-next  btn btn-info', html: opt.nextLabel }).click(function() {
+        	$('<a/>', { id: id + '-next-' + index, href: 'javascript:void(0);', 'class': 'button-next  btn','style':'margin-left:45%;background-color:#343e44;color:white;', html: opt.nextLabel }).click(function() {
+        		if($("#select-package").val() == 0){
+                    swal.fire({
+                        type: 'error',
+                        title: 'خطا',
+                        text: 'لطفا نوع پکیج را انتخاب گنید!',
+                    })
+        			return false;
+				}
         		if (!opt.next || methods.execute.call($this, opt.next, index + 1)) {
 					methods.step.call($this, (index + 1) + 1);
+					$("#second-container").removeClass('disabled');
+					$("#second-progress").addClass('active-progress');
         		}
             }).appendTo($('#' + id + '-buttons-' + index));
         }, execute: function(callback, index) {

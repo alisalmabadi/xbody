@@ -109,6 +109,114 @@
             right: 28px !important;
         }
 
+
+
+
+
+
+        /*zooooooom*/
+        #zoomple_previewholder{
+            left:0;
+            top:0;
+            z-index:99;
+            position:absolute;
+            display:none;
+            width:300px;
+            height:300px;
+            background-color:transparent;
+            background-position:50% 50%;
+            background-repeat: no-repeat;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+        #zoomple_previewholder .image_wrap{
+            left:0;
+            top:0;
+            z-index:99;
+            position:absolute;
+            width:100%;
+            height:100%;
+            overflow:hidden;
+            background:#fff;
+            box-shadow:0 0 20px 4px #000;
+        }
+        #zoomple_previewholder.rounded .image_wrap{
+            border:0 solid #454C50;
+            border-radius:50%;
+            background-clip: padding-box;
+        }
+        #zoomple_previewholder .overlay{
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background-clip: padding-box;
+            z-index:1;
+        }
+        #zoomple_previewholder.rounded  .overlay{
+            border-radius:50%;
+            box-shadow:inset 0 0 20px 7px #fff;
+        }
+        #zoomple_previewholder .cursor{
+            width:20px;
+            height:20px;
+            margin-left:-10px;
+            margin-top:-10px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            z-index:101;
+            background: url(../images/cursor.png) 0 0 no-repeat;
+        }
+        #zoomple_previewholder.zp-visible{
+            display:block;
+        }
+        #zoomple_previewholder img{
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        #zoomple_previewholder .caption-wrap{
+            position:absolute;
+            top:100%;
+            left:0;
+            z-index:101;
+            width:100%;
+            margin:0;
+            padding:0;
+            font:11px Verdana,sans-serif;
+            color:#090808;
+            border-radius:0 0 7px 7px;
+        }
+        #zoomple_previewholder .caption-wrap .caption{
+            padding:5px 10px;
+            font:11px Verdana,sans-serif;
+            border-radius:0 0 7px 7px;
+            background: #fff;
+        }
+        #zoomple_image_overlay{
+            background:red;
+            position:absolute;
+            z-index:100;
+            filter: alpha(opacity=1);
+            opacity: 0.01;
+        }
+        #zoomple_image_overlay.preview{
+            background:rgb(0,0,0);
+            filter: alpha(opacity=50);
+            opacity: 0.5;
+        }
+        #zoomple_image_overlay .eyelet{
+            background:rgba(0,0,0,0.2);
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .marquee{
+            filter: alpha(opacity=100);
+        }
     </style>
 
 </head>
@@ -124,7 +232,7 @@
                 <div class="fotorama"
                      data-nav="thumbs">
                     @foreach($products->images as $image)
-                    <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
+                        <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
                     @endforeach
                 </div>
 
@@ -146,7 +254,13 @@
                 <div class="single-body-left">
                     <ul>
                         <li><p>{{$products->model}}</p></li>
-                        <li><p> {{Convertnumber2english($products->price)  }}  تومان</p></li>
+                        <li>
+                            @if($products->price != 0)
+                                <p> {{Convertnumber2english($products->price)  }}  تومان</p>
+                            @else
+                                <p><a href="#phones" id="phones" data-toggle="modal" data-target="#phonesModal">تماس بگیرید</a></p>
+                            @endif
+                        </li>
                         <li>
                             <p class="abut-kala">
                                 {{$products->seo_desc}}
@@ -523,6 +637,31 @@
     </div>
 </div>
 @endif
+<!-- show phones modal -->
+<div class="modal" id="phonesModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background:white;">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">اطلاعات تماس</h4>
+                <button type="button" class="close dokmebaste" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p>...021</p>
+                <p>...021</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of show phones modal -->
 @include('partials.footer')
 
 

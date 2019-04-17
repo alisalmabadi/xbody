@@ -22,7 +22,7 @@
                             @foreach($menus as $submenu)
                                 @if($submenu->parent_id==$menu->id)
 
-                                    <li><a href="{{$submenu->link}}">{{$submenu->name}}</a></li>
+                                    <li class="submenu"><a class="submenu-a" href="{{$submenu->link}}">{{$submenu->name}}</a></li>
 
                                 @endif
 
@@ -91,6 +91,12 @@
     #menu{
 
         box-shadow: -3px 9px 8px 0px #d6002a36 !important;
+    }
+    .submenu{
+        border-bottom: 1px solid white;
+    }
+    .submenu-a:hover{
+        color: grey !important;
     }
 </style>
 <!--------------------------- end NAVIGATION(MENU)-Bodybuilding ---------------------->

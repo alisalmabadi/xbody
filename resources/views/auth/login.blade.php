@@ -23,7 +23,7 @@ $cookie=json_decode($cookie);
             src: url(../fonts/IRANSansWeb.eot?e43cfbc1a67d90e910398ded8345cd32) format("embedded-opentype"), url(/fonts/IRANSansWeb.woff?df14582918ca379a280e453bb3cc6ba5) format("woff"), url(/fonts/IRANSansWeb.ttf?ac22d187130d6c3433a49a1e98bfa968) format("truetype");
         }
         html,body{
-            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+            background-image: url("{{asset('img/branches_background.jpg')}}");
             background-size: cover;
             background-repeat: no-repeat;
             height: 100%;
@@ -78,7 +78,7 @@ $cookie=json_decode($cookie);
 
         .input-group-prepend span{
             width: 50px;
-            background-color: #FFC312;
+            background-color: #df0617;
             color: black;
             border:0 !important;
             font-family: 'iransanse';
@@ -104,8 +104,8 @@ $cookie=json_decode($cookie);
         }
 
         .login_btn{
-            color: black;
-            background-color: #FFC312;
+            color: white;
+            background-color: #df0617;
             width: 100px;
         }
 
@@ -130,6 +130,10 @@ $cookie=json_decode($cookie);
 
         .nav-tabs {
             text-align:center;
+        }
+        .i-tag-center{
+            margin-left: 23%;
+            color:white;
         }
     </style>
     <!--Bootsrap 4 CDN-->
@@ -196,7 +200,7 @@ $cookie=json_decode($cookie);
                             {{csrf_field()}}
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-user i-tag-center"></i></span>
                                 </div>
                                 <input name="username" type="text" class="form-control" placeholder="نام کاربری">
                                 <input type="hidden" name="branchid" class="branchid" value="">
@@ -204,7 +208,7 @@ $cookie=json_decode($cookie);
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-key i-tag-center"></i></span>
                                 </div>
                                 <input name="password" type="password" class="form-control" placeholder="رمز عبور">
                             </div>

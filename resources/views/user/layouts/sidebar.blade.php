@@ -1,3 +1,11 @@
+<style>
+    .parent-menu{
+        color:white;
+    }
+    .child-menu{
+        color:white !important;
+    }
+</style>
 <!--sidebar start-->
 <aside>
     <div id="sidebar"  class="nav-collapse ">
@@ -11,15 +19,15 @@
             </li>
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="icon-book"></i>
-                    <span>رزرو جلسات</span>
+                    <i class="icon-book parent-menu"></i>
+                    <span class="parent-menu">رزرو جلسات</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="{{route('user.reserve')}}">رزرو کردن</a></li>
-                    <li><a class="" href="{{route('user.reserves')}}">جلسات فعلی</a></li>
-                    <li><a class="" href="{{route('user.productreserve')}}">محصولات رزرو شده</a></li>
-                    <li><a class="" href="{{route('user.lastreserves')}}">آخرین قرارداد در شعبه</a></li>
+                    <li><a class="child-menu" href="{{route('user.reserve')}}">رزرو کردن</a></li>
+                    <li><a class="child-menu" href="{{route('user.reserves')}}">جلسات فعلی</a></li>
+                    <li><a class="child-menu" href="{{route('user.productreserve')}}">محصولات رزرو شده</a></li>
+                    <li><a class="child-menu" href="{{route('user.lastreserves')}}">آخرین قرارداد در شعبه</a></li>
                     {{--<li><a class="" href="widget.html">ویجت ها</a></li>
                     <li><a class="" href="slider.html">اسلایدر ها</a></li>
                     <li><a class="" href="font_awesome.html">فونت های شکل دار</a></li>--}}
@@ -83,8 +91,8 @@
             </li>--}}
             <li>
                 <a class="" href="{{route('user.profile')}}">
-                    <i class="icon-user"></i>
-                    <span>پروفایل</span>
+                    <i class="icon-user parent-menu"></i>
+                    <span class="parent-menu">پروفایل</span>
                 </a>
             </li>
         </ul>

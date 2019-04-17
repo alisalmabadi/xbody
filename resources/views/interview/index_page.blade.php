@@ -47,7 +47,9 @@
         <div class="" style="height: 20px;"></div>
         <div style="background-color: rgba(255,255,255,0.3); !important; width: 90%; height: 1005px; margin-right: 5%;">
             <header class="header-interview">
-                <span class="col-md-12 gallery-header"><img class="gallery-header-logo" src="{{asset('images/xmark.png')}}">نظرات مشتریان  <span style="color:red">XBody</span></span>
+
+                <span class="col-md-12 gallery-header"><img class="gallery-header-logo" src="{{asset('images/xmark.png')}}">گالری ویدئوهای <span style="color:red">XBody</span></span>
+
 
                 <div class="col-md-12 category-buttons-spot">
                     <div class="col-md-1" style="margin-left: -1%;">

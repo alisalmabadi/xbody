@@ -4,7 +4,10 @@
         <div data-original-title="باز کردن منو" data-placement="left" class="icon-reorder tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="#" class="logo">x<span>BODY</span></a>
+    {{--<a href="#" class="logo">x<span>BODY</span></a>--}}
+    <a href="#" class="logo">
+        <img src="{{asset('images/setting/730144dcaac9e69f5bd06a584aecb936eefd9cac.png')}}" style="width: 150px;height: 44px;padding-bottom: 8px;">
+    </a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
