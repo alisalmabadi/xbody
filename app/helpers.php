@@ -916,6 +916,11 @@ function SetReservationInfo($json){
 
 }
 
+function shamsiday($data){
+	$datess= new Verta($data);
+	$datess=$datess->format("%A");
+    return $datess;
+}
 function shamsi($data){
     $date=getdateorg($data);
     $dates=\Hekmatinasser\Verta\Facades\Verta::getJalali($date[0],$date[1],$date[2]);
@@ -926,6 +931,7 @@ function shamsi($data){
     $res=Convertnumber2english($res);
     return $res;
 }
+
 
 function branchName($id){
     $branch=\App\Branch::where('orginal_id',$id)->first();
