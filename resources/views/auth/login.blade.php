@@ -107,6 +107,7 @@ $cookie=json_decode($cookie);
             color: white;
             background-color: #df0617;
             width: 100px;
+            margin: 0 auto;
         }
 
         .login_btn:hover{
@@ -134,6 +135,10 @@ $cookie=json_decode($cookie);
         .i-tag-center{
             margin-left: 23%;
             color:white;
+        }
+
+        select#branch_select {
+             margin-bottom: 5%;
         }
     </style>
     <!--Bootsrap 4 CDN-->
@@ -215,8 +220,8 @@ $cookie=json_decode($cookie);
                             {{-- <div class="row align-items-center remember">
                                  <input type="checkbox">مرا به خاطر بسپار!
                              </div>--}}
-                            <div class="form-group">
-                                <input type="submit" value="ورود" class="btn float-right login_btn">
+                            <div class="form-group" style="text-align: center;">
+                                <input type="submit" value="ورود" class="btn login_btn">
                             </div>
                         </form>
 {{--
@@ -247,7 +252,7 @@ $cookie=json_decode($cookie);
         $('#branch_select').change(function () {
             var id=$(this).val();
             if(id!==0) {
-                $(this).hide();
+             /*   $(this).hide();*/
                 $('.branchid').val(id);
                 $('.login_form').show();
             }
