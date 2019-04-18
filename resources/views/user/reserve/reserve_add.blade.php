@@ -57,7 +57,7 @@
         width: 30px;
         height: 30px;
         display: block;
-        background: #fbe8aa;
+        background: #ff0000;
         top: 45px;
         left: 50%;
         margin-top: -15px;
@@ -69,7 +69,7 @@
         content: ' ';
         width: 14px;
         height: 14px;
-        background: #fbbd19;
+        background: #ffffff;
         border-radius: 50px;
         position: absolute;
         top: 8px;
@@ -212,8 +212,17 @@
                         {{csrf_field()}}
                         <fieldset title="انتخاب پکیج" class="step" id="default-step-0">
                             <legend></legend>
-                            <div class="form-group ">
-                                <label class="col-lg-2 control-label col-md-offset-3">انتخاب پکیج</label>
+                            <div class="form-group " style="text-align: center;">
+                                <label style="text-align: center; font-size: 17px;font-weight: bold;" class="col-lg-2 control-label col-md-offset-3">انتخاب پکیج
+
+
+                                </label>
+
+
+
+                               <!--   <div class="col-lg-8">
+                                       
+                                    </div> -->
                                 <div class="col-lg-4">
                                     <select name="package" class="form-control inputss " id="select-package">
                                         <option value="0">
@@ -223,13 +232,12 @@
                                         <option value="{{$package->PackageID}}">{{$package->PackageName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$package->PackagePrice}} تومان </option>
                                             @endforeach
                                     </select>
-                                    <div class="col-lg-12">
-                                        <label class="">پکیج مورد نظر خود را جهت رزرو از لیست بالا انتخاب نمایید</label>
-                                    </div>
-{{--
-                                    <input type="text" class="form-control" placeholder="Full Name">
---}}
+                        
+
                                 </div>
+   <div class="col-lg-12">
+                                          <label style="text-align: center; font-size: 14px;font-weight: bold; margin-top: 5%; padding-right: 27px;">پکیج مورد نظر خود را لیست بالا انتخاب نمایید و سپس روی مرحله بعد کلیک کنید.</label>
+                                      </div>
                             </div>
 
 
@@ -238,7 +246,7 @@
                             <legend></legend>
 
                             <div class="form-group">
-                                <label class="col-sm-1 control-label">از تاریخ</label>
+                                <label class="col-sm-1 control-label" style="text-align: left;">از تاریخ</label>
 
                                 <div class="input-group col-md-3">
                                     <div class="input-group-addon" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#toDate2" data-groupid="group2" data-todate="true" data-enabletimepicker="false" data-placement="left">
@@ -247,7 +255,7 @@
                                     <input name="date" type="text" class="form-control inputss" id="toDate2" placeholder="از تاریخ" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#toDate2" data-groupid="group2" data-todate="true" data-enabletimepicker="false" data-placement="right" />
                                 </div>
 
-                                <label class="col-sm-1 control-label">نوع روز</label>
+                                <label class="col-sm-1 control-label" style="text-align: center;">نوع روز</label>
                                 <div class="col-sm-2">
                                     <select class="form-control inputss" name="DayType" id="select-day">
                                         <option value="0">انتخاب کنید</option>
@@ -262,7 +270,7 @@
                                 </div>
 
 
-                                <label class="col-sm-2 control-label">تعداد روزها در هفته</label>
+                                <label class="col-sm-2 control-label" style="text-align: center;">تعداد روزها در هفته</label>
                                 <div class="col-sm-3">
                                     <select name="countday" class="form-control inputss" id="select-daycount">
                                         <option value="0">انتخاب کنید</option>
@@ -280,7 +288,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">به جز روز های</label>
+                                <label class="col-sm-2 control-label" style="text-align: left;">به جز روز های</label>
 
                                     <select name="days[]" class="expd col-md-9 inputss" multiple="">
                                         @foreach($days as $day)
