@@ -55,10 +55,20 @@
             margin-bottom: 3%;
 
         }
-        .btn-address{
+       .btn-address{
             background-color:#343e44;
             border-color:#dc3545;
         }
+
+        span.btn.btn-primary.btn-address:hover {
+    background: #dc3545;
+    border-color: red;
+}
+
+.btnsocial {
+    background: transparent !important;
+    border: none;
+}
     </style>
 @endsection
 @section('main_content')
@@ -90,12 +100,12 @@
                     @if($branch->social_media)
                         @if(json_decode($branch->social_media)->telegram_id !=null)
                             <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
-                                <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                                <span class="btn btn-info btnsocial"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
                             </a>
                         @endif
                         @if(json_decode($branch->social_media)->instagram_id !=null)
                             <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
-                                <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                                <span class="btn btn-light btnsocial"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
                             </a>
                         @endif
                     @endif
@@ -121,12 +131,12 @@
                     @if($branch->social_media)
                         @if(json_decode($branch->social_media)->telegram_id !=null)
                             <a href="https://t.me/{{json_decode($branch->social_media)->telegram_id}}" target="_blank">
-                                <span class="btn btn-info"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
+                                <span class="btn btn-info btnsocial"><img src="{{asset('images/telegram.png')}}" style="width: 80%; height: 80%"></span>
                             </a>
                         @endif
                         @if(json_decode($branch->social_media)->instagram_id !=null)
                             <a href="https://instagram.com/{{json_decode($branch->social_media)->instagram_id}}" target="_blank">
-                                <span class="btn btn-light"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
+                                <span class="btn btn-light btnsocial"><img src="{{asset('images/instagram.png')}}" style="width: 80%; height: 80%"></span>
                             </a>
                         @endif
                     @endif

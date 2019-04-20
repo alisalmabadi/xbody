@@ -5,7 +5,7 @@
     <div class="row state-overview">
         <div class="col-lg-3 col-sm-6">
             <section class="panel">
-                <div class="symbol terques">
+                <div class="symbol red">
                     <i class="icon-user"></i>
                 </div>
                 <div class="value">
@@ -27,7 +27,7 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <section class="panel">
-                <div class="symbol yellow">
+                <div class="symbol red">
                     <i class="icon-shopping-cart"></i>
                 </div>
                 <div class="value">
@@ -38,7 +38,7 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <section class="panel">
-                <div class="symbol blue">
+                <div class="symbol red">
                     <i class="icon-bar-chart"></i>
                 </div>
                 <div class="value">

@@ -6,15 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('site_name',\Setting::get('site_name'))</title>
-
+<!-- 
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
-
-
-    <link rel="stylesheet" href="{{asset('css/products.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('css/single-page.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/products.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.blog.item.css')}}">
+
     <style>
         .adress {
             width: 100%;
@@ -118,13 +120,13 @@
 
         .item p {
             text-align: center;
-            font-size: 1.6vw;
+            font-size: 1.4vw;
         }
 
-        .item:hover p {
+       /* .item:hover p {
             color: #d6002a;
         }
-
+*/
         .item:hover h5 {
             color: #d6002a;
         }
@@ -248,7 +250,10 @@
             position: relative;
             overflow: hidden;
         }
-
+        .item:hover{
+-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+        }
         .item2 {
             width: 22vw;
             height: 20vw;
@@ -296,7 +301,7 @@
         .item img {
             width: 70%;
             height: 60%;
-            margin: 0 15%;
+            margin: 4% 15%;
             border-radius: 100%;
             /* position: relative; */
             border-right: 4px solid #00000029;
@@ -489,8 +494,14 @@
                 <img src="{{route('media',$product->images()->first())}}" alt="">
                 <p>{{$product->name}}</p>
                 <h5>
+                    @if(Convertnumber2english($product->price)=='0')
                     {{Convertnumber2english($product->price)  }}  تومان
-
+                    @else
+                            <span style="color: white;
+    background: #df0617;
+    border-radius: 9px;
+    padding: 5px;font-size:14px">تماس بگیرید</span>
+                    @endif
                 </h5>
             </a>
         </div>
@@ -499,6 +510,9 @@
 </div>
 
 @include('partials.footer')
+<script src="https://payalord.github.io/xZoom/js/vendor/jquery.js" type="text/javascript"></script>
 
+<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jq.js')}}"></script>
 </body>
 </html>

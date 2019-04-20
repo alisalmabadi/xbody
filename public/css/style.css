@@ -4,11 +4,24 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 */
 @charset "UTF-8";
-@font-face {
-    font-family: 'iransanse';
+/*@font-face {
+    font-family: 'iranyekan';
     src: url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/eot/IRANSansWeb(FaNum).eot');
     src: url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/ttf/IRANSansWeb(FaNum).eot?#iefix') format("embedded-opentype"), url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/woff/IRANSansWeb(FaNum).woff') format("woff"), url('/fonts/IRANSans/Farsi_numerals/webFonts/fonts/ttf/IRANSansWeb(FaNum).ttf') format("truetype");
+}*/
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/iranyekan/eot/iranyekanwebregular(fanum).eot');
+    src: url('../fonts/iranyekan/eot/iranyekanwebregular(fanum).eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../fonts/iranyekan/woff2/iranyekanwebregular(fanum).woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../fonts/iranyekan/woff/iranyekanwebregular(fanum).woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/iranyekan/ttf/iranyekanwebregular(fanum).ttf') format('truetype');
 }
+
+
 /*
 @font-face {
     font-family: 'iranyekan';
@@ -21,7 +34,7 @@
 body {
     color: #797979;
     background: #f1f2f7;
-    font-family: iransanse,'Open Sans', sans-serif;
+    font-family: iranyekan,'Open Sans', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
@@ -2400,7 +2413,7 @@ ul.inbox-pagination li {
 }
 
 .bio-graph-heading {
-    background: #41cac0;
+    background: #ff766c;
     color: #fff;
     text-align: center;
     font-style: italic;

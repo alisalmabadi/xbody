@@ -217,6 +217,46 @@
         .marquee{
             filter: alpha(opacity=100);
         }
+/*.fullsizecover {
+    background: url(../../images/glass.svg) center center no-repeat;
+    position: absolute;
+    width: 64%;
+    height: 35%;
+    top: 25%;
+    left: 123px;
+    background-size: 40%;
+    z-index:0 ;
+    opacity: 0;
+    transition: all ease-in-out 2s;
+}
+
+.productbox:hover > .fullsizecover{
+   opacity: 1;
+
+}
+.fotorama__img:hover{
+       opacity: 0.4;
+
+}
+
+.fullsizecover:hover  .productbox{
+           opacity: 0.4 !important;
+
+}*/
+/*
+.productbox:hover > .fotorama__img{
+opacity: 0.5
+}*/
+   /*     .fullsize-cover:hover{
+           background: url('../../images/xmark.png') center center;
+           position: absolute;
+           z-index: +999999999999999999 !important;
+           width: 100%;
+           height: 100%;
+           right: 0px;
+           left: 0px;
+        
+        }*/
     </style>
 
 </head>
@@ -229,10 +269,13 @@
     <div class="single-full ">
         <div class="single-right">
             <div class="productbox" style="width: 100%; height: 100%;  margin-top: 13%;margin-right: 13%">
+ <div class="fullsizecover">  </div>
                 <div class="fotorama"
                      data-nav="thumbs">
                     @foreach($products->images as $image)
-                        <a href="{{route('media',$image->id)}}"><img src="{{route('media',$image->id)}}" width="144" height="130"></a>
+                        <a href="{{route('media',$image->id)}}">
+                                     <div class="fullsize-cover"> 
+                            <img src="{{route('media',$image->id)}}" width="144" height="130"> </div> </a>
                     @endforeach
                 </div>
 
@@ -258,7 +301,7 @@
                             @if($products->price != 0)
                                 <p> {{Convertnumber2english($products->price)  }}  تومان</p>
                             @else
-                                <p><a href="#phones" id="phones" data-toggle="modal" data-target="#phonesModal">تماس بگیرید</a></p>
+                                <p><a href="#phones" id="phones" data-toggle="modal" data-target="#phonesModal" style="color:#DF0617 !important">تماس بگیرید</a></p>
                             @endif
                         </li>
                         <li>
@@ -520,7 +563,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form class="form-horizontal" id="default" action="{{route('product.reserve.user')}}" method="POST">
+                <form class="form-horizontal formuser" id="default" action="{{route('product.reserve.user')}}" method="POST">
                     {{csrf_field()}}
                     <div class="table-responsive">
                         <table class="table" style="text-align:center;">
@@ -623,7 +666,7 @@
 
                 </div>
 
-                    <button class="btn btn-success reserve_add offset-4">ثبت رزرو محصول</button>
+                    <button class="btn btn-success reserve_add_user offset-4">ثبت رزرو محصول</button>
 
                 </form>
             </div>
@@ -724,6 +767,54 @@
             }
         });
     });
+
+
+ $('.reserve_add_user').click(function (e) {
+        e.preventDefault();
+
+        $("#div_wait").css('display' , 'block');
+        $("#name_error").css('display' , 'none');
+        $("#lastname_error").css('display' , 'none');
+        $("#phone_error").css('display' , 'none');
+
+        var data = $(".formuser").serialize();
+        var url = $(".formuser").attr('action');
+        var type = $(".formuser").attr('method');
+        console.log(url);
+        $.ajax({
+            data:data,
+            type:type,
+            url:url,
+            success:function(data){
+                Swal(
+                    'رزرو شما با موفقیت انجام شد!',
+                    'به زودی با شما تماس خواهیم گرفت.',
+                    'success'
+                )
+                $("#div_wait").css('display' , 'none');
+                location.reload();
+            },
+            error:function (error) {
+                console.log(error.responseJSON.errors);
+                if(error.responseJSON.errors.name){
+                    $("#name_error").text(error.responseJSON.errors.name[0]);
+                    $("#name_error").css('display' , 'block');
+                }
+                if(error.responseJSON.errors.lastname){
+                    $("#lastname_error").text(error.responseJSON.errors.lastname[0]);
+                    $("#lastname_error").css('display' , 'block');
+                }
+                if(error.responseJSON.errors.phonenumber){
+                    $("#phone_error").text(error.responseJSON.errors.phonenumber[0]);
+                    $("#phone_error").css('display' , 'block');
+                }
+                $("#div_wait").css('display' , 'none');
+            }
+        });
+    });
+    
+
+    
 </script>
 
 {{--
@@ -780,6 +871,23 @@
         allowfullscreen: true,
         nav: 'thumbs'
     });
+  /*  $('.fotorama__stage__shaft').on('mouseover',function(){
+           $('.fullsizecover').toggle('slow');
+         var width= $(this).find('img').width();
+         var height= $(this).find('img').height();
+         alert(width);
+         /*   $('.fullsizecover').css({
+                "width:",width,
+                "height:",height,
+            });
+    });*/
+
+/*    $('.fotorama__stage__shaft').on('mouseover',function(){
+                    $('.fotorama__img').attr('style',"opacity:0.4 !important");
+    },function(){
+                    $('.fotorama__img').attr('style',"opacity:1 !important");
+
+    });*/
 </script>
 
 </body>

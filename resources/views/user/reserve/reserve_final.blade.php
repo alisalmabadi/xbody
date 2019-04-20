@@ -34,7 +34,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="alert" style="text-align: center; background-color:grey; color:white;border:1px solid red;">
+    <div class="alert" style="text-align: center;background-color: #f9f9f9; color: #797979;border: 1px solid white;font-size: 15px;font-weight: bold;">
         برای رزرو بعد از انتخاب تاریخ مورد نظر ساعت آن روز را انتخاب کرده و در پایان ثبت روزهای رزروی را بزنید.
     </div>
 
@@ -72,6 +72,8 @@
                             <th style="width: 8px;">
                                 <input name="dates[]" type="checkbox" class="group-checkable"  data-set="#sample_1 .checkboxes" />
                             </th>
+                                                         <th style="text-align:center;">روز</th>
+
                             <th style="text-align:center;">تاریخ روز های پیشنهادی</th>
                             <th style="text-align:center;">ساعت ها</th>
                             {{--    <th class="hidden-phone">Points</th>
@@ -85,8 +87,9 @@
                                 <td>
                                     <input name="dates[]"  type="checkbox" class="checkboxes" value="{{$item->Date}}" />
                                 </td>
+                                                                <td>  {{shamsiday($item->Date)}}   </td>
 
-                                <td>{{shamsi($item->Date)}}</td>
+                                <td>  {{shamsi($item->Date)}} </td>
                                 <td>
                                     <button class="btn btn-danger" id="selecthour" type="button" style="width: 41%;height: 86% !important;">برای انتخاب ساعت کلیک کنید.</button>
 

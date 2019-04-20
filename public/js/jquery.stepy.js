@@ -208,7 +208,7 @@
 				id		= this.attr('id'),
 				opt		= this.data('options');
 
-        	$('<a/>', { id: id + '-back-' + index, href: 'javascript:void(0);', 'class': 'button-back btn','style':'margin-right:45%;background-color:#343e44;color:white;', html: opt.backLabel }).click(function() {
+        	$('<a/>', { id: id + '-back-' + index, href: 'javascript:void(0);', 'class': 'button-back btn','style':'margin-right:75%;background-color:#8080809c;color:white;', html: opt.backLabel }).click(function() {
         		if (!opt.back || methods.execute.call($this, opt.back, index - 1)) {
         			methods.step.call($this, (index - 1) + 1);
                     $("#second-container").addClass('disabled');
@@ -220,7 +220,7 @@
 				id		= this.attr('id'),
 				opt		= this.data('options');
 
-        	$('<a/>', { id: id + '-next-' + index, href: 'javascript:void(0);', 'class': 'button-next  btn','style':'margin-left:45%;background-color:#343e44;color:white;', html: opt.nextLabel }).click(function() {
+        	$('<a/>', { id: id + '-next-' + index, href: 'javascript:void(0);', 'class': 'button-next  btn','style':'margin-left:45%;background-color:#fc0d0d;color:white;', html: opt.nextLabel }).click(function() {
         		if($("#select-package").val() == 0){
                     swal.fire({
                         type: 'error',

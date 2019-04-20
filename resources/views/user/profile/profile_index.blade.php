@@ -63,7 +63,7 @@
                                 <p><span>شعبه </span>: {{$user->branch}}</p>
                             </div>
                             <div class="bio-row">
-                                <p><span>جنسیت</span>: @if($user->gender==1) <button type="button" class="btn btn-success">آقا</button> @else <button type="button" class="btn btn-success">خانم</button>  @endif</p>
+                                <p><span>جنسیت</span>: @if($user->gender==1) <button style=" background: white; color: #020202; border: 1px solid #e4e5e7;" type="button" class="btn btn-success">آقا</button> @else <button type="button" class="btn btn-danger">خانم</button>  @endif</p>
                             </div>
                         {{--    <div class="bio-row">
                                 <p><span>Occupation </span>: UI Designer</p>

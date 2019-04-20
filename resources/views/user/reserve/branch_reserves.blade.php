@@ -66,7 +66,7 @@
                                  </ul>
                              </td>--}}
                             <td>
-                                <div class="btn btn-info" data-target="#modal" data-toggle="modal">مشاهده جلسات</div>
+                                <div class="btn btn-info" style="background: red;border:1px solid black" data-target="#modal" data-toggle="modal">مشاهده جلسات</div>
 
 
                                 <div id="modal" class="modal fade" role="dialog" >
@@ -74,7 +74,7 @@
 
                                         <!-- Modal content-->
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header" style="background: #ff0000c7;">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title" style="font-family: iransanse;">روز های رزروی</h4>
                                             </div>
@@ -101,7 +101,7 @@
                                                             <td>{{$dated}}</td>
                                                             <td>{{PersianDay($UserReserve->DayOfWeekName)}}</td>
                                                             <td>{{$UserReserve->Time}}</td>
-       <td>@if($UserReserve->State=='حضور')<i style="color:green;    font-size: 33px;" class="icon-check"></i> @else <i style="color:red;     font-size: 33px;" class="icon-remove-circle"></i> @endif</td>
+       <td>@if($UserReserve->State=='حضور')<i style="color:gray;    font-size: 33px;" class="icon-check"></i> @else <i style="color:red;     font-size: 33px;" class="icon-remove-circle"></i> @endif</td>
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
