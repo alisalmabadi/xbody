@@ -42,18 +42,18 @@ class GalleryController extends Controller
     {
         $this->validate($request , [
             'name' => 'required|max:255',
-            'slug' => 'required|string|unique:galleries|max:255|regex:/(^([a-zA-Z]+)(\d+)?$)/u',
+//            'slug' => 'required|string|unique:galleries|max:255|regex:/(^([a-zA-Z]+)(\d+)?$)/u',
             'status' => 'required|numeric',
             'hidden_image_original' => 'required',
             'type' => 'required|numeric'
         ],[
             'name.required' => 'لطفا نام گالری را وارد کنید',
             'name.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
-            'slug.required' => 'لطفا نام انگلیسی گالری را وارد کنید',
+            /*'slug.required' => 'لطفا نام انگلیسی گالری را وارد کنید',
             'slug.string' => 'لطفا فقط کاراکتر وارد کنید',
             'slug.unique' => 'این نام قبلا انتخاب شده است',
             'slug.max' => 'تعداد کاراکتر وارد شده بیش از حد مجاز است',
-            'slug.regex' => 'لطفا فقط حرف انگلیسی وارد کنید, بدون فاصله',
+            'slug.regex' => 'لطفا فقط حرف انگلیسی وارد کنید, بدون فاصله',*/
             'status.required' => 'لطفا وضعیت را مشخص کنید',
             'status.numeric' => 'مشکلی رخ داده است, لطفا مجدد وضعیت را مشخص کنید',
             'type.required' => 'لطفا نوع گالری را مشخص کنید',
@@ -64,20 +64,21 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         /*upload gallery_header image*/
-        $file_name = $request['slug'].'_header'.'.'.$request['image_original']->getClientOriginalExtension();
-        $file_url = 'Gallery/'.$request['slug'];
+        $folder_name = 'xbody_'.time();
+        $file_name = $folder_name . '_header'.'.'.$request['image_original']->getClientOriginalExtension();
+        $file_url = 'Gallery/'.$folder_name;
         $image_type = $request['image_original']->getClientOriginalExtension();
         $request['image_original']->move($file_url , $file_name);
 
         /*upload gallery_header thumbnail*/
         $path = public_path('Gallery/thumbnail') . "/" . $file_name;
-        $img = Image::make(public_path('Gallery/'.$request['slug'].'/') . $file_name)->resize(115,115)->save($path);
+        $img = Image::make(public_path('Gallery/'.$folder_name.'/') . $file_name)->resize(115,115)->save($path);
         $thumbnail = 'Gallery/thumbnail/'.$img->basename;
 
         $gallery = new Gallery();
         $gallery = $gallery->create([
-           'name' => $request['name'],
-           'slug' => $request['slug'],
+            'name' => $request['name'],
+            'slug' => $folder_name,
             'desc'=> $request['desc'],
             'image_original' => $file_url . '/' . $file_name,
             'image_type' => $image_type,
@@ -105,8 +106,8 @@ class GalleryController extends Controller
             /*photos upload*/
             foreach ($all_inputs as $input)
             {
-                $photo_name = $gallery['slug'].'_photo_'.sha1($input['photo']->getClientOriginalName()).'.'.$input['photo']->getClientOriginalExtension();
-                $photo_url = 'Gallery/' . $gallery['slug'] . '/' . 'Photos';
+                $photo_name = $folder_name.'_photo_'.sha1($input['photo']->getClientOriginalName()).'.'.$input['photo']->getClientOriginalExtension();
+                $photo_url = 'Gallery/' . $folder_name . '/' . 'Photos';
                 $photo_type = $input['photo']->getClientOriginalExtension();
                 $input['photo']->move($photo_url , $photo_name);
 
@@ -295,7 +296,7 @@ class GalleryController extends Controller
             $photo = $request['edit_gallery_photo_image_original'];
             $photo_name = $gallery->slug . '_photo_' . sha1($photo->getClientOriginalName()).'.'.$photo->getClientOriginalExtension();
             $photo_type = $photo->getClientOriginalExtension();
-            $photo_url = 'Gallery/' . $gallery->slug . 'Photos';
+            $photo_url = 'Gallery/' . $gallery->slug . '/Photos';
 
             $photo->move($photo_url , $photo_name);
 
