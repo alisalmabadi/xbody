@@ -361,7 +361,7 @@ Route::get('sendsms',function (){
 });*/
 
 /*message routes*/
-Route::post('message/store' , 'messageController@store')->name('message.store');
+Route::post('message/store' , 'MessageController@store')->name('message.store');
 
 
 /*Interview routes*/
