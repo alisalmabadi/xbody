@@ -34,7 +34,7 @@
                                 <td style="width: 1px;" class="text-center">
                                     <input onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" type="checkbox"></td>
                                 <td class="text-center">نام</td>
-                                <td class="text-center">نام انگلیسی</td>
+                                <td class="text-center">فولدر</td>
                                 <td class="text-center">تصویر</td>
                                 <td class="text-center">توضیحات</td>
                                 <td class="text-center">وضعیت</td>
