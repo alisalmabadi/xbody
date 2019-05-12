@@ -99,6 +99,24 @@
                         </div>
                     </div>
 
+                    <div id="instagram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="instagram_id">مختصات <a href="https://jsfiddle.net/ehLr8ehk/">لیفلت</a> </label>
+                        <div class="col-sm-3">
+                            <input id="xplace" name="xplace" value="{{old('xplace')}}" placeholder="xplace"  class="form-control" type="text">
+                            <label class="success">
+                                مختصات lat
+                            </label>
+                            <label style="color:red">{{$errors->first('xplace')}}</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="yplace" name="yplace" value="{{old('yplace')}}" placeholder="yplace"  class="form-control" type="text">
+                            <label class="success">
+                                مختصات lng
+                            </label>
+                            <label style="color:red">{{$errors->first('yplace')}}</label>
+                        </div>
+                    </div>
+
                     <div id="image_area" class="form-group required">
                         <label class="col-sm-2 control-label" for="seo_desc">تصویر</label>
                         <div class="col-sm-6">
