@@ -24,14 +24,14 @@
                 <h3 class="panel-title"><i class="fa fa-sliders"></i>ویرایش تبلیغات</h3>
             </div>
             <div class="panel-body">
-                <form action="{{route('admin.ads.update',$ads)}}" class="form-horizontal" method="post" enctype="multipart/form-data" id="form-category">
-               <input type="hidden" name="ads_id" value="{{$ads->id}}">
+                <form action="{{route('admin.ads.update',$ads[0])}}" class="form-horizontal" method="post" enctype="multipart/form-data" id="form-category">
+               <input type="hidden" name="ads_id" value="{{$ads[0]->id}}">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">نام اسلایدر</label>
                         <div class="col-sm-5">
-                            <input name="title" value="{{$ads->title}}" placeholder="عنوان اسلایدر" id="input-name" class="form-control" type="text">
+                            <input name="title" value="{{$ads[0]->title}}" placeholder="عنوان اسلایدر" id="input-name" class="form-control" type="text">
                             @if($errors->has('title'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('title') }}</strong>
@@ -71,7 +71,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">alt تبلیغ</label>
                         <div class="col-sm-5">
-                            <input name="alt" value="{{$ads->alt}}" placeholder="" id="input-name" class="form-control" type="text">
+                            <input name="alt" value="{{$ads[0]->alt}}" placeholder="" id="input-name" class="form-control" type="text">
                             @if($errors->has('alt'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('alt') }}</strong>
@@ -83,7 +83,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">لینک</label>
                         <div class="col-sm-5">
-                            <input name="url" value="{{$ads->url}}" placeholder="" id="input-name" class="form-control" type="text">
+                            <input name="url" value="{{$ads[0]->url}}" placeholder="" id="input-name" class="form-control" type="text">
                             @if($errors->has('url'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('url') }}</strong>
@@ -95,7 +95,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">ترتیب</label>
                         <div class="col-sm-5">
-                            <input name="order" value="{{$ads->order}}" placeholder="" id="input-name" class="form-control" type="text">
+                            <input name="order" value="{{$ads[0]->order}}" placeholder="" id="input-name" class="form-control" type="text">
                             @if($errors->has('order'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('order') }}</strong>
@@ -110,8 +110,8 @@
                         <label class="col-sm-2 control-label" for="input-status">وضعیت</label>
                         <div class="col-sm-5">
                             <select name="status" id="input-status" class="form-control">
-                                <option value="1" @if($ads->status == 1) selected="selected" @endif >فعال</option>
-                                <option  @if($ads->status == 0) selected="selected" @endif  value="0">غیرفعال</option>
+                                <option value="1" @if($ads[0]->status == 1) selected="selected" @endif >فعال</option>
+                                <option  @if($ads[0]->status == 0) selected="selected" @endif  value="0">غیرفعال</option>
                             </select>
                             @if($errors->has('status'))
                                 <span class="help-block">
@@ -131,7 +131,7 @@
                                     </span>
                             @endif
                         </div>
-                        <img src="{{url('/')}}/{{$ads->image}}" width="300" height="100">
+                        <img src="{{url('/')}}/{{$ads[0]->image}}" width="300" height="100">
 
                     </div>
 
