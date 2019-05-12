@@ -427,3 +427,21 @@ Route::get('sendemail',function (){
 return view('email.UserNotification');
 });
 
+
+Route::get('insert/{branch_id}',function($branch_id){
+    $packages=getpackages($branch_id);
+    $packages=json_decode($packages);
+    $packages=json_decode($packages);
+    foreach($packages as $package){
+     App\Package::updateOrCreate([
+           'name'=>$package->PackageName,
+            'orginal_id'=>$package->PackageID,
+            'category_id'=>$package->CategoryID,
+           'branch_id'=>$package->BranchNo,
+           'package_session_count'=>$package->PackageSessionCount,
+           'package_price'=>$package->PackagePrice,
+            'package_offer'=>(int)$package->PackageOffer
+
+        ]);
+    }
+});
