@@ -6,11 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('site_name',\Setting::get('site_name'))</title>
-<!-- 
+<!--
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{asset('css/single-page.css')}}">
+    <link rel="stylesheet" href="{{asset('css/single-page.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
 
@@ -123,10 +123,10 @@
             font-size: 1.4vw;
         }
 
-       /* .item:hover p {
-            color: #d6002a;
-        }
-*/
+        /* .item:hover p {
+             color: #d6002a;
+         }
+ */
         .item:hover h5 {
             color: #d6002a;
         }
@@ -251,8 +251,8 @@
             overflow: hidden;
         }
         .item:hover{
--webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+            -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
         }
         .item2 {
             width: 22vw;
@@ -476,7 +476,7 @@
 @include('partials.menu')
 <div class="container">
     <div class="paragraf">
-<p>{{$setting->product_header}}</p>
+        <p>{{$setting->product_header}}</p>
         <br>
         <h3>
             {{$setting->product_des}}
@@ -488,24 +488,26 @@
 <div class="box-products container-fluid">
 
     <div class="blog-item">
-@foreach($products as $product)
-        <div class="item">
-            <a href="{{url('/product')}}/{{$product->category->slug}}/{{$product->slug}}" style="color: black">
-                <img src="{{route('media',$product->images()->first())}}" alt="">
-                <p>{{$product->name}}</p>
-                <h5>
-                    @if(Convertnumber2english($product->price)=='0')
-                    {{Convertnumber2english($product->price)  }}  تومان
-                    @else
+        @foreach($products as $product)
+            <div class="item">
+                <a href="{{url('/product')}}/{{$product->category->slug}}/{{$product->slug}}" style="color: black">
+                    <img src="{{route('media',$product->images()->first())}}" alt="">
+                    <p>{{$product->name}}</p>
+                    <h5>
+                        @if(($product->price)=='0')
                             <span style="color: white;
     background: #df0617;
     border-radius: 9px;
     padding: 5px;font-size:14px">تماس بگیرید</span>
-                    @endif
-                </h5>
-            </a>
-        </div>
-    @endforeach
+                        @else
+
+                            {{Convertnumber2english($product->price)  }}  تومان
+
+                        @endif
+                    </h5>
+                </a>
+            </div>
+        @endforeach
     </div>
 </div>
 
