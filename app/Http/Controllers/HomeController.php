@@ -53,7 +53,7 @@ class HomeController extends Controller
 /*        $articles=Article::orderBy('id','desc')->limit(4)->get();*/
             $articles=Article::orderBy('id','desc')->get();
 
-        $branches = Branch::all()->take(4);
+        $branches = Branch::all()->take(6);
         return view('index_page',compact('menus','slider','articles','branches'));
 
     }
