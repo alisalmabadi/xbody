@@ -328,14 +328,16 @@ Route::group(['prefix'=>'blog', 'as'=>'blog.'],function (){
     Route::get('/{category}/{slug}',['uses'=>'ArticleController@show','as'=>'post']);
 
 });
-
+/***product category ***/
 Route::group(['prefix'=>'product', 'as'=>'product.'],function (){
     Route::get('/',['as'=>'index','uses'=>'ProductController@index_page']);
-    Route::get('/{category}/{slug}',['uses'=>'ProductController@show_p','as'=>'product']);
+    Route::get('/{slug}',['uses'=>'ProductController@show_p','as'=>'product']);
     Route::post('/reserve',['uses'=>'ProductReserveController@store','as'=>'reserve']);
     Route::post('/reserve/user',['uses'=>'ProductReserveController@storeuser','as'=>'reserve.user']);
 
 });
+
+Route::get('category/{category}',['as'=>'product_category','uses'=>'CategoryController@product_category']);
 
 Route::post('getpackages','RequestController@branch')->name('getpackages');
 Route::post('sendblogcat','ArticleController@posts')->name('sendblogcat');
