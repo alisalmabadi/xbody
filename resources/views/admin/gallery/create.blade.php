@@ -39,11 +39,11 @@
                             <label style="color: red;display: none;" id="name_error">{{$errors->first('name')}}</label>
                         </div>
 
-                        <label class="col-sm-2 control-label" for="slug">نام انگلیسی <label style="color:red;">*</label></label>
+                        {{--<label class="col-sm-2 control-label" for="slug">نام انگلیسی <label style="color:red;">*</label></label>
                         <div class="col-sm-4">
                             <input id="title" name="slug" value="{{old('slug')}}" placeholder="فقط حروف انگلیسی وارد شود, بدون فاصله"  class="form-control" type="text">
                             <label style="color: red;display: none;" id="slug_error">{{$errors->first('slug')}}</label>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="form-group">
@@ -225,8 +225,8 @@
                 '                                <input type="text" class="form-control" name="gallery_photos_title[]" placeholder="عنوان تصویر" required="required">\n' +
                 '                            </div>\n' +
                 '                            <div class="col-md-4">\n' +
-                '                                <label>متن خطا</label>\n' +
-                '                                <input type="text" class="form-control" name="gallery_photos_alt[]" placeholder="متن خطا" required="required">\n' +
+                '                                <label>متن توضیح</label>\n' +
+                '                                <input type="text" class="form-control" name="gallery_photos_alt[]" placeholder="متن توضیح" required="required">\n' +
                 '                            </div>\n' +
                 '                            <div class="col-md-2">\n' +
                 '                                <label>تصویر</label>\n' +
@@ -380,7 +380,7 @@
 
             $("#register_wait").css('display' , 'block');
             $("#name_error").css('display' , 'none');
-            $("#slug_error").css('display' , 'none');
+            // $("#slug_error").css('display' , 'none');
             $("#status_error").css('display' , 'none');
             $("#type_error").css('display' , 'none');
             $("#image_original_error").css('display' , 'none');
@@ -405,10 +405,10 @@
                         $("#name_error").css('display' , 'block');
                         $("#name_error").text(error.responseJSON.errors.name[0]);
                     }
-                    if(error.responseJSON.errors.slug){
+                    /*if(error.responseJSON.errors.slug){
                         $("#slug_error").css('display' , 'block');
                         $("#slug_error").text(error.responseJSON.errors.slug[0]);
-                    }
+                    }*/
                     if(error.responseJSON.errors.status){
                         $("#status_error").css('display' , 'block');
                         $("#status_error").text(error.responseJSON.errors.status[0]);

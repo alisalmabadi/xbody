@@ -255,7 +255,7 @@ opacity: 0.5
            height: 100%;
            right: 0px;
            left: 0px;
-        
+
         }*/
     </style>
 
@@ -268,13 +268,13 @@ opacity: 0.5
 <div class="container-fluid text-center">
     <div class="single-full ">
         <div class="single-right">
-            <div class="productbox" style="width: 100%; height: 100%;  margin-top: 13%;margin-right: 13%">
+            <div class="productbox" style="width: 100%; height: auto;  margin-top: 13%;margin-right: 13%">
  <div class="fullsizecover">  </div>
                 <div class="fotorama"
                      data-nav="thumbs">
                     @foreach($products->images as $image)
                         <a href="{{route('media',$image->id)}}">
-                                     <div class="fullsize-cover"> 
+                                     <div class="fullsize-cover">
                             <img src="{{route('media',$image->id)}}" width="144" height="130"> </div> </a>
                     @endforeach
                 </div>
@@ -364,7 +364,7 @@ opacity: 0.5
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">نقد و بررسی</a>
+                <a class="nav-link active" data-toggle="tab" href="#home">توصیفات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu1">ویژگی های محصول</a>
@@ -372,9 +372,9 @@ opacity: 0.5
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content" style="margin-right:-150p;">
+        <div class="tab-content" style="margin-right:-150px;">
             <div id="home" class="container tab-pane active" style="text-align: right"><br>
-                <h3>نقد و بررسی</h3>
+                <h3>توصیفات</h3>
                 {!! $products->desc !!}
             </div>
             <div id="menu1" class="container tab-pane fade" style="text-align: right"><br>
@@ -812,9 +812,9 @@ opacity: 0.5
             }
         });
     });
-    
 
-    
+
+
 </script>
 
 {{--

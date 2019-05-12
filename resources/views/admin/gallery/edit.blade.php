@@ -39,16 +39,16 @@
                             <label style="color: red;display: none;" id="name_error">{{$errors->first('name')}}</label>
                         </div>
 
-                        <label class="col-sm-2 control-label" for="slug">نام انگلیسی <label style="color:red;">*</label></label>
+                        {{--<label class="col-sm-2 control-label" for="slug">نام انگلیسی <label style="color:red;">*</label></label>
                         <div class="col-sm-4">
                             <input id="title" name="slug" value="{{$gallery->slug}}" placeholder="فقط حروف انگلیسی وارد شود, بدون فاصله"  class="form-control" type="text" disabled>
                             <label style="color: red;display: none;" id="slug_error">{{$errors->first('slug')}}</label>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="slug">وضعیت <label style="color:red;">*</label></label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-4">
                             <select name="status" class="select2 form-control">
                                 <option value="1" @if($gallery->status == 1) selected @endif>فعال</option>
                                 <option value="0" @if($gallery->status == 0) selected @endif>غیر فعال</option>
@@ -57,7 +57,7 @@
                         </div>
 
                         <label class="col-sm-2 control-label" for="slug">نوع گالری <label style="color:red;">*</label></label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-4">
                             <select name="type" id="select_type" class="select2 form-control">
                                 <option id="picture_value" value="0" @if($gallery->type == 0) selected @else disabled @endif>گالری عکس</option>
                                 <option id="video_value" value="1" @if($gallery->type == 1) selected @else disabled @endif>گالری ویدئو</option>
@@ -100,7 +100,7 @@
                                 <thead>
                                 <tr>
                                     <td class="text-center">عنوان</td>
-                                    <td class="text-center">متن خطا</td>
+                                    <td class="text-center">متن توضیح</td>
                                     <td class="text-center">تصویر</td>
                                     <td class="text-center">عملیات</td>
                                 </tr>
@@ -216,8 +216,8 @@
                         <div class="modal-body">
                             <label>عنوان <label style="color: red;">*</label> </label>
                             <input type="text" class="form-control" id="gallery_photo_title" name="gallery_photo_title" placeholder="عنوان" required="required">
-                            <label>متن خطا <label style="color: red;">*</label> </label>
-                            <input type="text" class="form-control" id="gallery_photo_alt" name="gallery_photo_alt" placeholder="متن خطا" required="required">
+                            <label>متن توضیح <label style="color: red;">*</label> </label>
+                            <input type="text" class="form-control" id="gallery_photo_alt" name="gallery_photo_alt" placeholder="متن توضیح" required="required">
                             <label>ویدئو <label style="color: red;">*</label> </label>
                             <div id="div-file">
                                 <input type="file" class="form-control gallery_photo_image_original" id="gallery_photo_image_original" name="gallery_photo_image_original" required="required">
@@ -248,8 +248,8 @@
                             <input type="hidden" id="edit_gallery_photo_id" name="edit_gallery_photo_id">
                             <label>عنوان <label style="color: red;">*</label> </label>
                             <input type="text" class="form-control" id="edit_gallery_photo_title" name="edit_gallery_photo_title" placeholder="عنوان" required="required">
-                            <label>متن خطا <label style="color: red;">*</label> </label>
-                            <input type="text" class="form-control" id="edit_gallery_photo_alt" name="edit_gallery_photo_alt" placeholder="متن خطا" required="required">
+                            <label>متن توضیح <label style="color: red;">*</label> </label>
+                            <input type="text" class="form-control" id="edit_gallery_photo_alt" name="edit_gallery_photo_alt" placeholder="متن توضیح" required="required">
                             <label>ویدئو <label style="color: red;">*</label> </label>
                             <div id="div-file">
                                 <input type="file" class="form-control gallery_photo_image_original" id="edit_gallery_photo_image_original" name="edit_gallery_photo_image_original">

@@ -271,7 +271,6 @@
                     )
                 },
                 error:function (error) {
-                    console.log(error.responseJSON.errors);
                     if(error.responseJSON.errors.name){
                         $("#name_error").text(error.responseJSON.errors.name[0]);
                         $("#name_error").css('display' , 'inline-flex');
