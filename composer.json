@@ -25,7 +25,8 @@
         "saeedpooyanfar/zarinpal": "^3.0",
         "thetispro/laravel5-setting": "1.1.x-dev",
         "unisharp/laravel-ckeditor": "^4.6",
-        "unisharp/laravel-filemanager": "~1.8"
+        "unisharp/laravel-filemanager": "~1.8",
+      "ext-http": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
