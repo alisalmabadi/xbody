@@ -833,22 +833,20 @@ class ProductController extends Controller
 
     }
 
-    public function show_p($category,$slug)
+    public function show_p($slug)
     {
         $product_related=Product::all();
         $products=Product::where('slug',$slug)->first();
-        $menus=Menu::all();
-        if($products->category->slug==$category){
-                return view('product.show',compact('products','menus','product_related'));
+        if($products) {
+            return view('product.show', compact('products', 'menus', 'product_related'));
         }else{
-                abort(404);
+            abort(404);
         }
     }
 
     public function index_page()
     {
         $products=Product::all();
-        $menus=Menu::all();
         return view('product.index',compact('products','menus'));
     }
 }
