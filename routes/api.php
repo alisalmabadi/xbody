@@ -27,7 +27,11 @@ Route::group(['prefix' => 'v1','middleware' => 'auth:api'], function () {
 
 /*Route::get('getcompanies','ApiControllers\CompanyController@index');*/
 /*Route::get('company/{id}','ApiControllers\CompanyController@getcompany');*/
-Route::get('getdepartments/{token}','ApiControllers\DepartmentController@show');
+/*Route::get('getdepartments/{token}','ApiControllers\DepartmentController@show');
 Route::post('conversation','ApiControllers\ConversationController@store');
 Route::post('sendmessage','ApiControllers\MessageController@store');
-Route::post('readmessage','ApiControllers\MessageController@readmessage');
+Route::post('readmessage','ApiControllers\MessageController@readmessage');*/
+
+Route::get('GetReserves/token/{token}/Branch/{BranchID}','ApiControllers\ReserveController@index');
+
+Route::get('ReserveDetail/token/{token}/Reserve/{ReserveID}','ApiControllers\ReserveController@show');
