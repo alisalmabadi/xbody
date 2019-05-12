@@ -12,6 +12,7 @@
         "barryvdh/laravel-ide-helper": "^2.4",
         "ctf0/media-manager": "^1.0",
         "cybercog/laravel-likeable": "^3.1",
+        "doctrine/dbal": "^2.9",
         "hekmatinasser/verta": "^1.8",
         "joselfonseca/image-manager": "2.1.*",
         "larabook/gateway": "^3.3",
@@ -25,8 +26,7 @@
         "saeedpooyanfar/zarinpal": "^3.0",
         "thetispro/laravel5-setting": "1.1.x-dev",
         "unisharp/laravel-ckeditor": "^4.6",
-        "unisharp/laravel-filemanager": "~1.8",
-      "ext-http": "*"
+        "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
