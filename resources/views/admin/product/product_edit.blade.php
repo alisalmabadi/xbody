@@ -47,7 +47,7 @@
                             <h3>عمومی</h3>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="name">نام</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input id="name" name="name" value="{{$product->name}}" placeholder="نام"  class="form-control" type="text">
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -58,7 +58,7 @@
 
                                 <label class="col-sm-2 control-label" for="order">انتخاب دسته</label>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
 
                                     <select  name="category_id" id="category_id" class="form-control select22" disabled="disabled">
                                         <option value="0">انتخاب(اجباری)</option>
@@ -72,66 +72,19 @@
                                     </span>
                                     @endif
                             </div>
+
+                                <!-- gallery select image -->
+                                <div class="" id="gallery">
+                                    <div class="col-sm-1 control-label">
+                                        <label for='titulo'>گالری</label>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        {!! ImageManager::getField(['text' => 'آپلود عکس','field_name' => 'images', 'class' => 'btn btn-primary' ]) !!}
+                                    </div>
+                                </div>
+                                <!-- gallery select image -->
                             </div>
 
-                     {{--           <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="order">انتخاب فروشنده</label>
-
-
-                                    <div class="col-sm-3">
-
-                                        <select  name="seller_id" id="seller_id" class="form-control select2" >
-                                            <option value="0">انتخاب(اجباری)</option>
-                                            @foreach($sellers as $seller)
-                                                <option value="{{$seller->id}}" @if($seller->id==$product->seller_id) selected @endif>{{$seller->company_name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('seller_id'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('seller_id') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                    <label class="col-sm-2 control-label" for="order">انتخاب سازنده</label>
-
-
-                                    <div class="col-sm-3">
-
-                                        <select  name="company_id" id="company_id" class="form-control select2" >
-                                            <option value="0">انتخاب</option>
-                                            @foreach($companies as $company)
-                                            <option value="{{$company->id}}" @if($company->id==$product->company_id) selected @endif >{{$company->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('company_id'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('company_id') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                </div>--}}
-
-                           {{--     <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="order">انتخاب (generic)</label>
-
-                                    <div class="col-sm-4">
-
-                                        <select  name="generic_id" id="generic_id" class="form-control select22" >
-                                            <option value="0">انتخاب(اجباری)</option>
-                                            @foreach($generics as $generic)
-                                                <option @if($generic->id==$product->generic_id) selected @endif value="{{$generic->id}}">{{$generic->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('generic_id'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('generic_id') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-
-                                </div>--}}
                             <div class="form-group required">
                                 <label class="col-sm-2 control-label" for="name">جزئیات</label>
                                 <div class="col-sm-9">
