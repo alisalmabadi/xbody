@@ -964,3 +964,19 @@ function PersianDay($id){
 
     }
 }
+
+
+function PackageName($branch_id,$package_id){
+    $packages=getpackages($branch_id);
+    $packages=json_decode($packages);
+    $packages=json_decode($packages);
+/*    dd($packages);*/
+    $package_name='';
+    foreach($packages as $p){
+        if($p->PackageID == $package_id){
+            $package_name=$p->PackageName;
+
+        }
+    }
+    return $package_name;
+}
