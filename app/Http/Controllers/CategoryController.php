@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Keyword;
 use App\Menu;
+use App\Product;
 use App\Slider;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,13 @@ class CategoryController extends Controller
         return view('admin.category.category_show',compact('categories'));
 
 
+    }
+
+    public function product_category(Category $category)
+    {
+/*        dd($category);*/
+        $products=Product::where('category_id',$category->id)->get();
+        return view('product.product_category',compact('products','category'));
     }
 
     public function get_categories()
@@ -124,10 +132,10 @@ class CategoryController extends Controller
 
             'name'=>$request->name,
             'title'=>$request->title,
-            'skill'=>$request->skill,
+/*            'skill'=>$request->skill,*/
             'seo_desc'=>$request->seo_desc,
             'slug'=>$request->slug,
-            'image'=>$request->image,
+/*            'image'=>$request->image,*/
             'state'=>($request->state)? '1':'0'
 
         ]);
@@ -158,7 +166,14 @@ class CategoryController extends Controller
 
             ],['name.required'=>'وارد کردن نام برای دسته الزامی است','slug.unique'=>'این نام باید همتا باشد']);
 
-            $cat=$category->update(['name'=>$request->name,'title'=>$request->title,'skill'=>$request->skill,'image'=>$request->image,'seo_desc'=>$request->seo_desc,'state'=>($request->state)? '1':'0']);
+            $cat=$category->update([
+                'name'=>$request->name,
+                'title'=>$request->title,
+/*                'skill'=>$request->skill,*/
+/*                'image'=>$request->image,*/
+                'seo_desc'=>$request->seo_desc,
+                'state'=>($request->state)? '1':'0'
+            ]);
 
         }
 
