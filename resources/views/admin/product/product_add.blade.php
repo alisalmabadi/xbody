@@ -45,7 +45,7 @@
                             <h3>عمومی</h3>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="name">نام</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="name" name="name" value="{{old('name')}}" placeholder="نام"  class="form-control" type="text">
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -55,7 +55,7 @@
                                 </div>
 
                                 <label class="col-sm-2 control-label" for="order">انتخاب دسته</label>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <select  name="category_id" id="category_id" class="form-control select2" >
                                             <option value="0">انتخاب(اجباری)</option>
                                             @foreach($categories as $category)
@@ -68,7 +68,16 @@
                                     </span>
                                         @endif
                                     </div>
-
+                                <!-- gallery select image -->
+                                <div class="" id="gallery">
+                                    <div class="col-sm-1 control-label">
+                                        <label for='titulo'>گالری</label>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        {!! ImageManager::getField(['text' => 'آپلود عکس','field_name' => 'images', 'class' => 'btn btn-primary' ]) !!}
+                                    </div>
+                                </div>
+                                <!-- gallery select image -->
                             </div>
                           {{--  <div class="form-group">
                                 <label class="col-sm-2 control-label" for="order">انتخاب فروشنده</label>
