@@ -490,7 +490,7 @@
     <div class="blog-item">
         @foreach($products as $product)
             <div class="item">
-                <a href="{{url('/product')}}/{{$product->category->slug}}/{{$product->slug}}" style="color: black">
+                <a href="{{url('/product')}}/{{$product->slug}}" style="color: black">
                     <img src="{{route('media',$product->images()->first())}}" alt="">
                     <p>{{$product->name}}</p>
                     <h5>
