@@ -90,7 +90,9 @@ class AdsController extends Controller
      */
     public function edit($id)
     {
+
         $ads=Ads::find($id);
+
         return view('admin.ads.ads_edit',compact('ads'));
     }
 
@@ -110,7 +112,7 @@ class AdsController extends Controller
             'url'=>'required',
             'order'=>'required',
             'status'=>'required',
-            'image'=>'required'
+            'image'=>'nullable'
 
         ],[
             'title.required'=>'عنوان را وارد کنید.',
@@ -118,19 +120,32 @@ class AdsController extends Controller
             'url.required'=>'آدرس تبلیغ را وارد کنید.',
             'order.required'=>'ترتیب را وارد کنید.',
             'status.required'=>'وضعیت اجباری است',
-            'image.required'=>'تصویر اجباری است.'
+/*            'image.required'=>'تصویر اجباری است.'*/
 
         ]);
-        $ads->update($request->except('image'));
-        $image=$request->file('image');
-        $imagename=sha1($image->getClientOriginalName()).time();
-        $imagemime=$image->getClientOriginalExtension();
-        $name=$imagename.'.'.$imagemime;
-        $image->move('images/setting/',$name);
+     if($request->file('image')){
+         $ads->update($request->except('image'));
+         $image=$request->file('image');
+         $imagename=sha1($image->getClientOriginalName()).time();
+         $imagemime=$image->getClientOriginalExtension();
+         $name=$imagename.'.'.$imagemime;
+         $image->move('images/setting/',$name);
 
-        $ads->update(['image'=>'images/setting/'.$name]);
-        flashs('تبلیغ مورد نطر ویرایش شد.');
-        return redirect(route('admin.ads.index'));
+         $ads->update(['image'=>'images/setting/'.$name]);
+         flashs('تبلیغ مورد نطر ویرایش شد.');
+         return redirect(route('admin.ads.index'));
+     }else{
+         $ads->update($request->except('image'));
+      /*   $image=$request->file('image');
+         $imagename=sha1($image->getClientOriginalName()).time();
+         $imagemime=$image->getClientOriginalExtension();
+         $name=$imagename.'.'.$imagemime;
+         $image->move('images/setting/',$name);
+
+         $ads->update(['image'=>'images/setting/'.$name]);*/
+         flashs('تبلیغ مورد نطر ویرایش شد.');
+         return redirect(route('admin.ads.index'));
+     }
     }
 
     /**
