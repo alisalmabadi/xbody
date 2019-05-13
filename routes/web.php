@@ -325,7 +325,7 @@ route::get('test','UserController@test');
 
 Route::group(['prefix'=>'blog', 'as'=>'blog.'],function (){
     Route::get('/',['as'=>'index','uses'=>'ArticleController@index_page']);
-    Route::get('/{category}/{slug}',['uses'=>'ArticleController@show','as'=>'post']);
+    Route::get('/{slug}',['uses'=>'ArticleController@show','as'=>'post']);
 
 });
 /***product category ***/
