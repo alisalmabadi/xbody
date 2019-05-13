@@ -218,7 +218,8 @@
     background-size: cover;*/">
     <div class="row" style="height: 30px;"></div>
     <div class="col-xl-12 col-md-12 images-group">
-        <div class="titlegallery"><img style="width: 31px;height: 31px;margin-bottom: 4px;" src="../images/xmark.png"> گالری تصاویر</div>
+        {{--<div class="titlegallery"><img style="width: 31px;height: 31px;margin-bottom: 4px;" src="../images/xmark.png"> گالری تصاویر</div>--}}
+        <div class="titlegallery"><img style="width: 31px;height: 31px;margin-bottom: 4px;" src="../images/xmark.png">{{$setting->galleryphoto_header}}</div>
         @foreach($galleries as $gallery)
         <div class="col-md-4 photo_item view view-ninth">
             <a class="open_fancybox" data-id="{{$gallery->id}}" data-token="{{csrf_token()}}">
