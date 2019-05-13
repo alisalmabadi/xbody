@@ -28,7 +28,7 @@
                                 <div class="item-fool">
                                     <a href="#">
                                         <div class="front-item">
-                                            <img class="card-img-top" src="{{asset($branch->image_original)}}" alt="">
+                                            <img class="card-img-top" src="{{asset($branch->image_thumbnail)}}" alt="">
 
 
                                             <div class="middle" style="background: url('images/backgrounds/ghermez.png') right no-repeat;
@@ -50,20 +50,22 @@
                                             </div>
 
                                         </div>
+     @if($branch->page_url != null)
                                         <div class="back-item text-center">
 
                                             <div class="middle">
-                                                <a href="" class="btnx btn1">
+                                                <a href="{{$branch->page_url}}" class="btnx btn1">
                                                     <p>مشاهده</p>
                                                 </a>
                                             </div>
 
                                             <div class="middle2">
-                                                <a href="" class="btnx btn1">
+                                                <a href="{{route('request.page')}}" class="btnx btn1">
                                                     <p style="color:white !important;">رزرو</p>
                                                 </a>
                                             </div>
                                         </div>
+         @endif
                                     </a>
                                 </div>
                             </div>
@@ -72,7 +74,7 @@
                             @endphp
                         @endforeach
 
-                        <div class="cover-bool col-lg-4 col-md-12 col-sm-6 col-12   wow slideInUp"  data-wow-duration="3s" style="">
+                     {{--   <div class="cover-bool col-lg-4 col-md-12 col-sm-6 col-12   wow slideInUp"  data-wow-duration="3s" style="">
                             <div class="item-fool">
                                 <a href="#">
                                     <div class="front-item">
@@ -98,7 +100,7 @@
                                         </div>
 
                                     </div>
-{{--
+--}}{{--
                                     <div class="back-item text-center">
 
                                         <div class="middle">
@@ -113,7 +115,7 @@
                                             </a>
                                         </div>
                                     </div>
---}}
+--}}{{--
                                 </a>
                             </div>
                         </div>
@@ -143,7 +145,7 @@
                                         </div>
 
                                     </div>
-                                    {{--
+                                    --}}{{--
                                                                         <div class="back-item text-center">
 
                                                                             <div class="middle">
@@ -158,10 +160,10 @@
                                                                                 </a>
                                                                             </div>
                                                                         </div>
-                                    --}}
+                                    --}}{{--
                                 </a>
                             </div>
-                        </div>
+                        </div>--}}
                         {{--<div class="cover-bool col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="item-fool">
                                 <a href="#">

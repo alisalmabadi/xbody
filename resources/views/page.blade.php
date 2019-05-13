@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="@foreach($page->keywords as $keyword){{$keyword->name.', '}} @endforeach">
     <meta name="description" content="{{$page->seo_desc}}">
-    <title>@yield('title',\Setting::get('site_name'))</title>
+    <title>@yield('title',\Setting::get('site_name').' '.$page->title)</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/fontAwsome/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/fontAwsome/css/font-awesome.min.css')}}">
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
-
 </head>
 <body>
 @include('partials.header')
@@ -38,9 +37,9 @@
 <div class="container-fluid">
     <div class="blog-proposal">
         <div class="blog-proposal-pg">
-            <div class="proposal-pg-title">
+          {{--  <div class="proposal-pg-title">
                 <p>{{$page->title}}</p>
-            </div>
+            </div>--}}
            {{-- <div class="img-header-title">
                 <p>{{Convertnumber2english($created)}}</p>
             </div>--}}

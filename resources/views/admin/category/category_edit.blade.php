@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group required">
+                 {{--   <div class="form-group required">
 
                         <div class="col-sm-6 col-sm-offset-2">
                             <div class="checkbox">
@@ -47,7 +47,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
 
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="name">عنوان</label>
@@ -56,13 +56,13 @@
 
                         </div>
                     </div>
-                    <div class="form-group required">
+                  {{--  <div class="form-group required">
                         <label class="col-sm-2 control-label" for="skill">نقطه قوت</label>
                         <div class="col-sm-6">
                             <input id="skill" name="skill" value="{{$category->skill}}" placeholder="نقطه قوت"  class="form-control" type="text" >
 
                         </div>
-                    </div>
+                    </div>--}}
 
                     <div id="slugvalid" class="form-group required">
                         <label class="col-sm-2 control-label" for="name">ادرس یکتا</label>
@@ -91,10 +91,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group required">
+                    {{--<div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">تصویر دسته</label>
                         {!! ImageManager::getField(['text' => 'انتخاب عکس', 'class' => 'btn btn-primary', 'field_name' => 'image', 'default' => $category->image]) !!}
-                    </div>
+                    </div>--}}
 
                 </form>
 

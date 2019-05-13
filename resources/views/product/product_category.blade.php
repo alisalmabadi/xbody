@@ -476,10 +476,10 @@
 @include('partials.menu')
 <div class="container">
     <div class="paragraf">
-        <p>{{$setting->product_header}}</p>
+        <p>{{$category->name}}</p>
         <br>
         <h3>
-            {{$setting->product_des}}
+            {{$setting->seo_desc}}
         </h3>
         <!--<br>-->
         <!--<h2>باشگاه بدنسازی عصر</h2>-->

@@ -21,10 +21,15 @@ class ReserveController extends Controller
 
         // dd($request->all());
         $reserve=Reserve::where('id',$request->reserve_id)->first();
-        $hour = array_filter($request->hour);
+        // dd($request->hour);
+
+        $hour = array_filter($request->hour,function($a) {return $a !== null;});
+        // dd($hour);
+
         $hour=array_values($hour);
+
         $dates=$request->dates;
-      // dd($hour,$dates);
+        /*dd($hour,$dates);*/
         /*foreach ($hour as $h) {
                 foreach ($dates as $date) {
                     $reserve->ReserveDetails()->create([
@@ -49,7 +54,7 @@ class ReserveController extends Controller
         $json=json_encode($json);
         $res=SetReservationInfo($json);
 
-      // dd($res);
+        // dd($res);
         $res=json_decode($res);
         if($res!=null) {
             if (!isset($res->Message)) {
@@ -70,7 +75,7 @@ class ReserveController extends Controller
                     $reserve->update(['status' => 1]);
                     $message= 'با سلام و وقت بخیر; رزرو جلسات شما با شماره رزروی _num_ با موفقیت انجام گردید. ایکس بادی';
                     $message=str_replace('_num_',Convertnumber2english($res->ReserveCode),$message);
-                   // send_sms($user->username,$message);
+                    // send_sms($user->username,$message);
 //                    flashs('رزرو شما با موفقیت انجام شد.', 'success');
                     return redirect(route('user.reserves'));
                 } else {
@@ -83,7 +88,7 @@ class ReserveController extends Controller
             return redirect(route('user.reserves'));
         }
 
-       // dd($res);
+        // dd($res);
 
     }
     public function finalreserves(Request $request)
@@ -185,8 +190,8 @@ class ReserveController extends Controller
         $user=User::where([['orginal_id',session()->get('user')['UserID']],['branch_id',session()->get('user')['BranchNo']]])->first();
         $reserves=Reserve::where('user_id',$user->id)->orderBy('id','DESK')->get();
         $reserves->load('ReserveDetails');
-       // $reserves=$reserves->ReserveDetails();
-      //  dd($reserves);
+        // $reserves=$reserves->ReserveDetails();
+        //  dd($reserves);
         return view('user.reserve.all_reserve',compact('reserves'));
     }
 

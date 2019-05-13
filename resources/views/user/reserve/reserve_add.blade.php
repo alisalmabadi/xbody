@@ -236,7 +236,7 @@
 
                                 </div>
    <div class="col-lg-12">
-                                          <label style="text-align: center; font-size: 14px;font-weight: bold; margin-top: 5%; padding-right: 27px;">پکیج مورد نظر خود را لیست بالا انتخاب نمایید و سپس روی مرحله بعد کلیک کنید.</label>
+                                          <label style="text-align: center; font-size: 14px;font-weight: bold; margin-top: 5%; padding-right: 27px;">پکیج مورد نظر خود از لیست بالا انتخاب نمایید و سپس روی مرحله بعد کلیک کنید.</label>
                                       </div>
                             </div>
 

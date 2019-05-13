@@ -31,7 +31,9 @@
                         <label class="col-sm-2 control-label" for="name">نام صفحه</label>
                         <div class="col-sm-6">
                             <input id="name" name="name" value="{{old('name')}}" placeholder="نام صفحه"  class="form-control" type="text">
-
+        @if($errors->has('name'))
+            <label class="danger">{{$errors->first('name')}}</label>
+            @endif
                         </div>
                     </div>
                     <div class="form-group required">
@@ -68,6 +70,16 @@
 
                         </div>
                     </div>
+                    <!-- gallery select image -->
+                    <div class="form-group" id="gallery">
+                        <div class="col-sm-2 control-label">
+                        <label for='titulo'>گالری</label>
+                        </div>
+                        <div class="col-sm-6">
+                        {!! ImageManager::getField(['text' => 'آپلود عکس','field_name' => 'images', 'class' => 'btn btn-primary' ]) !!}
+                        </div>
+                    </div>
+                    <!-- gallery select image -->
 
                     <div id="txt_area" class="form-group required">
                         <label class="col-sm-2 control-label" for="name">متن</label>

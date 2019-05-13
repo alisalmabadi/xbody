@@ -49,12 +49,25 @@
                 margin-top: 15% !important;
                 margin-left: 10% !important;
             }
+
+            .titlebranch{
+                margin-top: 44px;
+            }
+            .branchinfo{
+                margin-top: 13% !important;
+                text-align: center !important;
+            }
+            span.btn.btn-primary.btn-address{
+                margin-top: 7px;
+                margin-bottom: 7px;
+            }
         }
         .branchinfo{
             margin-top: 2%;
             margin-bottom: 3%;
 
         }
+
        .btn-address{
             background-color:#343e44;
             border-color:#dc3545;
@@ -78,7 +91,7 @@
         $i=1;
         @endphp
         @foreach($branches as $branch)
-
+@if($branch->page_url!=null)
         <div class="row xbody-form-group" style=" @if($i==1) display: inline-flex !important; @endif">
             @if($i%2)
             <div class="col-md-3">
@@ -93,7 +106,7 @@
             </div>
                 <div class="col-md-12 branchinfo" style="text-align: left;">
                     <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
-                    <span class="btn btn-primary btn-address"><i class="fa fa-map"></i> {{$branch->address}}</span>
+                    <span class="btn btn-primary btn-address" style="white-space: normal;"><i class="fa fa-map"></i> {{$branch->address}}</span>
                     <a href="{{$branch->page_url}}" target="_blank">
                         <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
                     </a>
@@ -124,7 +137,7 @@
                 </div>
                 <div class="col-md-12 branchinfo" style="text-align: right;">
                     <span class="btn btn-danger"><i class="fa fa-phone-square"></i> {{$branch->phone}}</span>
-                    <span class="btn btn-primary btn-address"><i class="fa fa-map"></i> {{$branch->address}}</span>
+                    <span class="btn btn-primary btn-address" style="white-space: normal;"><i class="fa fa-map"></i> {{$branch->address}}</span>
                     <a href="{{$branch->page_url}}" target="_blank">
                         <span class="btn btn-danger"><i class="fa fa-tv"></i> صفحه شعبه</span>
                     </a>
@@ -147,17 +160,7 @@
             @php
                 $i++;
             @endphp
-{{--
-        <div class="row xbody-form-group">
-            <div class="col-md-8">
-                <p style="text-align: right;">نام شعبه2</p>
-                <p style="text-align: right;">2- لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            </div>
-            <div class="col-md-4">
-                <img class="xbody-img" src="{{asset('images/contact/1.jpg')}}">
-            </div>
-        </div>
---}}
+@endif
             @endforeach
     </div>
 
@@ -207,7 +210,7 @@
     </div>
     {{--waiting gif--}}
     <div class="container-fluid" id="register_wait" style="width: 100%;height: 100%;position: fixed;top: 0;background-color: #0000005c;z-index:5;display: none;">
-        <img class="register_gif" src="{{ asset('gifs/AppleLoading.gif') }}" style="margin-top: 8%;height: 400px;width: 500px;margin-left: 36%;">
+        <img class="register_gif" src="{{ asset('images/rolling.gif') }}" style="margin-top: 8%;margin-left: 36%;">
     </div>
     {{--end of waiting gif--}}
 @endsection
@@ -226,19 +229,25 @@
             crossorigin=""></script>
     {{--map script--}}
     <script>
-        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+        var mymap = L.map('mapid').setView([35.69522525087309, 51.40777587890626], 13);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+           /* attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
             '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',*/
             id: 'mapbox.streets'
         }).addTo(mymap);
 
         /*marker*/
-        var marker = L.marker([51.5, -0.09]).addTo(mymap);
+        <?php
+        foreach($branches as $branch){
+        ?>
+        var marker = L.marker([{{$branch->xplace}},{{$branch->yplace}}]).addTo(mymap);
         /*marker text*/
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        marker.bindPopup("<b>{{$branch->name}}</b><br>ایکس بادی").openPopup();
+<?php } ?>
+       {{-- var marker2 = L.marker([35.66622234103479, 51.37893676757813]).addTo(mymap);
+        marker2.bindPopup("<b>شعبه پاسداران</b><br>ایکس بادی").openPopup();--}}
     </script>
 
 

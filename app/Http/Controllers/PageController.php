@@ -37,25 +37,16 @@ class PageController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'title'=>'nullable|string',
-            'slug'=>'required|unique:pages'
+            'slug'=>'required|unique:pages',
+            'seo_desc'=>'nullable'
 
-        ],['name.required'=>'وارد کردن نام برای صفحه الزامی است','slug.unique'=>'این نام باید یکتا باشد']);
+        ],[
+        'name.required'=>'وارد کردن نام برای صفحه الزامی است',         'slug.unique'=>'این نام باید یکتا باشد',
+         'slug.required'=>'این نام باید یکتا باشد',
+
+        ]);
 
         $final_list=array();
-        $keywords=$request->get('keywords');
-        foreach ($keywords as $keyword)
-        {
-            if (!is_numeric( $keyword ) )
-            {
-                $key= new Keyword();
-                $nkey= $key->create( [ 'name' => $keyword ] );
-                $final_list=array_add( $final_list, count( $final_list ), $nkey->id );
-
-            } else
-            {
-                $final_list=array_add( $final_list, count( $final_list ), $keyword );
-            }
-        }
         $page =new Page();
         $cat=$page->create([
             'name'=>$request->name,
@@ -64,7 +55,23 @@ class PageController extends Controller
             'slug'=>$request->slug,
             'text'=>$request->text,
         ]);
-        $cat->keywords()->attach($final_list);
+        if($request->keywords) {
+            $keywords = $request->get('keywords');
+            foreach ($keywords as $keyword) {
+                if (!is_numeric($keyword)) {
+                    $key = new Keyword();
+                    $nkey = $key->create(['name' => $keyword]);
+                    $final_list = array_add($final_list, count($final_list), $nkey->id);
+
+                } else {
+                    $final_list = array_add($final_list, count($final_list), $keyword);
+                }
+            }
+
+            $cat->keywords()->attach($final_list);
+
+        }
+
         flashs('صفحه ایجاد شد','success');
         return back();
     }

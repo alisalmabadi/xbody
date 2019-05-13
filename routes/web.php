@@ -328,14 +328,16 @@ Route::group(['prefix'=>'blog', 'as'=>'blog.'],function (){
     Route::get('/{category}/{slug}',['uses'=>'ArticleController@show','as'=>'post']);
 
 });
-
+/***product category ***/
 Route::group(['prefix'=>'product', 'as'=>'product.'],function (){
     Route::get('/',['as'=>'index','uses'=>'ProductController@index_page']);
-    Route::get('/{category}/{slug}',['uses'=>'ProductController@show_p','as'=>'product']);
+    Route::get('/{slug}',['uses'=>'ProductController@show_p','as'=>'product']);
     Route::post('/reserve',['uses'=>'ProductReserveController@store','as'=>'reserve']);
     Route::post('/reserve/user',['uses'=>'ProductReserveController@storeuser','as'=>'reserve.user']);
 
 });
+
+Route::get('category/{category}',['as'=>'product_category','uses'=>'CategoryController@product_category']);
 
 Route::post('getpackages','RequestController@branch')->name('getpackages');
 Route::post('sendblogcat','ArticleController@posts')->name('sendblogcat');
@@ -427,3 +429,21 @@ Route::get('sendemail',function (){
 return view('email.UserNotification');
 });
 
+
+Route::get('insert/{branch_id}',function($branch_id){
+    $packages=getpackages($branch_id);
+    $packages=json_decode($packages);
+    $packages=json_decode($packages);
+    foreach($packages as $package){
+     App\Package::updateOrCreate([
+           'name'=>$package->PackageName,
+            'orginal_id'=>$package->PackageID,
+            'category_id'=>$package->CategoryID,
+           'branch_id'=>$package->BranchNo,
+           'package_session_count'=>$package->PackageSessionCount,
+           'package_price'=>$package->PackagePrice,
+            'package_offer'=>(int)$package->PackageOffer
+
+        ]);
+    }
+});

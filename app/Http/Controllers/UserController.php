@@ -27,6 +27,12 @@ class UserController extends Controller
         $this->middleware('xAuth')->except(['getreservesdays','test']);
     }
 
+    public function search(Request $request)
+    {
+       $user=User::where(['name','LIKE','asdasd'])->get();
+       $reserves=Reserve::wheere
+    }
+
     public function index()
     {
         $loader=array();
@@ -146,6 +152,9 @@ class UserController extends Controller
             'day_type'=>(int)$request->DayType,
             'branch_id'=>$branch_id,
             'user_id'=>$user->id,
+            'name'=>$user->first_name,
+            'last_name'=>$user->last_name,
+            'phonenumber'=>$user->username,
             'stage'=>null
         ]);
         if(isset($request->days)) {

@@ -52,10 +52,13 @@ class BranchesController extends Controller
             'manager_name' => 'required',
             'phone' => 'required|numeric',
             'image_original' => 'nullable|image|mimes:jpg,jpeg,png',
-            'page_url' => 'required|max:255',
+            'page_url' => 'nullable|max:255',
             'description' => 'required',
             'telegram_id'=>'nullable',
             'instagram_id'=>'nullable',
+            'xplace'=>'nullable',
+            'yplace'=>'nullable'
+
 
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
@@ -67,7 +70,7 @@ class BranchesController extends Controller
             'image_original.required' => 'انتخاب تصویر برای شعبه الزامی ست',
             'image_original.image' => 'پسوند تصویر انتخاب شده صحیح نمی باشد',
             'image_original.mimes' => 'پسوند تصویر انتخاب شده صحیح نمی باشد',
-            'page_url.required' => 'وارد کردن ادرس یو ار ال صفحه الزامی ست',
+           /* 'page_url.nullable' => 'وارد کردن ادرس یو ار ال صفحه الزامی ست',*/
             'page_url.max' => 'تعداد کاراکتر یو ار ال وارد شده بیش از حد مجاز می باشد',
             'description.required'=>'توضیحات اجباری است.'
         ]);
@@ -79,7 +82,7 @@ class BranchesController extends Controller
 
         /*thumbnail picture*/
         $path = public_path('Branches/thumbnail') . "/" . $imageName;
-        $img = Image::make(public_path('Branches/') . $imageName)->resize(115,115)->save($path);
+        $img = Image::make(public_path('Branches/') . $imageName)->resize(249.52,146)->save($path);
         $request['image_thumbnail'] = 'Branches/thumbnail/'.$img->basename;
 
         /********social_media_json*****/
@@ -104,7 +107,10 @@ class BranchesController extends Controller
             'image_original' => $image_url . '/' . $imageName,
             'page_url' => $request['page_url'],
             'description'=>$request['description'],
-            'social_media' => $social_media
+            'social_media' => $social_media,
+            'xplace'=>$request['xplace'],
+            'yplace'=>$request['yplace'],
+
         ]);
         return redirect()->route('admin.branches.index');
     }
@@ -147,10 +153,13 @@ class BranchesController extends Controller
             'manager_name' => 'required',
             'phone' => 'required|numeric',
             'image_original' => 'nullable|mimes:jpg,jpeg,png',
-            'page_url' => 'required|max:255',
+            'page_url' => 'nullable|max:255',
             'description'=>'required',
             'telegram_id'=>'nullable',
-            'instagram_id'=>'nullable'
+            'instagram_id'=>'nullable',
+            'xplace'=>'nullable',
+            'yplace'=>'nullable'
+
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
             'address.required' => 'وارد کردن ادرس الزامی ست',
@@ -158,7 +167,7 @@ class BranchesController extends Controller
             'phone.required' => 'وارد کردن تلفن الزامی ست',
             'phone.numeric' => 'شماره تلفن وارد شده صحیح نمی باشد',
             'image_original.mimes' => 'تصویر انتخاب شده فرمت مناسبی ندارد',
-            'page_url.required' => 'وارد نمودن یو ار ال شعبه الزامی ست',
+            /*'page_url.required' => 'وارد نمودن یو ار ال شعبه الزامی ست',*/
             'page_url.max' => 'تعداد کاراکتر وارد شده برای این فیلد بیش از حد مجاز است',
             'description.required'=>'توضیحات اجباری است.'
         ]);
@@ -174,7 +183,7 @@ class BranchesController extends Controller
 
             /*thumbnail picture*/
             $path = public_path('Branches/thumbnail') . "/" . $imageName;
-            $img = Image::make(public_path('Branches/') . $imageName)->resize(115,115)->save($path);
+            $img = Image::make(public_path('Branches/') . $imageName)->resize(249.52,146)->save($path);
             $request['image_thumbnail'] = 'Branches/thumbnail/'.$img->basename;
 
             $branch->update(['image_original' => $image_url . '/' . $imageName]);
