@@ -31,9 +31,9 @@
                     <ul class="nav nav-tabs">
 
                         <li class="active"><a href="#general" data-toggle="tab">عمومی</a></li>
+{{--
                         <li><a href="#specification" data-toggle="tab">خصوصیات</a></li>
                         <li><a href="#gallery" data-toggle="tab">گالری</a></li>
-{{--
                         <li><a href="#variety" data-toggle="tab">تنوع</a></li>
 --}}
 
@@ -49,7 +49,7 @@
                                     <input id="name" name="name" value="{{old('name')}}" placeholder="نام"  class="form-control" type="text">
                                     @if ($errors->has('name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -64,7 +64,7 @@
                                         </select>
                                         @if ($errors->has('category_id'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('category_id') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('category_id') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -132,7 +132,7 @@
                                     <textarea id="text" name="desc"  placeholder="جزئیات"  class="form-control" type="text" >{{old('desc')}}</textarea>
                                     @if ($errors->has('desc'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('desc') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('desc') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -144,7 +144,7 @@
                                     <input id="model" name="model" value="{{old('model')}}" placeholder="مدل(اختیاری) مانند sm-r2548"  class="form-control" type="text">
                                     @if ($errors->has('model'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('model') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('model') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -155,7 +155,7 @@
                                         <input id="price" name="price" value="{{old('price')}}" placeholder="مانند 12000"  class="form-control" type="text">
                                         @if ($errors->has('price'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('price') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('price') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -179,7 +179,7 @@
                                     <input id="title" name="title" value="{{old('title')}}" placeholder="عنوان کالا"  class="form-control" type="text" >
                                     @if ($errors->has('title'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('title') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('title') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -248,7 +248,7 @@
                                     <input id="slug" name="slug" value="{{old('slug')}}" placeholder="یک ایدی انتخاب شود که در دسته ها یکتا باشد"  class="form-control" type="text" >
                                     @if ($errors->has('slug'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('slug') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('slug') }}</strong>
                                     </span>
                                     @endif
                                 </div>
