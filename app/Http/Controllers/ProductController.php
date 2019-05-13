@@ -285,7 +285,7 @@ class ProductController extends Controller
     {
         $messages=array(
             'name.required'=>'وارد کردن نام کالا الزامی است',
-            'price.required'=>'وارد کردن نام کالا الزامی است',
+            'price.required'=>'وارد کردن قیمت کالا الزامی است',
             'title.required'=>'وارد کردن عنوان کالا الزامی است',
             'deductible.required'=>'وارد کردن وضعت کسر کالا الزامی است',
             'slug.required'=>'وارد کردن کلید ادرس یکتا الزامی است',
@@ -356,6 +356,7 @@ class ProductController extends Controller
             'slug.required'=>'وارد کردن کلید ادرس یکتا الزامی است',
             'slug.unique'=>'کلید ادرس یکتا تکراری است',
             'category_id.not_in'=>'دسته کالا انتخاب نشده !',
+            'category_id.required'=>'دسته کالا انتخاب نشده !',
             'spec.*.value.required'=>'!وارد کردن مقدار برای خصوصیت الزامی میباشد',
             'spec_val.*.price.required'=>'وارد کردن قیمت ها الزامی میباشد !',
             'spec_val.*.buy_price.required'=>'وارد کردن قیمت های خرید الزامی میباشد !',
@@ -367,7 +368,8 @@ class ProductController extends Controller
                 'name'=>'required',
                 'title'=>'required',
                 'slug'=>'required|unique:products',
-               // 'category_id'=>'required|not_in:0',
+                'category_id'=>'required|not_in:0',
+//                'category_id'=>'required',
                 'spec'=>'array',
                 'spec.*.value'=>'required',
                 'price'=>'required'
@@ -378,7 +380,8 @@ class ProductController extends Controller
             $this->validate($request,[
                 'name'=>'required',
                 'title'=>'required',
-                //'category_id'=>'required|not_in:0',
+                'category_id'=>'required|not_in:0',
+//                'category_id'=>'required',
                 'spec'=>'array',
                 'spec.*.value'=>'required',
                 'price'=>'required'
@@ -393,7 +396,7 @@ class ProductController extends Controller
         {$specs=$request->spec;}
 
         //create product
-        $product->update($request->except(['images','keywords','spec','category_id']));
+        $product->update($request->except(['images','keywords','spec']));
 
         //slider images import
         $product->images()->sync($images);
