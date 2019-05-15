@@ -55,7 +55,7 @@ class ArticleController extends Controller
             }])->first();*/
 
         $slider=Slider::where('id',5)->first();
-        $slider->load('slides');
+/*        $slider->load('slides');*/
         return view('blog.article_all',compact('article_categories','articles','menus','slider'));
     }
 
