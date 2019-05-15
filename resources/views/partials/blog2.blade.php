@@ -15,9 +15,9 @@
                   <div class="col-md-3 wow slideInUp item">
                   <div class="proposal-tag">
                       <div class="item-proposal">
-                          <img class="imageblog" src="{{--images/thumbnails/{{$article->img_thumbnail}}--}}{{route('media',$article->img)}}" alt="" data-url="{{url('/blog')}}/{{$article->article_category->slug}}/{{$article->slug}}">
+                          <img class="imageblog" src="{{--images/thumbnails/{{$article->img_thumbnail}}--}}{{route('media',$article->img)}}" alt="" data-url="{{url('/blog')}}/{{$article->slug}}">
                           <div class="title-proposal">
-                              <a href="{{url('/blog')}}/{{$article->article_category->slug}}/{{$article->slug}}">
+                              <a href="{{url('/blog')}}/{{$article->slug}}">
                                   <p class="titlecard">{{$article->title}}</p>
                               </a>
                           </div>
