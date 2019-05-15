@@ -27,12 +27,6 @@ class UserController extends Controller
         $this->middleware('xAuth')->except(['getreservesdays','test']);
     }
 
-    public function search(Request $request)
-    {
-       $user=User::where(['name','LIKE','asdasd'])->get();
-       $reserves=Reserve::wheere
-    }
-
     public function index()
     {
         $loader=array();
