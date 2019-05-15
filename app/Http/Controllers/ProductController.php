@@ -838,8 +838,9 @@ class ProductController extends Controller
 
     public function show_p($slug)
     {
-        $product_related=Product::all();
         $products=Product::where('slug',$slug)->first();
+        $product_related=Product::where('id','!=',$products->id)->get();
+
         if($products) {
             return view('product.show', compact('products', 'menus', 'product_related'));
         }else{
