@@ -228,7 +228,7 @@
                 <div class="mask mask-2"></div>
                 <div class="content">
                     <h2>{{$gallery->name}}</h2>
-                    <p>{{$gallery->desc}}</p>
+                  {!! $gallery->desc !!}
         {{--
                     <a href="#" class="info">Read More</a>
 --}}
