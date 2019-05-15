@@ -120,7 +120,7 @@
 
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">عنوان گالری تضاویر</label>
+                        <label class="col-sm-2 control-label" for="link">عنوان گالری تصاویر</label>
                         <div class="col-sm-8">
                             <input name="galleryphoto_header" value="{{$setting->galleryphoto_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('galleryphoto_header'))
