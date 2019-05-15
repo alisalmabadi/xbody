@@ -14,9 +14,11 @@ class MenuController extends Controller
 
 
 	public function index(){
+	    $menu_names=[['name'=>'هدر','id'=>1],['name'=>'فوتر','id'=>2]];
+/*dd($menu_names);*/
 		$menus=Menu::all();
 
-	return view('admin.menu.menu_show',compact('menus'));
+	return view('admin.menu.menu_show',compact('menus','menu_names'));
 
 
 	}
@@ -49,7 +51,7 @@ class MenuController extends Controller
 
 
 
-		$menu->update(['name'=>$request->name,'parent_id'=>$request->parent_id,'link'=>$request->link,'avatar'=>$request->avatar]);
+		$menu->update(['name'=>$request->name,'parent_id'=>$request->parent_id,'link'=>$request->link,'avatar'=>$request->avatar,'type'=>$request->type]);
 
 		flash('منو ویرایش شد','info');
 		return redirect('/admin/menu');
@@ -71,7 +73,7 @@ class MenuController extends Controller
 		$menu=new Menu();
 
 		$menu->create(
-		['name'=>$request->name,'parent_id'=>$request->parent_id,'link'=>$request->link,'avatar'=>$request->avatar]);
+		['name'=>$request->name,'parent_id'=>$request->parent_id,'link'=>$request->link,'avatar'=>$request->avatar,'type'=>$request->type]);
 		flashs('منو افزوده شد','success');
 		return back();
 
