@@ -274,7 +274,7 @@ $created_at=new \Verta($article->created_at);
       <div class="col-lg-4 col-sm-6 col-12 wow slideInUp">
             <div class="post">
                 <div class="image mx-auto">
-                    <a href="blog/{{$article->article_category->slug}}/{{$article->slug}}"> <img src="{{route('media',$article->img_thumbnail)}}" alt="">
+                    <a href="blog/{{$article->slug}}"> <img src="{{route('media',$article->img)}}" alt="">
                         <span class="hover-overlay"></span>
                         <span class="hover-readmore">ادامه مطلب ...</span>
                     </a>

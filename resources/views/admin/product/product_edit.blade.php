@@ -51,7 +51,7 @@
                                     <input id="name" name="name" value="{{$product->name}}" placeholder="نام"  class="form-control" type="text">
                                     @if ($errors->has('name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -60,7 +60,7 @@
 
                                 <div class="col-sm-2">
 
-                                    <select  name="category_id" id="category_id" class="form-control select22" disabled="disabled">
+                                    <select  name="category_id" id="category_id" class="form-control select22">
                                         <option value="0">انتخاب(اجباری)</option>
                                         @foreach($categories as $category)
                                             <option @if($category->id==$product->category_id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
@@ -68,7 +68,7 @@
                                     </select>
                                     @if ($errors->has('category_id'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('category_id') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('category_id') }}</strong>
                                     </span>
                                     @endif
                             </div>
@@ -91,7 +91,7 @@
                                     <textarea id="text" name="desc"  placeholder="جزئیات"  class="form-control" type="text" >{{$product->desc}}</textarea>
                                     @if ($errors->has('desc'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('desc') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('desc') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -110,7 +110,7 @@
                                     <input id="price" name="price" value="{{$product->price}}" placeholder="مانند 12000"  class="form-control" type="text">
                                     @if ($errors->has('price'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('price') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('price') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -128,7 +128,7 @@
                                         <input id="title" name="title" value="{{$product->title}}" placeholder="عنوان کالا"  class="form-control" type="text" >
                                         @if ($errors->has('title'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('title') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('title') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -198,7 +198,7 @@
                                         <input id="slug" name="slug" value="{{$product->slug}}" placeholder="یک ایدی انتخاب شود که در دسته ها یکتا باشد"  class="form-control" type="text" >
                                         @if ($errors->has('slug'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('slug') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('slug') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -250,7 +250,7 @@
 
                                 @if ($errors->has('spec.*.value'))
                                     <span style="color: red;" class="help-block">
-                                        <strong>{{ $errors->first('spec.*.value') }}</strong>
+                                        <strong style="color:red;">{{ $errors->first('spec.*.value') }}</strong>
                                     </span>
                                 @endif
                                 @php $row=0; @endphp

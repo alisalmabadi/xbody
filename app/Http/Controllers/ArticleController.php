@@ -28,12 +28,12 @@ class ArticleController extends Controller
         return view('admin.blog.article_show',compact('article_categories','articles'));
     }
 
-    public function show($category,$article)
+    public function show($article)
     {
-        // dd($article);
+//         dd($article);
 
             $article = Article::where('slug', $article)->first();
-        if($article->article_category->slug==$category) {
+        if(!empty($article)) {
             $created = $v = new \Verta($article->created_at);
             $created = $v->format('%B, %d %Y');
             $menus = Menu::all();
