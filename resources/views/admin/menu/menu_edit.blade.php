@@ -23,6 +23,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-edit"></i>ویرایش منو</h3>
             </div>
+
+            <div class="panel-group" id="accordion">
+
+
             <div class="panel-body">
                 <form action="/admin/menu/edit/{{$menu->id}}" enctype="multipart/form-data" class="form-horizontal" method="post"  id="form-category">
                     {{csrf_field()}}
@@ -62,6 +66,19 @@
                             @if($errors->has('link'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('link') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">محل قرارگیری</label>
+                        <div class="col-sm-8">
+                            <select name="type" id="type" class="form-control">
+                                <option @if($menu->type==1)selected @endif value="1">هدر بالا</option>                   <option  @if($menu->type==2)selected @endif value="2">فوتر پایین</option>
+                            </select>
+                            @if ($errors->has('type'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                             @endif
                         </div>
