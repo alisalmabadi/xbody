@@ -202,7 +202,7 @@
                         <label id="text_error" class="pull-right" style="color:red; display: none;font-size: 12px;"></label>
                     </div>
                     <div class="form-group">
-                        <button class="form-control btn btn-primary" id="btn-send-message">ارسال</button>
+                        <button class="form-control btn btn-danger" id="btn-send-message">ارسال</button>
                     </div>
                 </form>
             </div>
@@ -237,13 +237,25 @@
             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',*/
             id: 'mapbox.streets'
         }).addTo(mymap);
+        var DefaultIcon = L.icon({
+            iconUrl: '{{asset('images/mapicon.png')}}',
+            /* shadowUrl: 'leaf-shadow.png',*/
 
+            iconSize:     [38, 38], // size of the icon
+            shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
         /*marker*/
         <?php
         foreach($branches as $branch){
         ?>
-        var marker = L.marker([{{$branch->xplace}},{{$branch->yplace}}]).addTo(mymap);
+        var marker = L.marker([{{$branch->xplace}},{{$branch->yplace}}],{icon:DefaultIcon}).addTo(mymap);
         /*marker text*/
+
+
+
         marker.bindPopup("<b>{{$branch->name}}</b><br>ایکس بادی").openPopup();
 <?php } ?>
        {{-- var marker2 = L.marker([35.66622234103479, 51.37893676757813]).addTo(mymap);
@@ -277,7 +289,13 @@
                         'ارسال شد',
                         'پیام شما با موفقیت ارسال شد.',
                         'success'
-                    )
+                    );
+                    $('#field_name').val('');
+                    $('#field_lastname').val('');
+                    $('#field_phonenumber').val('');
+                    $('#field_title').val('');
+                    $('#field_text').val('');
+
                 },
                 error:function (error) {
                     if(error.responseJSON.errors.name){
