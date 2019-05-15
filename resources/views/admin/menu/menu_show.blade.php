@@ -24,6 +24,19 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-list"></i> لیست دسته بندی ها</h3>
             </div>
+            <div class="panel-group" id="accordion">
+                <label style="display: none;">{{$index = 0}}</label>
+                @foreach($menu_names as $menu_name)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                {{--<li class="list-unstyled pull-left">
+                                    <a href="{{route('admin.pluck.destroyListPluck',$pluck_name->name)}}" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="حذف">حذف همه پلاکها با نام {{$pluck_name->name}}</a>
+                                </li>--}}
+                                <li data-toggle="collapse" class="list-unstyled pluck-item" data-parent="#accordion" href="#demo{{$index}}">{{$menu_name['name']}}</li>
+                            </h4>
+                        </div>
+                        <div id="demo{{$index}}" class="panel-collapse collapse">
             <div class="panel-body">
                 <form action="/admin/menu/delete" method="post" enctype="multipart/form-data" id="form-category">
                     {{csrf_field()}}
@@ -40,6 +53,7 @@
                             </thead>
                             <tbody>
                             @foreach($menus as $menu )
+                                @if($menu->type == $menu_name['id'])
                                 <tr>
                                     <td class="text-center">
                                     <input name="selected[]" value="{{$menu->id}}" type="checkbox">
@@ -49,14 +63,18 @@
                                     <td class="text-center"><a href="/admin/menu/edit/{{$menu->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="ویرایش"><i class="fa fa-pencil"></i></a></td>
 
                                 </tr>
+                                @endif
+                                <label style="display: none;">{{$index = $index+1}}</label>
                             @endforeach
 
                             </tbody>
                         </table>
                     </div>
-                </form>
 
+                </form>
             </div>
+                            @endforeach
+
         </div>
 
     </section>
