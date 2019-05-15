@@ -290,7 +290,7 @@ opacity: 0.5
                         @endif
                         <li>
                             @if($products->price != 0)
-                                <p> {{Convertnumber2english($products->price)  }}  تومان</p>
+                                <p class=""> {{Convertnumber2english(number_format($products->price))  }}  تومان</p>
                             @else
                                 <p><a href="#phones" id="phones" data-toggle="modal" data-target="#phonesModal" style="color:#DF0617 !important">تماس بگیرید</a></p>
                             @endif
@@ -355,7 +355,7 @@ opacity: 0.5
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">توصیفات</a>
+                <a class="nav-link active" data-toggle="tab" href="#home">توضیحات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu1">ویژگی های محصول</a>
@@ -365,7 +365,7 @@ opacity: 0.5
         <!-- Tab panes -->
         <div class="tab-content" style="margin-right:-150px;">
             <div id="home" class="container tab-pane active" style="text-align: right"><br>
-                <h3>توصیفات</h3>
+                <h3>توضیحات</h3>
                 {!! $products->desc !!}
             </div>
             <div id="menu1" class="container tab-pane fade" style="text-align: right"><br>
@@ -380,16 +380,15 @@ opacity: 0.5
                                 <span class="technicalspecs-value ">
                                     <span>
                                         @if($products->product_attribute_values()->where('attribute_id',$attribute->id)->first())
-                                            @if($attribute->type==1)
-                                                @if(($attribute->product_attribute_values()->where('product_id',$products->id)->first()))
+               @if($attribute->type==1)
+   @if(($attribute->product_attribute_values()->where('product_id',$products->id)->first()))
                                                     {{$attribute->product_attribute_values()->where('product_id',$products->id)->first()->value}}
-                                                @endif
-                                            @elseif($attribute->type==2)
-
+                @endif
+   @elseif($attribute->type==2)
                                                 @foreach($attribute->attribute_options as $attribute_option)
                                                     @if(($attribute->product_attribute_values()->where('product_id',$products->id)->first()))
                                                         @if($attribute->product_attribute_values()->where('product_id',$products->id)->first()->value==$attribute_option->id) {{$attribute_option->title}} @endif
-                                                    @endif
+         @endif
                                                 @endforeach
                                             @endif
                                         @endif
@@ -413,7 +412,7 @@ opacity: 0.5
         @foreach($product_related as $product)
             <div class="blog-item hvr-float-shadow">
                 <div class="blog-item-image">
-                    <a href="{{url('product')}}/{{$product->category->slug}}/{{$product->slug}}" target="_blank">
+                    <a href="{{url('product')}}/{{$product->slug}}" target="_blank">
                     <img src="{{route('media',$product->images()->first())}}" class="img-fluid">
                     </a>
                 </div>
@@ -423,7 +422,7 @@ opacity: 0.5
                             {{$product->title}}
                         </a></h5>
                     <p class="text-center" style="font-family: iranyekan; font-size: 17px;color: #d6002a; direction: rtl">
-                        {{Convertnumber2english($product->price)  }}  تومان
+                        {{Convertnumber2english(number_format($product->price))  }}  تومان
                     </p>
                 </div>
             </div>
@@ -470,10 +469,10 @@ opacity: 0.5
                             </td>
                             <td>
                                 <ul>
-                                    <li><p>درباره محصول :</p></li>
+
                                     <li>
                                         <p class="abut-kala">
-                                            {{$products->seo_desc}}
+                                            {{$products->title}}
                                         </p>
                                     </li>
                                 </ul>
