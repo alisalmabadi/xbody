@@ -1,16 +1,18 @@
 <?php
 
 namespace App;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use SoftDeletes;
+    protected $orderBy = 'id';
     public $sell_profit=0;
     public $sell_count=0;
     public $sell_price=0;
     protected  $fillable=['category_id','name','title','desc','slug','seo_desc',
-        'model','price'
+        'model','price','order'
     ];
     public function product_attribute_values()
     {
