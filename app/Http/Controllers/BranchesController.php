@@ -177,7 +177,7 @@ class BranchesController extends Controller
         {
 
             /*upload e aks*/
-            $imageName = $request['name'] .'_'.time().'.'.$request['image_original']->getClientOriginalExtension();
+            $imageName = rand(1,1000).time().'.'.$request['image_original']->getClientOriginalExtension();
             $image_url = 'Branches';
             $request['image_original']->move($image_url , $imageName);
 
