@@ -230,7 +230,46 @@
                             @endif
                         </div>
                     </div>
+                    <hr/>
 
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">نوشته درباره مای فوتر</label>
+                        <div class="col-sm-8">
+                            <textarea name="fabout"  placeholder="{{$setting->fabout}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->fabout}}</textarea>
+                            @if ($errors->has('fabout'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('fabout') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">نوشته ارتباط با ما فوتر</label>
+                        <div class="col-sm-8">
+                            <textarea id="text" name="fcontactus"  placeholder="نوشته ارتباط با ما فوتر"  class="form-control" type="text" >{{$setting->fcontactus}}</textarea>
+                            @if ($errors->has('fcontactus'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('fcontactus') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+{{--
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">آی دی اینستاگرام</label>
+                        <div class="col-sm-8">
+                            <input name="instagram" value="{{$setting->instagram}}" placeholder="xbody" id="link" class="form-control text-left" style="direction: ltr;" type="text">
+                            @if ($errors->has('instagram'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('instagram') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+--}}
 
 </form>
 
