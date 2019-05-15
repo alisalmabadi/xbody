@@ -7,6 +7,7 @@ use App\ArticleCategory;
 use App\Cart;
 use App\Category;
 use App\Menu;
+use App\Product;
 use App\ProductReserve;
 use App\Reserve;
 use App\User;
@@ -23,7 +24,6 @@ class AppServiceProvider extends ServiceProvider
     {
 
 	    \Schema::defaultStringLength(191);
-
 	    view()->composer('*', function ($view) {
 			if(\Request::route())
 			{
@@ -60,6 +60,13 @@ class AppServiceProvider extends ServiceProvider
             $product_count=ProductReserve::where('status',0)->count();
             $view->with('product_count',$product_count);
         });
+
+        Category::deleted(function($category) {
+            $category->products()->delete();
+        });
+     /*   Offers::restored(function($offer) {
+            $offer->services()->withTrashed()->restore();
+        });*/
     }
 
     /**
