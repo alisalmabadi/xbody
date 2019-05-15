@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="{{$article->seo_desc}}">
         <meta name="keywords" content="@foreach($article->keywords as $keyword) {{$keyword->name}}, @endforeach">
-    <title>@yield('title',\Setting::get('site_name'))</title>
+    <title>@yield('title',$article->title)</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('fontAwsome/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fontAwsome/css/font-awesome.min.css')}}">
@@ -15,7 +15,20 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-rtl.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
-
+<style>
+    .proposal-pg-titles {
+        width: 90%;
+        height: 80px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .proposal-pg-titles p {
+        /* text-align: center; */
+        line-height: 20px;
+        font-size: 2vw;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 @include('partials.header')
@@ -34,7 +47,7 @@
 <div class="container-fluid">
     <div class="blog-proposal">
         <div class="blog-proposal-pg">
-            <div class="proposal-pg-title">
+            <div class="proposal-pg-titles">
                 <p>{{$article->title}}</p>
             </div>
             <div class="img-header-title">
