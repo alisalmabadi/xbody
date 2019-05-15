@@ -65,6 +65,21 @@
                                 @endif
                             </div>
                         </div>
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">محل قرارگیری</label>
+                        <div class="col-sm-8">
+                            <select name="type" id="type" class="form-control">
+               <option selected value="1">هدر بالا</option>                   <option value="2">فوتر پایین</option>
+                            </select>
+                            @if ($errors->has('type'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">تصویر منو</label>
     {!! ImageManager::getField(['text' => 'انتخاب عکس منو', 'class' => 'btn btn-primary', 'field_name' => 'avatar', 'default' => '1'])!!}
