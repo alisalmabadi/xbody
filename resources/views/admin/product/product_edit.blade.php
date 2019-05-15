@@ -33,7 +33,7 @@
                         <li class="active"><a href="#general" data-toggle="tab">عمومی</a></li>
 
                         <li><a href="#specification" data-toggle="tab">خصوصیات</a></li>
-                        <li><a href="#gallery" data-toggle="tab">گالری</a></li>
+                        <li><a href="#gallery2" data-toggle="tab">گالری</a></li>
 {{--
                         <li><a href="#variety" data-toggle="tab">تنوع</a></li>
 --}}
@@ -311,7 +311,7 @@
                         </div>
 
                         <!-- gallery tab content -->
-                        <div class="tab-pan fade" id="gallery">
+                        <div class="tab-pan fade" id="gallery2">
                             <label for='titulo'>گالری</label>
                             {!! ImageManager::getMultiField(['field_name' => 'images', 'default' => $product->images->pluck('id')->toArray() ]) !!}
                         </div>
@@ -364,9 +364,6 @@
                     </div>
 
 
-</div>
-
-
                 <style>
                     .padding-1x
                     {
@@ -412,6 +409,7 @@
                     }
 
                 </style>
+
                 </form>
             </div>
         </div>
