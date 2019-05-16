@@ -447,3 +447,15 @@ Route::get('insert/{branch_id}',function($branch_id){
         ]);
     }
 });
+
+
+
+Route::get('migrate',function(){
+    Artisan::call('migrate');
+    dd('migrate shod');
+});
+
+Route::get('clear',function(){
+    Artisan::call('view:clear');
+    dd('clear shod');
+});
