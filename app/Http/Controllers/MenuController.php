@@ -81,13 +81,13 @@ class MenuController extends Controller
 	}
 
 	public function delete(Request $request ){
-
 		$menu=new Menu();
 
-		foreach ($request->input('selected' )as $id)
+		/*foreach ($request->input('selected' )as $id)
 		{
 			$deletedRows = Menu::where('parent_id', $id)->delete();
-		}
+		}*/
+
 		$menu->destroy($request->input('selected' ));
 		flashs('منو حذف شد','danger');
 		return back();
