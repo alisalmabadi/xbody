@@ -7,11 +7,13 @@
                 </div>
                 <div class="footer-body">
                     <ul>
-                        <li><a href="#">صفحه اصلی</a></a></li>
-                        <li><a href="#">آموزش ها</a></li>
+                        @foreach($menus->where('type',2) as $menu)
+                        <li><a href="{{$menu->link}}">{{$menu->name}}</a></a></li>
+                        @endforeach
+                       {{-- <li><a href="#">آموزش ها</a></li>
                         <li><a href="#">درباره ما</a></li>
                         <li><a href="#">تماس با ما</a></li>
-                        <li><a href="#">بلاگ</a></li>
+                        <li><a href="#">بلاگ</a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -240,9 +242,9 @@
                     <p>درباره ما</p>
                 </div>
                 <div class="footer-body">
-                  <p>
-                     {{$setting->fabout}}
-                  </p>
+
+                     {!! $setting->fabout !!}
+
                 </div>
             </div>
         </div>
