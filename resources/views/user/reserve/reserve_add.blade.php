@@ -17,6 +17,9 @@
 
 
 <style>
+    h2#swal2-title {
+        font-family: iranyekan;
+    }
     .inputss{
         color:grey;
     }
