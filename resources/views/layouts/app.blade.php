@@ -5,6 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title',$setting->mainpage_header)</title>
+
+    <meta name="title" content="@yield('meta_title',$setting->mainpage_header)">
+    <meta name="description" content="@yield('meta_description',$setting->mainpage_desc)">
 
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/fontAwsome/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/fontAwsome/css/font-awesome.min.css')}}">
@@ -16,7 +20,8 @@
 
     @yield('head')
 
-    <title>@yield('title',\Setting::get('site_name'))</title>
+
+
 
 </head>
 <body>
