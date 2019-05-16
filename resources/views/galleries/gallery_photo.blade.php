@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title',$setting->galleryphoto_title)
+@section('meta_description',$setting->galleryphoto_des)
+@section('meta_title',$setting->galleryphoto_title)
+
 @section('head')
     <link rel="stylesheet" href="{{asset('css/lc_lightbox.css')}}" />
     <!-- SKINS -->
