@@ -116,7 +116,7 @@
                         </tbody>
                     </table>
         <div class="input-append" style="text-align: center;margin: 0 auto !important;float: none;">
-                    <button class="btn btn-danger" style="margin-bottom: 1%;">ثبت روزهای رزروی</button>  <a href="{{route('user.reserve')}}" class="btn btn-info" style="margin-bottom: 1%; background: white;color:black;">بازگشت</a>
+                    <button class="btn btn-danger" style="margin-bottom: 1%;">ثبت روزهای رزروی</button>  <span {{--href="{{route('user.reserve')}}"--}} onclick="window.history.back();" class="btn btn-info" style="margin-bottom: 1%; background: white;color:black;">بازگشت</span>
         </div>
                 </form>
 
