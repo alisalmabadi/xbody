@@ -41,34 +41,12 @@
 
                     </div>
 
-                   {{-- <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="name">تبلیغ بالای سایت</label>
-                        <div class="col-sm-6">
-                            <input id="ads" name="ads" value="{{old('ads')}}"  class="form-control" type="file">
-                            @if ($errors->has('ads'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('ads') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                        <img src="{{url('/')}}/{{$setting->ads}}" class="center-block">
-
-                    </div>--}}
-
-                   {{-- <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">لینک عکس تبلیغ</label>
-                        <div class="col-sm-8">
-                            <input name="ads_url" value="{{$setting->ads_url}}" placeholder="http://xbody.com" id="link" class="form-control text-left" style="direction: ltr;" type="text">
-                            @if ($errors->has('ads_url'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('ads_url') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
---}}
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">عنوان صفحه اصلی</label>
+                        <label class="col-sm-2 control-label" for="link">
+
+                            عنوان صفحه اصلی
+                            <label class="help-block">و هر صفحه ای که عنوان ندارد.</label>
+                        </label>
                         <div class="col-sm-8">
                             <input name="mainpage_header" value="{{$setting->mainpage_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('mainpage_header'))
@@ -80,7 +58,7 @@
                     </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">متن صفحه اصلی</label>
+                        <label class="col-sm-2 control-label" for="link">توضیحات متای صفحه اصلی</label>
                         <div class="col-sm-8">
                             <textarea name="mainpage_desc"  placeholder="{{$setting->mainpage_desc}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->mainpage_desc}}</textarea>
                             @if ($errors->has('product_des'))
@@ -92,9 +70,20 @@
                     </div>
                     <hr/>
 
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">عنوان صفحه کلیه محصولات</label>
+                        <div class="col-sm-8">
+                            <textarea name="product_title"  placeholder="{{$setting->product_title}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->product_title}}</textarea>
+                            @if ($errors->has('product_title'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('product_title') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">عنوان صفحه محصول</label>
+                        <label class="col-sm-2 control-label" for="link">متن بالای صفحه محصول</label>
                         <div class="col-sm-8">
                             <input name="product_header" value="{{$setting->product_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('product_header'))
@@ -106,7 +95,7 @@
                     </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">متن صفحه محصول</label>
+                        <label class="col-sm-2 control-label" for="link">متن زیر عنوان صفحه محصول</label>
                         <div class="col-sm-8">
                             <textarea name="product_des"  placeholder="{{$setting->product_des}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->product_des}}</textarea>
                             @if ($errors->has('product_des'))
@@ -116,11 +105,33 @@
                             @endif
                         </div>
                     </div>
-                    <hr/>
-
 
                     <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">توضیحات متای صفحه محصول</label>
+                        <div class="col-sm-8">
+                            <textarea name="product_meta_desc"  placeholder="{{$setting->product_meta_desc}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->product_meta_desc}}</textarea>
+                            @if ($errors->has('product_meta_desc'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('product_meta_desc') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">عنوان گالری تصاویر</label>
+                        <div class="col-sm-8">
+                            <input name="galleryphoto_title" value="{{$setting->galleryphoto_title}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
+                            @if ($errors->has('galleryphoto_title'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('galleryphoto_title') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">متن بالای گالری تصاویر</label>
                         <div class="col-sm-8">
                             <input name="galleryphoto_header" value="{{$setting->galleryphoto_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('galleryphoto_header'))
@@ -132,7 +143,7 @@
                     </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">متن گالری تصاویر</label>
+                        <label class="col-sm-2 control-label" for="link">توضیحات متای گالری تصاویر</label>
                         <div class="col-sm-8">
                             <textarea name="galleryphoto_des"  placeholder="{{$setting->galleryphoto_des}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->galleryphoto_des}}</textarea>
                             @if ($errors->has('galleryphoto_des'))
@@ -142,10 +153,23 @@
                             @endif
                         </div>
                     </div>
-                    <hr/>
 
+
+                    <hr/>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">عنوان گالری ویدئو ها</label>
+                        <div class="col-sm-8">
+                            <input name="galleryvideo_title" value="{{$setting->galleryvideo_title}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
+                            @if ($errors->has('galleryvideo_title'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('galleryvideo_title') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">متن بالای گالری ویدئو ها</label>
                         <div class="col-sm-8">
                             <input name="galleryvideo_header" value="{{$setting->galleryvideo_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('galleryvideo_header'))
@@ -157,7 +181,7 @@
                     </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">متن گالری ویدئوها</label>
+                        <label class="col-sm-2 control-label" for="link">توضیحات متای گالری ویدئوها</label>
                         <div class="col-sm-8">
                             <textarea name="galleryvideo_des"  placeholder="{{$setting->galleryvideo_des}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->galleryvideo_des}}</textarea>
                             @if ($errors->has('galleryvideo_des'))
@@ -168,9 +192,20 @@
                         </div>
                     </div>
                     <hr/>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="link">عنوان گالری مشتری های ایکس بادی</label>
+                        <div class="col-sm-8">
+                            <input name="gallerycustomer_title" value="{{$setting->gallerycustomer_title}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
+                            @if ($errors->has('gallerycustomer_title'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('gallerycustomer_title') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">عنوان گالری ویدئوهای مشتری</label>
+                        <label class="col-sm-2 control-label" for="link">متن بالای گالری ویدئوهای مشتری</label>
                         <div class="col-sm-8">
                             <input name="gallerycustomer_header" value="{{$setting->gallerycustomer_header}}" placeholder="" id="link" class="form-control text-left" style="direction: ltr;" type="text">
                             @if ($errors->has('gallerycustomer_header'))
@@ -182,7 +217,7 @@
                     </div>
 
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="link">متن گالری ویدئوهای مشتری</label>
+                        <label class="col-sm-2 control-label" for="link">توضیحات متای گالری ویدئوهای مشتری</label>
                         <div class="col-sm-8">
                             <textarea name="gallerycustomer_des"  placeholder="{{$setting->gallerycustomer_des}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->gallerycustomer_des}}</textarea>
                             @if ($errors->has('gallerycustomer_des'))
@@ -236,7 +271,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="link">نوشته درباره مای فوتر</label>
                         <div class="col-sm-8">
-                            <textarea name="fabout"  placeholder="{{$setting->fabout}}" id="link" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->fabout}}</textarea>
+                            <textarea name="fabout"  placeholder="{{$setting->fabout}}" id="text2" class="form-control text-left" style="direction: ltr;" type="text">{{$setting->fabout}}</textarea>
                             @if ($errors->has('fabout'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('fabout') }}</strong>
