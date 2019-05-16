@@ -24,14 +24,14 @@
                         <a href="#">
                             <img src="{{asset('img/picture.png')}}" alt="">
                         </a>
-                        <h1 style="font-family: iransanse">{{$user->first_name}}  {{$user->last_name}}   </h1>
+                        <h1 style="font-family: iranyekan">{{$user->first_name}}  {{$user->last_name}}   </h1>
 {{--
                         <p>jsmith@flatlab.com</p>
 --}}
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="{{route('user.profile')}}"><i class="icon-user"></i>پروفایل</a></li>
+                        <li  class="active"><a href="{{route('user.profile')}}"><i class="icon-user"></i>پروفایل</a></li>
 {{--
                         <li><a href="profile-activity.html"><i class="icon-calendar"></i>Recent Activity <span class="label label-danger pull-right r-activity">9</span></a></li>
 --}}
