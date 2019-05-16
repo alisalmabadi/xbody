@@ -24,6 +24,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-list"></i> لیست دسته بندی ها</h3>
             </div>
+            <form action="/admin/menu/delete" method="post" enctype="multipart/form-data" id="form-category">
             <div class="panel-group" id="accordion">
                 <label style="display: none;">{{$index = 0}}</label>
                 @foreach($menu_names as $menu_name)
@@ -33,12 +34,12 @@
                                 {{--<li class="list-unstyled pull-left">
                                     <a href="{{route('admin.pluck.destroyListPluck',$pluck_name->name)}}" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="حذف">حذف همه پلاکها با نام {{$pluck_name->name}}</a>
                                 </li>--}}
-                                <li data-toggle="collapse" class="list-unstyled pluck-item" data-parent="#accordion" href="#demo{{$index}}">{{$menu_name['name']}}</li>
+<li data-toggle="collapse" class="list-unstyled pluck-item" data-parent="#accordion" href="#demo{{$index}}">{{$menu_name['name']}}</li>
                             </h4>
                         </div>
-                        <div id="demo{{$index}}" class="panel-collapse collapse">
+<div id="demo{{$index}}" class="panel-collapse collapse">
             <div class="panel-body">
-                <form action="/admin/menu/delete" method="post" enctype="multipart/form-data" id="form-category">
+
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
                     <div class="table-responsive">
@@ -67,16 +68,28 @@
                                 <label style="display: none;">{{$index = $index+1}}</label>
                             @endforeach
 
+
                             </tbody>
                         </table>
                     </div>
 
-                </form>
             </div>
-                            @endforeach
+</div>
+                    </div>
+            </div>
+            {{--<li type="button" class="list-unstyled pluck-item" data-toggle="collapse" data-target="#demo{{$index}}">{{$pluck_name->name}}</li>--}}
+
+            @endforeach
+            </form>
+        </div>
 
         </div>
 
     </section>
 
+
 @endsection
+
+@section('admin-footer')
+
+    @endsection
