@@ -1,45 +1,53 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{asset('css/Bodybuilding.css')}}">
+@section('title',$setting->gallerycustomer_title)
+@section('meta_description',$setting->gallerycustomer_des)
+@section('meta_title',$setting->gallerycustomer_title)
+
+@section('head')
+    <link rel="stylesheet" href="{{asset('css/Bodybuilding.css')}}">
 
 <style>
-    .header-interview{
-        text-align: center;
-        margin-top: 10%;
-    }
-    .gallery-header{
-        font-size: xx-large;
-        text-align: center;
-    }
-    .gallery-header-logo{
-        width: 31px;
-        height: 31px;
-        margin-bottom: 10px;
-        border-radius: 100%;
-    }
-    .category-buttons-spot{
-        margin-top: 2%;
-        align-items: center !important;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        border-bottom: 3px solid #df0617;
-        padding-bottom: 9px;
-    }
-    .category-buttons{
-        width: 100%;
-        height: 3%;
-        overflow: hidden;
-        font-size: 12px;
-        border-radius: 10%;
-        color: white;
-        text-align: center;
-        opacity: 0.6;
-        transition: 0.5s;
-    }
-    .category-buttons:hover {opacity: 1}
+        .header-interview{
+            text-align: center;
+            margin-top: 10%;
+        }
+        .gallery-header{
+            font-size: xx-large;
+            text-align: center;
+        }
+        .gallery-header-logo{
+            width: 31px;
+            height: 31px;
+            margin-bottom: 10px;
+            border-radius: 100%;
+        }
+        .category-buttons-spot{
+            margin-top: 2%;
+            align-items: center !important;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 3px solid #df0617;
+            padding-bottom: 9px;
+        }
+        .category-buttons{
+            width: 100%;
+            height: 3%;
+            overflow: hidden;
+            font-size: 12px;
+            border-radius: 10%;
+            color: white;
+            text-align: center;
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+        .category-buttons:hover {opacity: 1}
 
-    .category-buttons-active{opacity: 1}
-</style>
+        .category-buttons-active{opacity: 1}
+    </style>
+
+@endsection
+
 
 @section('main_content')
 
