@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="@foreach($products->keywords as $keyword){{$keyword->name.', '}} @endforeach">
     <meta name="description" content="{{$products->seo_desc}}">
+    <meta name="title" content="{{$products->title}}">
     <title>@yield('title',$products->title)</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -635,7 +636,7 @@ opacity: 0.5
       <div class="form-group form-inline">
 
                    <label class="col-sm-2 control-label d-inline-block mx-auto">تعداد</label>
-                    <div class="col-sm-2 mx-auto">
+                    <div class="col-sm-3 mx-auto">
 
                            <select class="form-control" name="count">
                                <option value="1">1</option>
