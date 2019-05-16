@@ -13,7 +13,7 @@
         </div>
         <ul class="menu-level-1">
 
-            @foreach($menus as $menu)
+            @foreach($menus->where('type',1) as $menu)
 
                 @if($menu->parent_id==0)
                     <li class="font18"><a href="{{$menu->link}}">{{$menu->name}}@if(in_array($menu->id,array_pluck($menus,'parent_id'))) <i class="fa fa-chevron-down arrow"></i> @endif</a>
@@ -80,9 +80,15 @@
         <div class="left-btn"><a href="{{route('login')}}" target="_blank"><button type="button" class="btn btn-danger login-btn" style="width: 150px;height: 42px;border-radius: 0px;">ورود اعضای شعبات</button> </a></div>
     --}}
     @if(session()->get('user')==null)
-        <div class="left-btn"><a href="{{route('login')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;background: #df0617;border: none;">{{--<button type="button" class="btn btn-danger login-btn" style="width: 150px;height: 42px;border-radius: 0px;">--}}ورود اعضای شعبات{{--</button>--}} </a></div>
+        <div class="left-btn">
+            <a href="{{route('request.page')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;background: #df0617;border: none;">رزرو جلسه</a>
+
+            <a href="{{route('login')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;background: #df0617;border: none;">ورود اعضای شعبات</a>
+        </div>
     @else
-        <div class="left-btn"><a href="{{url('user/panel')}}" target="_blank" class="btn btn-danger login-btn" style="width: auto;height: 39px;border-radius: 0px; margin-left: 1%;"> سلام {{$user->first_name}}  {{$user->last_name}}</a></div>
+        <div class="left-btn">
+            <a href="{{route('user.reserve')}}" target="_blank" class="btn btn-danger login-btn" style="width: 150px;height: 39px;border-radius: 0px; margin-left: 1%;background: #df0617;border: none;">رزرو جلسه</a>
+            <a href="{{url('user/panel')}}" target="_blank" class="btn btn-danger login-btn" style="width: auto;height: 39px;border-radius: 0px; margin-left: 1%;"> سلام {{$user->first_name}}  {{$user->last_name}}</a></div>
 
     @endif
 </nav>
