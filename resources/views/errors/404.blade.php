@@ -29,10 +29,12 @@
            position: absolute;
        }
        .textC {
-            top: 676px;
-            left: 770px;
-            font-size: 30px;
-            position: absolute;
+           top: 684px;
+           left: 741px;
+           font-size: 20px;
+           position: absolute;
+           color: black;
+           font-weight: bold;
         }
     </style>
     <title>صفحه مورد نظر یافت نشد</title>
@@ -43,7 +45,7 @@
     <div class="container">
         <p class="textA">صفحه مورد نظر یافت نشد</p>
         <p class="textB">404</p>
-        <a class="textC" href="#">بازگشت</a>
+        <a class="textC" href="#">بازگشت به صفحه اصلی</a>
         <svg class="page-not-found" viewBox="0 0 1280 1024">
             <g class="hide tri-dots">
                 <circle cx="406.1" cy="890.7" r="3.5" transform="translate(-361.3 283) rotate(-27.1)" style="fill: #ffe029"/>
