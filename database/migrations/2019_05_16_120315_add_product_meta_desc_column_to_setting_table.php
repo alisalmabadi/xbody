@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFaboutFcontactusToSettingsTable extends Migration
+class AddProductMetaDescColumnToSettingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddFaboutFcontactusToSettingsTable extends Migration
     public function up()
     {
         Schema::table('settings', function (Blueprint $table) {
-            $table->text('fabout')->after('gallerycustomer_des');
-            $table->text('fcontactus')->after('fabout');
+           $table->string('product_meta_desc')->after('product_des')->nullable();
         });
     }
 
@@ -27,8 +26,7 @@ class AddFaboutFcontactusToSettingsTable extends Migration
     public function down()
     {
         Schema::table('settings', function (Blueprint $table) {
-            $table->dropColumn('fabout')->before('gallerycustomer_des');
-            $table->dropColumn('fcontactus')->before('fabout');
+            $table->dropColumn('product_meta_desc');
         });
     }
 }
