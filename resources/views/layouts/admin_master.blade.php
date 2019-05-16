@@ -380,6 +380,8 @@
         });
 
             CKEDITOR.replace( 'text' );
+        CKEDITOR.replace( 'text2' );
+
         CKEDITOR.replace( 'body' );
 
     </script>
