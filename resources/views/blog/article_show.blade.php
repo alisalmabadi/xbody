@@ -6,7 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="{{$article->seo_desc}}">
-        <meta name="keywords" content="@foreach($article->keywords as $keyword) {{$keyword->name}}, @endforeach">
+    <meta name="title" content="{{$article->seo_title}}">
+    <meta name="keywords" content="@foreach($article->keywords as $keyword) {{$keyword->name}}, @endforeach">
     <title>@yield('title',$article->title)</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('fontAwsome/css/font-awesome.css')}}">
