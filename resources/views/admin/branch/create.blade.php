@@ -100,6 +100,16 @@
                     </div>
 
                     <div id="instagram_id" class="form-group required">
+                        <label class="col-sm-2 control-label" for="instagram_id">ترتیب</label>
+                        <div class="col-sm-6">
+                            <input id="instagram_id" name="order_id" value="{{old('order_id')}}" placeholder=""  class="form-control" type="number">
+                            <label style="color:red">{{$errors->first('order_id')}}</label>
+                        </div>
+                    </div>
+
+
+
+                    <div id="instagram_id" class="form-group required">
                         <label class="col-sm-2 control-label" for="instagram_id">مختصات <a href="https://jsfiddle.net/ehLr8ehk/">لیفلت</a> </label>
                         <div class="col-sm-3">
                             <input id="xplace" name="xplace" value="{{old('xplace')}}" placeholder="xplace"  class="form-control" type="text">
