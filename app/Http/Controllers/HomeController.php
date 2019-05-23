@@ -53,7 +53,7 @@ class HomeController extends Controller
 /*        $articles=Article::orderBy('id','desc')->limit(4)->get();*/
             $articles=Article::orderBy('id','desc')->get();
 
-        $branches = Branch::all()->take(6);
+        $branches = Branch::orderBy('order_id')->take(6)->get();
         return view('index_page',compact('menus','slider','articles','branches'));
 
     }
@@ -67,7 +67,7 @@ class HomeController extends Controller
 
     public function contactus()
     {
-        $branches=Branch::all();
+        $branches=Branch::orderBy('order_id')->get();
         return view('contactus',compact('branches'));
     }
 }
