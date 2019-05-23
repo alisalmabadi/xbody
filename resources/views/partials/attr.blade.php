@@ -25,7 +25,7 @@
                 <img class="image-responsive" src="images/reflection/reflection.png" style="width: 97%; position: absolute; right: 6px">
             </div>
                 <div class="reflection-m">
-                    <img class="image-responsive" src="images/reflection/muscle.png" style="width:33%; height: 320px; position: absolute;right: 365px;top: 111px;">
+                    <img class="image-responsive" src="images/reflection/muscle.png" style="width: 71%;height: 320px;position: absolute;right: 122px;top: 66px;">
                 </div>
 
             </div>
