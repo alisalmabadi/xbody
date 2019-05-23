@@ -501,7 +501,7 @@
     padding: 5px;font-size:14px">تماس بگیرید</span>
                         @else
 
-                            {{Convertnumber2english($product->price)  }}  تومان
+                            {{Convertnumber2english(number_format($product->price))  }}  تومان
 
                         @endif
                     </h5>
