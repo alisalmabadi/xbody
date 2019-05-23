@@ -75,6 +75,8 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="slug">هدر گالری<label style="color:red;">*</label></label>
+                        <input type="file" name="image_original" id="image_original" class="form-control">
+                        <label style="color: red; display: none;" id="image_original_error">{{$errors->first('image_original')}}</label>
                         <div class="col-sm-10">
                             <img src="{{asset($gallery->image_original)}}" style="width: 100px; height: 100px;">
                         </div>
