@@ -1,7 +1,5 @@
     @extends('layouts.app')
 @section('head')
-{{--    <link type="text/css" rel="stylesheet" media="all" href="{{asset('css/owl.carousel.min.css')}}" />
-    <link type="text/css" rel="stylesheet" media="all" href="{{asset('css/owl.theme.default.css')}}" />--}}
     <style>
     .transform{
         box-shadow: 36px 0px 5px 4px #8080804f;
@@ -129,45 +127,6 @@
                 $("#menu").removeClass('fixed-top');
             }
         });
-/*
-      $('.owl-one').owlCarousel({
-          loop: false,
-          item: 3,
-          margin: 1,
-          dots:false,
-          //center: true,
-          responsiveClass: true,
-          animateIn: 'fadeIn',
-          animateOut: 'fadeOut',
-          autoplay: true,
-          rtl:true,
-          smartSpeed: 450,
-          nav:true,
-          // autoplayTimeout: 8500,
-          // paginationSpeed : 400,
-          navText: ['<img style="transform: rotate(180deg);"  src="../images/nextslide.gif">','<img src="../images/nextslide.gif">'],
-          responsive: {
-              0: {
-                  items: 3,
-                  nav: true,
-                  margin:0,
-              },
-              600: {
-                  items: 3,
-                  nav: true,
-                  margin: 5,
-                  loop: false
-              },
-              1000: {
-                  items: 3,
-                  nav: true,
-                  navRewind:true,
-                  loop: false,
-                  margin: 1
-              }
-          }
-      });*/
-
     </script>
 
 
