@@ -8,7 +8,7 @@
         <meta name="description" content="{{$article->seo_desc}}">
     <meta name="title" content="{{$article->seo_title}}">
     <meta name="keywords" content="@foreach($article->keywords as $keyword) {{$keyword->name}}, @endforeach">
-    <title>@yield('title',$article->title)</title>
+    <title>@yield('title',$article->seo_title)</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('fontAwsome/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fontAwsome/css/font-awesome.min.css')}}">
@@ -49,7 +49,7 @@
     <div class="blog-proposal">
         <div class="blog-proposal-pg">
             <div class="proposal-pg-titles">
-                <p>{{$article->title}}</p>
+                <p>{{$article->seo_title}}</p>
             </div>
             <div class="img-header-title">
                 <p>{{Convertnumber2english($created)}}</p>
