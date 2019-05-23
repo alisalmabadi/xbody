@@ -10,6 +10,10 @@ use Intervention\Image\Facades\Image;
 
 class GalleryController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('admin')->except(['editVideoFromGallery','index_page','index_photo','index_video','getimages','showByCategory_showAll','showByCategory']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +48,7 @@ class GalleryController extends Controller
             'name' => 'required|max:255',
 //            'slug' => 'required|string|unique:galleries|max:255|regex:/(^([a-zA-Z]+)(\d+)?$)/u',
             'status' => 'required|numeric',
-            'hidden_image_original' => 'required',
+            'hidden_image_original' => 'nullable',
             'type' => 'required|numeric'
         ],[
             'name.required' => 'لطفا نام گالری را وارد کنید',
@@ -63,33 +67,35 @@ class GalleryController extends Controller
     }
     public function store(Request $request)
     {
-        /*upload gallery_header image*/
-        $folder_name = 'xbody_'.time();
-        $file_name = $folder_name . '_header'.'.'.$request['image_original']->getClientOriginalExtension();
-        $file_url = 'Gallery/'.$folder_name;
-        $image_type = $request['image_original']->getClientOriginalExtension();
-        $request['image_original']->move($file_url , $file_name);
 
-        /*upload gallery_header thumbnail*/
-        $path = public_path('Gallery/thumbnail') . "/" . $file_name;
-        $img = Image::make(public_path('Gallery/'.$folder_name.'/') . $file_name)->resize(115,115)->save($path);
-        $thumbnail = 'Gallery/thumbnail/'.$img->basename;
-
-        $gallery = new Gallery();
-        $gallery = $gallery->create([
-            'name' => $request['name'],
-            'slug' => $folder_name,
-            'desc'=> $request['desc'],
-            'image_original' => $file_url . '/' . $file_name,
-            'image_type' => $image_type,
-            'image_thumbnail' => $thumbnail,
-            'status' => $request['status'],
-            'type' => $request['type']
-        ]);
 
         /*gallery photos*/
-        if($gallery['type'] == '0')
+        if($request['type'] == '0')
         {
+            /*upload gallery_header image*/
+            $folder_name = 'xbody_'.time();
+            $file_name = $folder_name . '_header'.'.'.$request['image_original']->getClientOriginalExtension();
+            $file_url = 'Gallery/'.$folder_name;
+            $image_type = $request['image_original']->getClientOriginalExtension();
+            $request['image_original']->move($file_url , $file_name);
+
+            /*upload gallery_header thumbnail*/
+            $path = public_path('Gallery/thumbnail') . "/" . $file_name;
+            $img = Image::make(public_path('Gallery/'.$folder_name.'/') . $file_name)->resize(115,115)->save($path);
+            $thumbnail = 'Gallery/thumbnail/'.$img->basename;
+
+            $gallery = new Gallery();
+            $gallery = $gallery->create([
+                'name' => $request['name'],
+                'slug' => $folder_name,
+                'desc'=> $request['desc'],
+                'image_original' => $file_url . '/' . $file_name,
+                'image_type' => $image_type,
+                'image_thumbnail' => $thumbnail,
+                'status' => $request['status'],
+                'type' => $request['type']
+            ]);
+
             $titles = $request['gallery_photos_title'];
             $alts = $request['gallery_photos_alt'];
             $photos = $request['gallery_photos_image_original'];
@@ -123,8 +129,20 @@ class GalleryController extends Controller
                 ]);
             }
         }/*gallery videos*/
-        elseif ($gallery['type'] == '1')
+        elseif ($request['type'] == '1')
         {
+            $folder_name = 'xbody_'.time();
+            $gallery = new Gallery();
+            $gallery = $gallery->create([
+                'name' => $request['name'],
+                'desc'=> $request['desc'],
+               'slug' => $folder_name,
+          /* 'image_original' => $file_url . '/' . $file_name,
+                 'image_type' => $image_type,
+                 'image_thumbnail' => $thumbnail,*/
+                'status' => $request['status'],
+                'type' => $request['type']
+            ]);
             $titles = $request['gallery_video_title'];
             $videos = $request['gallery_video_video_original'];
             foreach (array_combine($titles,$videos) as $title=>$video)
@@ -186,11 +204,34 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        $gallery->update([
-            'status' => $request['status'],
-            'name' => $request['name'],
-            'desc' => $request['desc'],
-        ]);
+        if($request->file('image_original')) {
+
+            /*upload gallery_header image*/
+            $folder_name = 'xbody_'.time();
+            $file_name = $folder_name . '_header'.'.'.$request['image_original']->getClientOriginalExtension();
+            $file_url = 'Gallery/'.$folder_name;
+            $image_type = $request['image_original']->getClientOriginalExtension();
+            $request['image_original']->move($file_url , $file_name);
+
+            /*upload gallery_header thumbnail*/
+            $path = public_path('Gallery/thumbnail') . "/" . $file_name;
+            $img = Image::make(public_path('Gallery/'.$folder_name.'/') . $file_name)->resize(115,115)->save($path);
+            $thumbnail = 'Gallery/thumbnail/'.$img->basename;
+            $gallery->update([
+                'status' => $request['status'],
+                'name' => $request['name'],
+                'desc' => $request['desc'],
+                'image_original' => $file_url . '/' . $file_name,
+                'image_type' => $image_type,
+                'image_thumbnail' => $thumbnail,
+            ]);
+        }else{
+            $gallery->update([
+                'status' => $request['status'],
+                'name' => $request['name'],
+                'desc' => $request['desc'],
+            ]);
+        }
         return redirect()->route('admin.gallery.index');
     }
 
