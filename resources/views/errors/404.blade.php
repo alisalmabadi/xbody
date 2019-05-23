@@ -45,7 +45,7 @@
     <div class="container">
         <p class="textA">صفحه مورد نظر یافت نشد</p>
         <p class="textB">404</p>
-        <a class="textC" href="#">بازگشت به صفحه اصلی</a>
+        <a class="textC" href="{{url('/')}}">بازگشت به صفحه اصلی</a>
         <svg class="page-not-found" viewBox="0 0 1280 1024">
             <g class="hide tri-dots">
                 <circle cx="406.1" cy="890.7" r="3.5" transform="translate(-361.3 283) rotate(-27.1)" style="fill: #ffe029"/>
