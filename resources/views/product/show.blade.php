@@ -480,7 +480,7 @@ opacity: 0.5
                             </td>
                         </tr>
                         <tr>
-                            <td><div class=" offset-3"> {{$products->name}}</div></td>
+                            <td>{{--<div class=" offset-3"> {{$products->name}}</div>--}}</td>
                             <td>
                                 قیمت محصول:
                                 {{Convertnumber2english($products->price)}}
@@ -574,10 +574,9 @@ opacity: 0.5
                                 </td>
                                 <td>
                                     <ul>
-                                        <li><p>درباره محصول :</p></li>
                                         <li>
                                             <p class="abut-kala">
-                                                {{$products->seo_desc}}
+                                                {{$products->title}}
                                             </p>
                                         </li>
 
@@ -588,7 +587,7 @@ opacity: 0.5
 
                             </tr>
                             <tr>
-                                <td>   <div class=" offset-3"> {{$products->name}}</div></td>
+                                <td>{{--   <div class=" offset-3"> {{$products->name}}</div>--}}</td>
                                 <td>
                                     قیمت محصول:
                                     {{Convertnumber2english($products->price)}}
