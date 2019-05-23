@@ -1,6 +1,7 @@
 @extends('layouts.app')
+@section('head')
 <link rel="stylesheet" href="{{asset('css/Bodybuilding.css')}}">
-
+@endsection
 @section('main_content')
 
     <div class="container-fluid" style="background-image: url({{asset('img/pass.jpg')}}); background-repeat: no-repeat; background-size: cover; clear: both;">
