@@ -34,6 +34,7 @@
                             <tr>
                                 <td style="width: 1px;" class="text-center">
                                     <input onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" type="checkbox"></td>
+                                <td class="text-center">شماره ترتیب</td>
                                 <td class="text-center">نام</td>
                                 <td class="text-center">آدرس</td>
                                 <td class="text-center">نام مدیر</td>
@@ -49,6 +50,7 @@
                                     <td class="text-center">
                                         <input name="selected[]" value="{{$branch->id}}" type="checkbox">
                                     </td>
+                                    <td class="text-center">{{$branch->order_id}}</td>
                                     <td class="text-center">{{$branch->name}}</td>
                                     <td class="text-center">{{$branch->address}}</td>
                                     <td class="text-center">{{$branch->manager_name}}</td>
