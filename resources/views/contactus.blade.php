@@ -241,7 +241,7 @@
             iconUrl: '{{asset('images/mapicon.png')}}',
             /* shadowUrl: 'leaf-shadow.png',*/
 
-            iconSize:     [38, 38], // size of the icon
+            iconSize:     [38, 60], // size of the icon
             shadowSize:   [50, 64], // size of the shadow
             iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
             shadowAnchor: [4, 62],  // the same for the shadow
