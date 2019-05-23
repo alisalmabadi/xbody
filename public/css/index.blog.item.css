@@ -376,6 +376,16 @@ img.img-responsive.lockimg{
     width: 83%;
     height: 96px;
 }
+
+@media (max-width: 450px) {
+
+    img.img-responsive.bastimg {
+        width: 100% !important;
+    }
+    .header .header_left {
+        height: 49px !important;
+    }
+}
 /*fade image ********/
 
 /**animation title blog ***/
