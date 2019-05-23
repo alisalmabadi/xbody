@@ -94,7 +94,10 @@
 
     .footer .item-footer {
         width: 100%;
+/*
         height: 400px;
+*/
+        height: auto;
         /*background: #2c3e50;*/
         margin-bottom: 20px;
     }
