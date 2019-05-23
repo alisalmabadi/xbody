@@ -57,8 +57,8 @@ class BranchesController extends Controller
             'telegram_id'=>'nullable',
             'instagram_id'=>'nullable',
             'xplace'=>'nullable',
-            'yplace'=>'nullable'
-
+            'yplace'=>'nullable',
+            'order_id'=>'nullable'
 
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
@@ -110,7 +110,7 @@ class BranchesController extends Controller
             'social_media' => $social_media,
             'xplace'=>$request['xplace'],
             'yplace'=>$request['yplace'],
-
+            'order_id'=>$request['order_id'],
         ]);
         return redirect()->route('admin.branches.index');
     }
@@ -158,8 +158,8 @@ class BranchesController extends Controller
             'telegram_id'=>'nullable',
             'instagram_id'=>'nullable',
             'xplace'=>'nullable',
-            'yplace'=>'nullable'
-
+            'yplace'=>'nullable',
+            'order_id'=>'nullable'
         ],[
             'name.required' => 'وارد کردن نام الزامی ست',
             'address.required' => 'وارد کردن ادرس الزامی ست',
